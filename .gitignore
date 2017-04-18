@@ -6,7 +6,6 @@ Pods/*
 DerivedData
 *.xccheckout
 build/
-iOSInjectionProject/
 *.DS_Store
 *.dSYM.zip
 *.dSYM
@@ -18,3 +17,5 @@ Pods
 *.xcuserstate
 Dolores-iOS/Dolores.xcodeproj/xcuserdata
 *.xcworkspacedata
+Dolores.xcworkspace/xcuserdata/heath.xcuserdatad/xcschemes
+Dolores.xcodeproj/xcuserdata
