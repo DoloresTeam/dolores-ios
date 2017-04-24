@@ -19,6 +19,20 @@
 
 @implementation UIFont (Addition)
 
++ (UIFont *)dl_smallFont {
+    return [self baseFont:12];
+}
+
++ (UIFont *)dl_defaultFont {
+    return [self baseFont:14];
+}
+
++ (UIFont *)dl_largeFont {
+    return [self baseFont:16];
+}
+
+#pragma mark - base
+
 + (UIFont *)baseFont:(CGFloat)fontSize {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9")) {
         UIFont *font = [UIFont fontWithName:@"PingFangSC-Regular" size:fontSize];

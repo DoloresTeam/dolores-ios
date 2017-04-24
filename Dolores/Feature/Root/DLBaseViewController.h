@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProtocolHeader.h"
 
-@interface DLBaseViewController : UIViewController
+@interface DLBaseViewController : UIViewController <DLBaseControllerProtocol>
 
+- (void)showLoadingView;
+
+- (void)showInfo:(NSString *)info;
 @end

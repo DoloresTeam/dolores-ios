@@ -17,5 +17,7 @@
 
 #import "CategoryHeader.h"
 #import "DefineMacro.h"
+#import "EnumHeader.h"
+#import "ProtocolHeader.h"
 
 #endif /* Dolores_pch */

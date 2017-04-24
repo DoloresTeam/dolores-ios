@@ -9,6 +9,7 @@
 #import "NSUserDefaults+DLUser.h"
 
 static NSString *const kIsLogin = @"isLoginKey";
+static NSString *const kLastLoginUser = @"lastLoginUserKey";
 
 
 @implementation NSUserDefaults (DLUser)
@@ -22,6 +23,14 @@ static NSString *const kIsLogin = @"isLoginKey";
 + (BOOL)getLoginStatus {
     NSNumber *status = [self getObjectWithKey:kIsLogin];
     return [status boolValue];
+}
+
++ (void)saveLastUser:(NSString *)user {
+    [self saveObject:user ? : @"" key:kLastLoginUser];
+}
+
++ (NSString *)getLastUser {
+    return [self getObjectWithKey:kLastLoginUser];
 }
 
 #pragma mark - private method

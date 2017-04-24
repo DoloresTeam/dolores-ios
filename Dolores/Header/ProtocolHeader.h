@@ -10,4 +10,15 @@
 #define ProtocolHeader_h
 
 
+@protocol DLBaseControllerProtocol <NSObject>
+
+@optional
+
+- (void)setupView;
+- (void)setupData;
+- (void)setupNavigationBar;
+- (void)setupViewConstraints;
+
+@end
+
 #endif /* ProtocolHeader_h */

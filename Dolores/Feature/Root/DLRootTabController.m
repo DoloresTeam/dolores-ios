@@ -13,6 +13,7 @@
 #import "EaseUsersListViewController.h"
 #import "DLContactListController.h"
 #import "DLMineController.h"
+#import "DLLoginController.h"
 
 @interface DLRootTabController ()
 
@@ -23,7 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupObserver];
     [self setupControllers];
+
 }
 
 - (void)setupControllers {
@@ -43,6 +46,41 @@
     navMine.tabBarItem = barItem2;
 
     self.viewControllers = @[navConversation, navContact, navMine];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self checkLoginStatus];
+}
+
+#pragma mark - observer
+
+- (void)setupObserver {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogoutNotification) name:kUserLogoutNotification
+                                               object:nil];
+}
+
+- (void)userLogoutNotification {
+    // TODO: 清楚上个用户的数据
+    self.selectedIndex = 0;
+    [NSUserDefaults setLoginStatus:NO];
+    [self checkLoginStatus];
+}
+
+#pragma mark - private method
+
+- (void)checkLoginStatus {
+    if (![NSUserDefaults getLoginStatus]) {
+        DLLoginController *loginController = [DLLoginController new];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginController];
+        [self presentViewController:nav animated:NO completion:NULL];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -30,4 +30,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showLoadingView {
+    UIView *view1 = self.navigationController.view ? : self.view;
+    [MBProgressHUD showMessage:nil toView:view1];
+}
+
+- (void)showInfo:(NSString *)info {
+    UIView *view1 = self.navigationController.view ? : self.view;
+    [MBProgressHUD showInfo:info toView:view1 hideDelay:2];
+}
+
+
 @end

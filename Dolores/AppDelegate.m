@@ -21,6 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self setupGlobalUI];
+    [self registerEMSDK];
     [self setupWindow];
     return YES;
 }
@@ -35,11 +36,13 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[EMClient sharedClient] applicationDidEnterBackground:application];
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [[EMClient sharedClient] applicationWillEnterForeground:application];
 }
 
 
@@ -62,9 +65,20 @@
 }
 
 - (void)setupGlobalUI {
-    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont baseBoldFont:17], NSForegroundColorAttributeName: [UIColor
+            blackColor]}];
+    [UINavigationBar appearance].tintColor = [UIColor blackColor];
 
+    UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
+    [barButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:.1f], NSForegroundColorAttributeName: [UIColor clearColor]}
+                                 forState:UIControlStateNormal];
+    barButtonItem.tintColor = [UIColor blackColor];
 
+}
+
+- (void)registerEMSDK {
+    EMOptions *options = [EMOptions optionsWithAppkey:@"1123170417178103#dolores"];
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
 }
 
 

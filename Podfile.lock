@@ -15,12 +15,16 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
   - EaseUILite (from `https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git`)
   - HyphenateLite
   - Masonry (~> 1.0.0)
   - ReactiveObjC (~> 2.1.2)
+  - YYCategories
 
 EXTERNAL SOURCES:
   EaseUILite:
@@ -41,7 +45,8 @@ SPEC CHECKSUMS:
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: e97536dce9fcc9400e3efd4077dc2a21eb1847fc
+PODFILE CHECKSUM: 7f15a04b9f9119621b1a24f4142920467daa7b61
 
 COCOAPODS: 1.2.0

@@ -13,4 +13,8 @@
 + (void)setLoginStatus:(BOOL)isLogin;
 
 + (BOOL)getLoginStatus;
+
++ (void)saveLastUser:(NSString *)user;
+
++ (NSString *)getLastUser;
 @end

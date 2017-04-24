@@ -10,4 +10,15 @@
 
 @interface UIFont (Addition)
 
++ (UIFont *)dl_smallFont;
+
++ (UIFont *)dl_defaultFont;
+
++ (UIFont *)dl_largeFont;
+
++ (UIFont *)baseFont:(CGFloat)fontSize;
+
++ (UIFont *)baseBoldFont:(CGFloat)fontSize;
+
++ (UIFont *)baseMediumFont:(CGFloat)fontSize;
 @end
