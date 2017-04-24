@@ -12,7 +12,6 @@ PODS:
     - MBProgressHUD (~> 0.9)
     - SDWebImage (!= 3.7.2, ~> 3.7)
   - ReactiveObjC (2.1.2)
-  - Reveal-SDK (8)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -22,7 +21,6 @@ DEPENDENCIES:
   - HyphenateLite
   - Masonry (~> 1.0.0)
   - ReactiveObjC (~> 2.1.2)
-  - Reveal-SDK
 
 EXTERNAL SOURCES:
   EaseUILite:
@@ -42,9 +40,8 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
-  Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
 
-PODFILE CHECKSUM: 04c116667369a3dcd6a37045ec7820a98cae2a10
+PODFILE CHECKSUM: e97536dce9fcc9400e3efd4077dc2a21eb1847fc
 
 COCOAPODS: 1.2.0
