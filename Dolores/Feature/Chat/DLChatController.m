@@ -117,7 +117,6 @@
 
 }
 
-
 #pragma mark - EaseMessageViewControllerDelegate
 
 @end

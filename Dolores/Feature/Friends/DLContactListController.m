@@ -10,6 +10,7 @@
 #import "DLAddContactController.h"
 #import "DLContactCell.h"
 #import "DLContactSectionHeader.h"
+#import "DLChatController.h"
 
 @interface DLContactListController () <DLBaseControllerProtocol, UITableViewDataSource, UITableViewDelegate>
 
@@ -103,6 +104,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    NSArray *userSection = self.dataArray[indexPath.section];
+    EaseUserModel *userModel = userSection[indexPath.row];
+    DLChatController *chatController = [[DLChatController alloc] initWithConversationChatter:userModel.buddy conversationType:EMConversationTypeChat];
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

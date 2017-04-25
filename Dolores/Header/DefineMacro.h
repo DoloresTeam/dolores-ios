@@ -31,6 +31,7 @@
 
 #define kUserLoginNotification              @"kUserLoginNotification"
 #define kUserLogoutNotification             @"kUserLogoutNotification"
+#define kLeaveChatControllerNotification                @"kLeaveChatController"
 
 
 #endif /* DefineMacro_h */
