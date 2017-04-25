@@ -20,8 +20,7 @@
 }
 
 - (void)loadViews {
-    UILabel *label = [UILabel labelWithAlignment:NSTextAlignmentCenter textColor:[UIColor colorWithHexString:@"333333"] font:[UIFont baseFont:14]
-                                            text:@"退出登录"];
+    UILabel *label = [UILabel labelWithAlignment:NSTextAlignmentCenter textColor:[UIColor colorWithHexString:@"333333"] font:[UIFont baseFont:14] text:[NSString stringWithFormat:@"退出登录(%@)", [NSUserDefaults getLastUser]]];
     [self.contentView addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(CGPointZero);

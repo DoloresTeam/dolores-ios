@@ -36,7 +36,7 @@
             imageNamed:@"tab_conversation_click"]];
     navConversation.tabBarItem = barItem;
 
-    DLContactListController *contactListController = [[DLContactListController alloc] initWithStyle:UITableViewStylePlain];
+    DLContactListController *contactListController = [[DLContactListController alloc] init];
     UINavigationController *navContact = [[UINavigationController alloc] initWithRootViewController:contactListController];
     UITabBarItem *barItem1 = [[UITabBarItem alloc] initWithTitle:@"联系人" image:[UIImage imageNamed:@"tab_contact"] selectedImage:[UIImage
             imageNamed:@"tab_contact_click"]];

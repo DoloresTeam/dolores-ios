@@ -56,6 +56,7 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar endEditing:YES];
+    [searchBar setShowsCancelButton:NO animated:YES];
 }
 
 
