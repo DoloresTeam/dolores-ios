@@ -16,6 +16,10 @@
 		7E19F86E1EADD97100F05460 /* MBProgressHUD+VBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F86D1EADD97100F05460 /* MBProgressHUD+VBAdd.m */; };
 		7E19F8721EADE4A000F05460 /* DLLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8711EADE4A000F05460 /* DLLogoutCell.m */; };
 		7E19F8751EADE5D600F05460 /* UIColor+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8741EADE5D600F05460 /* UIColor+DLAdd.m */; };
+		7E19F8791EADFEAF00F05460 /* DLNetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8781EADFEAF00F05460 /* DLNetStatusView.m */; };
+		7E19F87C1EAE2EB900F05460 /* DLAddContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F87B1EAE2EB900F05460 /* DLAddContactController.m */; };
+		7E19F87F1EAE3B7E00F05460 /* DLChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F87E1EAE3B7E00F05460 /* DLChatController.m */; };
+		7E19F8821EAE3F8200F05460 /* DLConversationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8811EAE3F8200F05460 /* DLConversationModel.m */; };
 		7ED2566E1EA4E923007CB655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2566D1EA4E923007CB655 /* main.m */; };
 		7ED256711EA4E923007CB655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256701EA4E923007CB655 /* AppDelegate.m */; };
 		7ED256791EA4E923007CB655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED256781EA4E923007CB655 /* Assets.xcassets */; };
@@ -59,6 +63,14 @@
 		7E19F8711EADE4A000F05460 /* DLLogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLogoutCell.m; sourceTree = "<group>"; };
 		7E19F8731EADE5D600F05460 /* UIColor+DLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DLAdd.h"; sourceTree = "<group>"; };
 		7E19F8741EADE5D600F05460 /* UIColor+DLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DLAdd.m"; sourceTree = "<group>"; };
+		7E19F8771EADFEAF00F05460 /* DLNetStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetStatusView.h; sourceTree = "<group>"; };
+		7E19F8781EADFEAF00F05460 /* DLNetStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetStatusView.m; sourceTree = "<group>"; };
+		7E19F87A1EAE2EB900F05460 /* DLAddContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAddContactController.h; sourceTree = "<group>"; };
+		7E19F87B1EAE2EB900F05460 /* DLAddContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddContactController.m; sourceTree = "<group>"; };
+		7E19F87D1EAE3B7E00F05460 /* DLChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChatController.h; sourceTree = "<group>"; };
+		7E19F87E1EAE3B7E00F05460 /* DLChatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChatController.m; sourceTree = "<group>"; };
+		7E19F8801EAE3F8200F05460 /* DLConversationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLConversationModel.h; sourceTree = "<group>"; };
+		7E19F8811EAE3F8200F05460 /* DLConversationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLConversationModel.m; sourceTree = "<group>"; };
 		7ED256691EA4E923007CB655 /* Dolores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED2566D1EA4E923007CB655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7ED2566F1EA4E923007CB655 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +170,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7E19F8761EADFE9800F05460 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E19F8771EADFEAF00F05460 /* DLNetStatusView.h */,
+				7E19F8781EADFEAF00F05460 /* DLNetStatusView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7ED256601EA4E923007CB655 = {
 			isa = PBXGroup;
 			children = (
@@ -229,8 +250,11 @@
 		7ED256851EA5A2D4007CB655 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				7E19F8761EADFE9800F05460 /* View */,
 				7ED256C01EA65A9E007CB655 /* DLConversationListController.h */,
 				7ED256C11EA65A9E007CB655 /* DLConversationListController.m */,
+				7E19F87D1EAE3B7E00F05460 /* DLChatController.h */,
+				7E19F87E1EAE3B7E00F05460 /* DLChatController.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -248,6 +272,8 @@
 		7ED256871EA5A2D4007CB655 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7E19F8801EAE3F8200F05460 /* DLConversationModel.h */,
+				7E19F8811EAE3F8200F05460 /* DLConversationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +398,8 @@
 			children = (
 				7ED256CA1EA65D0A007CB655 /* DLContactListController.h */,
 				7ED256CB1EA65D0A007CB655 /* DLContactListController.m */,
+				7E19F87A1EAE2EB900F05460 /* DLAddContactController.h */,
+				7E19F87B1EAE2EB900F05460 /* DLAddContactController.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -520,6 +548,8 @@
 				7ED256C21EA65A9E007CB655 /* DLConversationListController.m in Sources */,
 				7ED256711EA4E923007CB655 /* AppDelegate.m in Sources */,
 				7E19F8671EADD26500F05460 /* UIView+DLAdd.m in Sources */,
+				7E19F8821EAE3F8200F05460 /* DLConversationModel.m in Sources */,
+				7E19F87F1EAE3B7E00F05460 /* DLChatController.m in Sources */,
 				7ED256AC1EA5E559007CB655 /* UITextField+Addition.m in Sources */,
 				7ED256BB1EA5E634007CB655 /* UIFont+Addition.m in Sources */,
 				7ED256CC1EA65D0A007CB655 /* DLContactListController.m in Sources */,
@@ -531,6 +561,7 @@
 				7ED256A81EA5E559007CB655 /* UIImage+Addition.m in Sources */,
 				7ED256B61EA5E616007CB655 /* DTConstants.m in Sources */,
 				7ED256B71EA5E616007CB655 /* DTError.m in Sources */,
+				7E19F87C1EAE2EB900F05460 /* DLAddContactController.m in Sources */,
 				7ED256D21EA6F170007CB655 /* NSUserDefaults+DLUser.m in Sources */,
 				7E19F83E1EADA0E800F05460 /* DLLoginController.m in Sources */,
 				7ED256CF1EA65D88007CB655 /* DLBaseViewController.m in Sources */,
@@ -543,6 +574,7 @@
 				7ED256A61EA5E559007CB655 /* UIButton+Addition.m in Sources */,
 				7ED256B81EA5E616007CB655 /* NSDate+DateTools.m in Sources */,
 				7E19F8641EADCA9900F05460 /* UIBarButtonItem+DLAdd.m in Sources */,
+				7E19F8791EADFEAF00F05460 /* DLNetStatusView.m in Sources */,
 				7ED256A91EA5E559007CB655 /* UILabel+Addition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

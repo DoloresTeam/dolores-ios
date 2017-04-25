@@ -65,14 +65,13 @@
 }
 
 - (void)setupGlobalUI {
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont baseBoldFont:17], NSForegroundColorAttributeName: [UIColor
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont baseBoldFont:16], NSForegroundColorAttributeName: [UIColor
             blackColor]}];
     [UINavigationBar appearance].tintColor = [UIColor blackColor];
+    [UINavigationBar appearance].translucent = NO;
 
     UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
-    [barButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:.1f], NSForegroundColorAttributeName: [UIColor clearColor]}
-                                 forState:UIControlStateNormal];
-    barButtonItem.tintColor = [UIColor blackColor];
+    [barButtonItem setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -64) forBarMetrics:UIBarMetricsDefault];
 
 }
 
