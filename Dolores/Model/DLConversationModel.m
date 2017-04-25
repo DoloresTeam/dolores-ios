@@ -14,7 +14,9 @@
 - (instancetype)initWithConversation:(EMConversation *)conversation {
     self = [super init];
     if (self) {
-
+        _conversation = conversation;
+        _avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
+        _title = conversation.conversationId;
     }
     return self;
 }

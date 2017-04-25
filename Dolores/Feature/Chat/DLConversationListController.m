@@ -28,27 +28,26 @@
     [self setupView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchConversationList];
+}
+
 #pragma mark - DLBaseControllerProtocol
 
 - (void)setupView {
-    self.showRefreshHeader = YES;
+    self.showRefreshHeader = NO;
 }
 
 - (void)setupData {
     self.delegate = self;
     self.dataSource = self;
-    
-    [self tableViewDidTriggerHeaderRefresh];
 }
 
 - (void)setupNavigationBar {
     self.navigationItem.titleView = self.netStatusView;
     self.netStatusView.titleLabel.text = @"Dolores";
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self
-                                                                                   action:@selector(onClickTest)];
-    self.navigationItem.rightBarButtonItem = barButtonItem;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -127,33 +126,46 @@
 }
 
 - (NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController latestMessageTimeForConversationModel:(id <IConversationModel>)conversationModel {
-    EMMessage *message = [conversationModel.conversation lastReceivedMessage];
+    EMMessage *message = [conversationModel.conversation latestMessage];
     if (message) {
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:message.timestamp];
-        return [date shortTimeAgoSinceNow];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:message.timestamp / 1000.0f];
+        return [date timeAgoSinceNow];
     }
     return @"";
 }
 
-
 #pragma mark - EaseConversationListViewControllerDelegate
 
 - (void)conversationListViewController:(EaseConversationListViewController *)conversationListViewController didSelectConversationModel:(id <IConversationModel>)conversationModel {
+    DLChatController *chatController = [[DLChatController alloc] initWithConversationChatter:conversationModel.conversation.conversationId conversationType:conversationModel.conversation.type];
+    [self.navigationController pushViewController:chatController animated:YES];
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[EaseConversationCell class]]) {
+        EaseConversationCell *conversationCell = (EaseConversationCell *) cell;
+        conversationCell.avatarView.imageView.backgroundColor = [UIColor clearColor];
+    }
+    return cell;
 }
 
 #pragma mark - touch action
 
-- (void)onClickTest {
-    DLChatController *chatController = [[DLChatController alloc] initWithConversationChatter:@"heath2"
-                                                                            conversationType:EMConversationTypeChat];
-    [self.navigationController pushViewController:chatController animated:YES];
-}
+
 
 #pragma mark - overwrite
 
 - (void)tableViewDidTriggerHeaderRefresh {
     [super tableViewDidTriggerHeaderRefresh];
+    [self.netStatusView updateStatusView:ConversationStatusNone];
+}
+
+#pragma mark - private method
+
+- (void)fetchConversationList {
+    [self.netStatusView updateStatusView:ConversationStatusFetching];
+    [self tableViewDidTriggerHeaderRefresh];
 }
 
 #pragma mark - Getter

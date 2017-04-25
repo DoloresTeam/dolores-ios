@@ -69,6 +69,7 @@
             blackColor]}];
     [UINavigationBar appearance].tintColor = [UIColor blackColor];
     [UINavigationBar appearance].translucent = NO;
+    [UITabBar appearance].translucent = NO;
 
     UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
     [barButtonItem setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -64) forBarMetrics:UIBarMetricsDefault];
@@ -77,6 +78,13 @@
 
 - (void)registerEMSDK {
     EMOptions *options = [EMOptions optionsWithAppkey:@"1123170417178103#dolores"];
+    options.enableConsoleLog = YES;
+    options.isDeleteMessagesWhenExitGroup = NO;
+    options.isDeleteMessagesWhenExitChatRoom = NO;
+    options.enableDeliveryAck = YES;
+//    options.isSandboxMode = YES;
+    options.logLevel = EMLogLevelError;
+    options.isAutoLogin = YES;
     [[EMClient sharedClient] initializeSDKWithOptions:options];
 }
 

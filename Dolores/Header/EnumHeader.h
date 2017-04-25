@@ -9,5 +9,10 @@
 #ifndef EnumHeader_h
 #define EnumHeader_h
 
+typedef NS_ENUM(NSUInteger, ConversationStatus) {
+    ConversationStatusNone,
+    ConversationStatusDisconnect,
+    ConversationStatusFetching,
+};
 
 #endif /* EnumHeader_h */

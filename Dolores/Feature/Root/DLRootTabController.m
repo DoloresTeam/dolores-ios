@@ -15,7 +15,7 @@
 #import "DLMineController.h"
 #import "DLLoginController.h"
 
-@interface DLRootTabController ()
+@interface DLRootTabController () <UITabBarControllerDelegate>
 
 @end
 
@@ -26,23 +26,26 @@
     // Do any additional setup after loading the view.
     [self setupObserver];
     [self setupControllers];
-
+    self.delegate = self;
 }
 
 - (void)setupControllers {
     DLConversationListController *conversationListController = [[DLConversationListController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *navConversation = [[UINavigationController alloc] initWithRootViewController:conversationListController];
-    UITabBarItem *barItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:1];
+    UITabBarItem *barItem = [[UITabBarItem alloc] initWithTitle:@"消息" image:[UIImage imageNamed:@"tab_conversation"] selectedImage:[UIImage
+            imageNamed:@"tab_conversation_click"]];
     navConversation.tabBarItem = barItem;
 
     DLContactListController *contactListController = [[DLContactListController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *navContact = [[UINavigationController alloc] initWithRootViewController:contactListController];
-    UITabBarItem *barItem1 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:2];
+    UITabBarItem *barItem1 = [[UITabBarItem alloc] initWithTitle:@"联系人" image:[UIImage imageNamed:@"tab_contact"] selectedImage:[UIImage
+            imageNamed:@"tab_contact_click"]];
     navContact.tabBarItem = barItem1;
 
     DLMineController *mineController = [[DLMineController alloc] init];
     UINavigationController *navMine = [[UINavigationController alloc] initWithRootViewController:mineController];
-    UITabBarItem *barItem2 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:3];
+    UITabBarItem *barItem2 = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_more"]
+                                                   selectedImage:[UIImage imageNamed:@"tab_more_click"]];
     navMine.tabBarItem = barItem2;
 
     self.viewControllers = @[navConversation, navContact, navMine];
@@ -58,6 +61,13 @@
 
     [self checkLoginStatus];
 }
+
+#pragma mark - UITabBarControllerDelegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+
+}
+
 
 #pragma mark - observer
 

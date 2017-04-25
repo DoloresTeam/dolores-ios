@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/EaseUILite/EaseUI/EMUIKit/ViewController/EaseConversationListViewController.m"
-            timestampString = "514736404.890916"
+            filePath = "Dolores/Feature/Chat/DLConversationListController.m"
+            timestampString = "514801960.674161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "-tableViewDidTriggerHeaderRefresh"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-conversationListViewController:modelForConversation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

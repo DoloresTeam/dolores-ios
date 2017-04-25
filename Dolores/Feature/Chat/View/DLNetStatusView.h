@@ -10,6 +10,8 @@
 
 @interface DLNetStatusView : UIView
 
-
 @property (nonatomic, strong) UILabel *titleLabel;
+
+- (void)updateStatusView:(ConversationStatus)status;
+
 @end
