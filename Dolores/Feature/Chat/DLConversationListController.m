@@ -11,10 +11,12 @@
 #import "NSDate+DateTools.h"
 #import "DLChatController.h"
 #import "DLConversationModel.h"
+#import "DLSearchResultController.h"
 
 @interface DLConversationListController () <DLBaseControllerProtocol, EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
 
 @property (nonatomic, strong) DLNetStatusView *netStatusView;
+@property (nonatomic, strong) UISearchController *searchController;
 
 @end
 
@@ -37,6 +39,10 @@
 
 - (void)setupView {
     self.showRefreshHeader = NO;
+    self.definesPresentationContext = YES;
+
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    [self.searchController.searchBar sizeToFit];
 }
 
 - (void)setupData {
@@ -177,6 +183,32 @@
         _netStatusView = [[DLNetStatusView alloc] initWithFrame:CGRectMake(gap, 0, width, 44)];
     }
     return _netStatusView;
+}
+
+
+- (UISearchController *)searchController {
+    if (!_searchController) {
+        DLSearchResultController *searchResultController = [DLSearchResultController new];
+        _searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultController];
+
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        [_searchController.view insertSubview:effectView atIndex:0];
+        [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsZero);
+        }];
+
+        _searchController.searchBar.placeholder = @"搜索";
+        _searchController.searchBar.barStyle = UIBarStyleDefault;
+
+        searchResultController.searchController = _searchController;
+        _searchController.delegate = searchResultController;
+        _searchController.searchResultsUpdater = searchResultController;
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.1")) {
+            _searchController.obscuresBackgroundDuringPresentation = YES;
+        }
+    }
+    return _searchController;
 }
 
 

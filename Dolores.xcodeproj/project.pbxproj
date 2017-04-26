@@ -23,6 +23,7 @@
 		7E19F88B1EAF30DE00F05460 /* DLMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F88A1EAF30DE00F05460 /* DLMessageModel.m */; };
 		7E19F88F1EAF868D00F05460 /* DLContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F88E1EAF868D00F05460 /* DLContactCell.m */; };
 		7E19F8921EAF8C5300F05460 /* DLContactSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8911EAF8C5300F05460 /* DLContactSectionHeader.m */; };
+		7E19F89B1EB038CC00F05460 /* DLSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F89A1EB038CC00F05460 /* DLSearchResultController.m */; };
 		7ED2566E1EA4E923007CB655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2566D1EA4E923007CB655 /* main.m */; };
 		7ED256711EA4E923007CB655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256701EA4E923007CB655 /* AppDelegate.m */; };
 		7ED256791EA4E923007CB655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED256781EA4E923007CB655 /* Assets.xcassets */; };
@@ -80,6 +81,8 @@
 		7E19F88E1EAF868D00F05460 /* DLContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContactCell.m; sourceTree = "<group>"; };
 		7E19F8901EAF8C5300F05460 /* DLContactSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContactSectionHeader.h; sourceTree = "<group>"; };
 		7E19F8911EAF8C5300F05460 /* DLContactSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContactSectionHeader.m; sourceTree = "<group>"; };
+		7E19F8991EB038CC00F05460 /* DLSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSearchResultController.h; sourceTree = "<group>"; };
+		7E19F89A1EB038CC00F05460 /* DLSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSearchResultController.m; sourceTree = "<group>"; };
 		7ED256691EA4E923007CB655 /* Dolores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED2566D1EA4E923007CB655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7ED2566F1EA4E923007CB655 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				7ED256C11EA65A9E007CB655 /* DLConversationListController.m */,
 				7E19F87D1EAE3B7E00F05460 /* DLChatController.h */,
 				7E19F87E1EAE3B7E00F05460 /* DLChatController.m */,
+				7E19F8991EB038CC00F05460 /* DLSearchResultController.h */,
+				7E19F89A1EB038CC00F05460 /* DLSearchResultController.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				7E19F88F1EAF868D00F05460 /* DLContactCell.m in Sources */,
 				7E19F8411EADA0FC00F05460 /* DLRegisterController.m in Sources */,
 				7E19F8751EADE5D600F05460 /* UIColor+DLAdd.m in Sources */,
+				7E19F89B1EB038CC00F05460 /* DLSearchResultController.m in Sources */,
 				7ED256C61EA65BB4007CB655 /* DLRootTabController.m in Sources */,
 				7E19F86E1EADD97100F05460 /* MBProgressHUD+VBAdd.m in Sources */,
 				7ED2566E1EA4E923007CB655 /* main.m in Sources */,
