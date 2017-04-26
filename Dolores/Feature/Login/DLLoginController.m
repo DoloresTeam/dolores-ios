@@ -57,7 +57,7 @@
         make.left.equalTo(@44);
         make.right.equalTo(@(-44));
         make.height.mas_equalTo(44);
-        make.top.equalTo(@144);
+        make.top.equalTo(@80);
     }];
 
     UIView *line = [UIView new];
@@ -106,14 +106,19 @@
     }
 
     [self showLoadingView];
-    EMError *error = [[EMClient sharedClient] loginWithUsername:self.fldUser.text password:self.fldPassword.text];
-    if (error) {
-        [self showInfo:error.errorDescription];
-    } else {
-        [NSUserDefaults saveLastUser:self.fldUser.text];
-        [NSUserDefaults setLoginStatus:YES];
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        EMError *error = [[EMClient sharedClient] loginWithUsername:self.fldUser.text password:self.fldPassword.text];
+        if (error) {
+            [self showInfo:error.errorDescription];
+        } else {
+            [NSUserDefaults saveLastUser:self.fldUser.text];
+            [NSUserDefaults setLoginStatus:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
+            });
+        }
+    });
+
 
 }
 

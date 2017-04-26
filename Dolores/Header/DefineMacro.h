@@ -29,9 +29,9 @@
 
 #pragma mark - notification
 
-#define kUserLoginNotification              @"kUserLoginNotification"
+#define kLoginStatusNotification              @"kUserLoginNotification"
 #define kUserLogoutNotification             @"kUserLogoutNotification"
-#define kLeaveChatControllerNotification                @"kLeaveChatController"
+#define kLeaveChatControllerNotification    @"kLeaveChatController"
 
 
 #endif /* DefineMacro_h */

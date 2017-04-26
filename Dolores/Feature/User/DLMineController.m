@@ -52,10 +52,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        [[EMClient sharedClient] logout:YES completion:^(EMError *aError) {
+        [[EMClient sharedClient] logout:NO completion:^(EMError *aError) {
             if (!aError) {
-                [[NSNotificationCenter defaultCenter] postNotificationOnMainThreadWithName:kUserLogoutNotification object:nil
-                                                                                  userInfo:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationOnMainThreadWithName:kLoginStatusNotification object:@(NO) userInfo:nil];
             }
         }];
     }

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DLRootTabController.h"
+#import "DLLoginController.h"
 
 @interface AppDelegate ()
 
@@ -23,9 +24,9 @@
     [self setupGlobalUI];
     [self registerEMSDK];
     [self setupWindow];
+    [self configObserver];
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -59,8 +60,8 @@
 
 - (void)setupWindow {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    DLRootTabController *rootTabController = [[DLRootTabController alloc] init];
-    self.window.rootViewController = rootTabController;
+//    DLRootTabController *rootTabController = [[DLRootTabController alloc] init];
+//    self.window.rootViewController = rootTabController;
     [self.window makeKeyAndVisible];
 }
 
@@ -82,11 +83,31 @@
     options.isDeleteMessagesWhenExitGroup = NO;
     options.isDeleteMessagesWhenExitChatRoom = NO;
     options.enableDeliveryAck = YES;
-//    options.isSandboxMode = YES;
     options.logLevel = EMLogLevelError;
     options.isAutoLogin = YES;
     [[EMClient sharedClient] initializeSDKWithOptions:options];
 }
 
+#pragma mark - observer
+
+- (void)configObserver {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:kLoginStatusNotification object:nil];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@([EMClient sharedClient].isAutoLogin)];
+}
+
+- (void)loginStatusChanged:(NSNotification *)notification {
+    BOOL loginStatus = [notification.object boolValue];
+    if (loginStatus) {
+        DLRootTabController *rootTabController = [DLRootTabController new];
+        self.window.rootViewController = rootTabController;
+        [self.window makeKeyAndVisible];
+    } else {
+        DLLoginController *loginController = [DLLoginController new];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginController];
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
+    }
+}
 
 @end

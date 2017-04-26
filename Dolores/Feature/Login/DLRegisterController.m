@@ -44,7 +44,7 @@
         make.left.equalTo(@44);
         make.right.equalTo(@(-44));
         make.height.mas_equalTo(44);
-        make.top.equalTo(@144);
+        make.top.equalTo(@80);
     }];
 
     UIView *line = [UIView new];
