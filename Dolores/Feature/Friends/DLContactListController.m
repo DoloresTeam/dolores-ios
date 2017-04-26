@@ -52,7 +52,7 @@
 }
 
 - (void)setupData {
-
+    [self loadLocalContact];
 }
 
 - (void)setupNavigationBar {
@@ -135,6 +135,13 @@
     });
 }
 
+- (void)loadLocalContact {
+    NSArray *localContacts = [[EMClient sharedClient].contactManager getContacts];
+    [self.contactList removeAllObjects];
+    [self.contactList addObjectsFromArray:localContacts];
+    [self sortContactList];
+}
+
 - (void)sortContactList {
     [self.dataArray removeAllObjects];
     [self.sectionTitles removeAllObjects];
@@ -214,6 +221,7 @@
 
 - (void)onClickToAdd {
     DLAddContactController *addContactController = [DLAddContactController new];
+    addContactController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:addContactController animated:YES];
 }
 
