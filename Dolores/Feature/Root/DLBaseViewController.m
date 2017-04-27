@@ -35,6 +35,11 @@
     [MBProgressHUD showMessage:nil toView:view1];
 }
 
+
+- (void)hideLoadingView {
+    [MBProgressHUD hideHUDForView:self.navigationController.view ? : self.view animated:YES];
+}
+
 - (void)showInfo:(NSString *)info {
     UIView *view1 = self.navigationController.view ? : self.view;
     [MBProgressHUD showInfo:info toView:view1 hideDelay:2];

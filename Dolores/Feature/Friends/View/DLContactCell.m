@@ -9,6 +9,7 @@
 #import <YYCategories/NSString+YYAdd.h>
 #import "DLContactCell.h"
 #import "UIColor+DLAdd.h"
+#import "DLUser.h"
 
 @interface DLContactCell ()
 
@@ -42,7 +43,7 @@
     return self;
 }
 
-- (void)updateUserInfo:(id<IUserModel>)user {
+- (void)updateUserInfo:(id<DLUserModel>)user {
 
     self.user = user;
     if (user.nickname.length > 0) {

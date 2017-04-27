@@ -10,4 +10,9 @@
 
 @interface DLChatDetailController : DLBaseViewController
 
+@property (nonatomic, copy) NSString *userId;
+
+- (instancetype)initWithUserId:(NSString *)userId;
+
+
 @end

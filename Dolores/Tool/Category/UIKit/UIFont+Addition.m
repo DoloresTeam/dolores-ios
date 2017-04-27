@@ -24,11 +24,11 @@
 }
 
 + (UIFont *)dl_defaultFont {
-    return [self baseFont:14];
+    return [self baseFont:15];
 }
 
 + (UIFont *)dl_largeFont {
-    return [self baseFont:16];
+    return [self baseFont:17];
 }
 
 #pragma mark - base

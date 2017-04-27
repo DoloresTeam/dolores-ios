@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DLUserModel;
+
 @interface DLContactCell : UITableViewCell
 
-- (void)updateUserInfo:(id <IUserModel>)user;
+- (void)updateUserInfo:(id <DLUserModel>)user;
 @end

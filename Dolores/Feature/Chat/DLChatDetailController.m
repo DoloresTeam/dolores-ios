@@ -9,8 +9,10 @@
 #import "DLChatDetailController.h"
 #import "DLBaseSettingCell.h"
 #import "DLSettingConfig.h"
+#import "DLAddMemberController.h"
+#import "DLChatController.h"
 
-@interface DLChatDetailController () <UITableViewDataSource, UITableViewDelegate>
+@interface DLChatDetailController () <UITableViewDataSource, UITableViewDelegate, DLGroupChatDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -18,6 +20,15 @@
 @end
 
 @implementation DLChatDetailController
+- (instancetype)initWithUserId:(NSString *)userId {
+    self = [super init];
+    if (!self) return nil;
+
+    self.userId = userId;
+
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,6 +92,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        DLAddMemberController *addMemberController = [[DLAddMemberController alloc] initWithCurrentMembers:@[self.userId]];
+        addMemberController.delegate = self;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addMemberController];
+        [self.navigationController presentViewController:nav animated:YES completion:NULL];
+    }
+}
+
+#pragma mark - DLGroupChatDelegate
+
+- (void)createGroupSuccess:(NSString *)groupId {
+    DLChatController *chatController = [[DLChatController alloc] initWithConversationChatter:groupId conversationType:EMConversationTypeGroupChat];
+    [self.navigationController pushViewController:chatController animated:YES];
+
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//    });
+   
 }
 
 

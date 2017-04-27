@@ -13,5 +13,8 @@
 
 - (void)showLoadingView;
 
+
+- (void)hideLoadingView;
+
 - (void)showInfo:(NSString *)info;
 @end

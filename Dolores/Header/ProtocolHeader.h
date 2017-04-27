@@ -21,4 +21,21 @@
 
 @end
 
+@protocol DLContactCellDelegate <NSObject>
+
+@optional
+- (void)tableViewCell:(UITableViewCell *)cell didSelectButton:(UIButton *)sender;
+- (void)tableViewCell:(UITableViewCell *)cell didTapAvatar:(NSString *)userId;
+
+@end
+
+@protocol DLGroupChatDelegate <NSObject>
+
+@optional
+- (void)createGroupSuccess:(NSString *)groupId;
+
+@end
+
 #endif /* ProtocolHeader_h */
+
+

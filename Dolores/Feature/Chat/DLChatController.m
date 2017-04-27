@@ -133,7 +133,7 @@
 
 - (void)onClickDetail {
     if (self.conversation.type == EMConversationTypeChat) {
-        DLChatDetailController *chatDetailController = [DLChatDetailController new];
+        DLChatDetailController *chatDetailController = [[DLChatDetailController alloc] initWithUserId:self.conversation.conversationId];
         [self.navigationController pushViewController:chatDetailController animated:YES];
     }
 }
