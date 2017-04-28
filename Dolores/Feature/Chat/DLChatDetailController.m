@@ -105,10 +105,6 @@
 - (void)createGroupSuccess:(NSString *)groupId {
     DLChatController *chatController = [[DLChatController alloc] initWithConversationChatter:groupId conversationType:EMConversationTypeGroupChat];
     [self.navigationController pushViewController:chatController animated:YES];
-
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//    });
    
 }
 

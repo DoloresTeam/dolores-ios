@@ -64,6 +64,27 @@
 
 - (id <IConversationModel>)conversationListViewController:(EaseConversationListViewController *)conversationListViewController modelForConversation:(EMConversation *)conversation {
     DLConversationModel *conversationModel = [[DLConversationModel alloc] initWithConversation:conversation];
+    if (conversationModel.conversation.type == EMConversationTypeChat) {
+
+    } else if (conversationModel.conversation.type == EMConversationTypeGroupChat) {
+
+        if (!conversation.ext[@"subject"]) {
+            NSArray *groupArray = [[EMClient sharedClient].groupManager getJoinedGroups];
+            for (EMGroup *group in groupArray) {
+                if ([group.groupId isEqualToString:conversation.conversationId]) {
+                    NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:conversation.ext];
+                    ext[@"subject"] = group.subject;
+                    ext[@"isPublic"] = @(group.isPublic);
+                    conversation.ext = ext;
+                    break;
+                }
+            }
+        }
+        NSDictionary *ext = conversation.ext;
+        conversationModel.title = ext[@"subject"];
+//        imageName = [[ext objectForKey:@"isPublic"] boolValue] ? @"groupPublicHeader" : @"groupPrivateHeader";
+//        conversationModel.avatarImage = [UIImage imageNamed:imageName];
+    }
     return conversationModel;
 }
 

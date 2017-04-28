@@ -41,7 +41,17 @@
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat_oto_setting_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDetail)];
         self.navigationItem.rightBarButtonItem = item;
     } else if (self.conversation.type == EMConversationTypeGroupChat) {
-        self.navigationItem.title = @"群聊";
+        NSDictionary *ext = self.conversation.ext;
+        if ([ext[@"subject"] length]) {
+            self.title = ext[@"subject"];
+        }
+
+        if (ext && ext[kHaveUnreadAtMessage] != nil) {
+            NSMutableDictionary *newExt = [ext mutableCopy];
+            [newExt removeObjectForKey:kHaveUnreadAtMessage];
+            self.conversation.ext = newExt;
+        }
+        self.navigationItem.title = self.title;
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat_mtm_setting_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDetail)];
         self.navigationItem.rightBarButtonItem = item;
     }
