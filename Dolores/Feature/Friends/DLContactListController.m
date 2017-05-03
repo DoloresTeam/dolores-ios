@@ -11,6 +11,8 @@
 #import "DLContactCell.h"
 #import "DLContactSectionHeader.h"
 #import "DLChatController.h"
+#import "DLChatDataHelper.h"
+#import "DLUser.h"
 
 @interface DLContactListController () <DLBaseControllerProtocol, UITableViewDataSource, UITableViewDelegate>
 
@@ -52,7 +54,7 @@
 }
 
 - (void)setupData {
-
+    [self loadLocalContact];
 }
 
 - (void)setupNavigationBar {
@@ -71,7 +73,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DLContactCell *contactCell = [tableView dequeueReusableCellWithIdentifier:[DLContactCell identifier]];
     NSArray *userSection = self.dataArray[indexPath.section];
-    EaseUserModel *userModel = userSection[indexPath.row];
+    id<DLUserModel> userModel = userSection[indexPath.row];
     [contactCell updateUserInfo:userModel];
     return contactCell;
 }
@@ -135,78 +137,21 @@
     });
 }
 
+- (void)loadLocalContact {
+    NSArray *localContacts = [[EMClient sharedClient].contactManager getContacts];
+    [self.contactList removeAllObjects];
+    [self.contactList addObjectsFromArray:localContacts];
+    [self sortContactList];
+}
+
 - (void)sortContactList {
     [self.dataArray removeAllObjects];
     [self.sectionTitles removeAllObjects];
 
-    NSMutableArray *contactsSource = [NSMutableArray array];
+    NSArray *sortArray = [DLChatDataHelper sortContactList:self.contactList];
+    [self.sectionTitles addObjectsFromArray:sortArray[0]];
+    [self.dataArray addObjectsFromArray:sortArray[1]];
 
-    //从获取的数据中剔除黑名单中的好友
-    NSArray *blockList = [[EMClient sharedClient].contactManager getBlackList];
-    for (NSString *buddy in self.contactList) {
-        if (![blockList containsObject:buddy]) {
-            [contactsSource addObject:buddy];
-        }
-    }
-
-    //建立索引的核心, 返回27，是a－z和＃
-    UILocalizedIndexedCollation *indexCollation = [UILocalizedIndexedCollation currentCollation];
-    [self.sectionTitles addObjectsFromArray:[indexCollation sectionTitles]];
-
-    NSUInteger highSection = [self.sectionTitles count];
-    NSMutableArray *sortedArray = [NSMutableArray arrayWithCapacity:highSection];
-    for (int i = 0; i < highSection; i++) {
-        NSMutableArray *sectionArray = [NSMutableArray arrayWithCapacity:1];
-        [sortedArray addObject:sectionArray];
-    }
-
-    //按首字母分组
-    for (NSString *buddy in contactsSource) {
-        EaseUserModel *model = [[EaseUserModel alloc] initWithBuddy:buddy];
-        if (model) {
-            model.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
-            // TODO: nickname
-            model.nickname = model.buddy;
-
-            NSString *firstLetter = [EaseChineseToPinyin pinyinFromChineseString:model.buddy];
-            NSInteger section;
-            if (firstLetter.length > 0) {
-                section = [indexCollation sectionForObject:[firstLetter substringToIndex:1] collationStringSelector:@selector(uppercaseString)];
-            } else {
-                section = [sortedArray count] - 1;
-            }
-
-            NSMutableArray *array = sortedArray[section];
-            [array addObject:model];
-        }
-    }
-
-    //每个section内的数组排序
-    for (int i = 0; i < [sortedArray count]; i++) {
-        NSArray *array = [sortedArray[i] sortedArrayUsingComparator:^NSComparisonResult(EaseUserModel *obj1, EaseUserModel *obj2) {
-            NSString *firstLetter1 = [EaseChineseToPinyin pinyinFromChineseString:obj1.buddy];
-            firstLetter1 = [[firstLetter1 substringToIndex:1] uppercaseString];
-
-            NSString *firstLetter2 = [EaseChineseToPinyin pinyinFromChineseString:obj2.buddy];
-            firstLetter2 = [[firstLetter2 substringToIndex:1] uppercaseString];
-
-            return [firstLetter1 caseInsensitiveCompare:firstLetter2];
-        }];
-
-
-        sortedArray[i] = [NSMutableArray arrayWithArray:array];
-    }
-
-    //去掉空的section
-    for (NSInteger i = [sortedArray count] - 1; i >= 0; i--) {
-        NSArray *array = sortedArray[i];
-        if ([array count] == 0) {
-            [sortedArray removeObjectAtIndex:i];
-            [self.sectionTitles removeObjectAtIndex:i];
-        }
-    }
-
-    [self.dataArray addObjectsFromArray:sortedArray];
     [self.tableView reloadData];
 }
 
@@ -214,6 +159,7 @@
 
 - (void)onClickToAdd {
     DLAddContactController *addContactController = [DLAddContactController new];
+    addContactController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:addContactController animated:YES];
 }
 

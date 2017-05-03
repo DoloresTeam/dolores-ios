@@ -68,7 +68,7 @@
 - (void)setupGlobalUI {
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont baseBoldFont:16], NSForegroundColorAttributeName: [UIColor
             blackColor]}];
-    [UINavigationBar appearance].tintColor = [UIColor blackColor];
+//    [UINavigationBar appearance].tintColor = [UIColor blackColor];
     [UINavigationBar appearance].translucent = NO;
     [UITabBar appearance].translucent = NO;
 

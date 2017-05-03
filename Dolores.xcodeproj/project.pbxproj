@@ -23,6 +23,14 @@
 		7E19F88B1EAF30DE00F05460 /* DLMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F88A1EAF30DE00F05460 /* DLMessageModel.m */; };
 		7E19F88F1EAF868D00F05460 /* DLContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F88E1EAF868D00F05460 /* DLContactCell.m */; };
 		7E19F8921EAF8C5300F05460 /* DLContactSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8911EAF8C5300F05460 /* DLContactSectionHeader.m */; };
+		7E19F89B1EB038CC00F05460 /* DLSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F89A1EB038CC00F05460 /* DLSearchResultController.m */; };
+		7E19F89E1EB0724A00F05460 /* DLChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F89D1EB0724A00F05460 /* DLChatDetailController.m */; };
+		7E19F8A11EB0746300F05460 /* DLBaseSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8A01EB0746300F05460 /* DLBaseSettingCell.m */; };
+		7E19F8A41EB07ABA00F05460 /* DLSettingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8A31EB07ABA00F05460 /* DLSettingConfig.m */; };
+		7E19F8AE1EB0E1D600F05460 /* DLAddMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8AD1EB0E1D600F05460 /* DLAddMemberController.m */; };
+		7E19F8B21EB1816800F05460 /* DLChatDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8B11EB1816800F05460 /* DLChatDataHelper.m */; };
+		7E19F8B51EB1855800F05460 /* DLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19F8B41EB1855800F05460 /* DLUser.m */; };
+		7EC591E51EB225E30094A7C1 /* DLSelectContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC591E41EB225E30094A7C1 /* DLSelectContactCell.m */; };
 		7ED2566E1EA4E923007CB655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2566D1EA4E923007CB655 /* main.m */; };
 		7ED256711EA4E923007CB655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256701EA4E923007CB655 /* AppDelegate.m */; };
 		7ED256791EA4E923007CB655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED256781EA4E923007CB655 /* Assets.xcassets */; };
@@ -80,6 +88,22 @@
 		7E19F88E1EAF868D00F05460 /* DLContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContactCell.m; sourceTree = "<group>"; };
 		7E19F8901EAF8C5300F05460 /* DLContactSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContactSectionHeader.h; sourceTree = "<group>"; };
 		7E19F8911EAF8C5300F05460 /* DLContactSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContactSectionHeader.m; sourceTree = "<group>"; };
+		7E19F8991EB038CC00F05460 /* DLSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSearchResultController.h; sourceTree = "<group>"; };
+		7E19F89A1EB038CC00F05460 /* DLSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSearchResultController.m; sourceTree = "<group>"; };
+		7E19F89C1EB0724A00F05460 /* DLChatDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChatDetailController.h; sourceTree = "<group>"; };
+		7E19F89D1EB0724A00F05460 /* DLChatDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChatDetailController.m; sourceTree = "<group>"; };
+		7E19F89F1EB0746300F05460 /* DLBaseSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBaseSettingCell.h; sourceTree = "<group>"; };
+		7E19F8A01EB0746300F05460 /* DLBaseSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseSettingCell.m; sourceTree = "<group>"; };
+		7E19F8A21EB07ABA00F05460 /* DLSettingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSettingConfig.h; sourceTree = "<group>"; };
+		7E19F8A31EB07ABA00F05460 /* DLSettingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSettingConfig.m; sourceTree = "<group>"; };
+		7E19F8AC1EB0E1D600F05460 /* DLAddMemberController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAddMemberController.h; sourceTree = "<group>"; };
+		7E19F8AD1EB0E1D600F05460 /* DLAddMemberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddMemberController.m; sourceTree = "<group>"; };
+		7E19F8B01EB1816800F05460 /* DLChatDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChatDataHelper.h; sourceTree = "<group>"; };
+		7E19F8B11EB1816800F05460 /* DLChatDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChatDataHelper.m; sourceTree = "<group>"; };
+		7E19F8B31EB1855800F05460 /* DLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUser.h; sourceTree = "<group>"; };
+		7E19F8B41EB1855800F05460 /* DLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUser.m; sourceTree = "<group>"; };
+		7EC591E31EB225E30094A7C1 /* DLSelectContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSelectContactCell.h; sourceTree = "<group>"; };
+		7EC591E41EB225E30094A7C1 /* DLSelectContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSelectContactCell.m; sourceTree = "<group>"; };
 		7ED256691EA4E923007CB655 /* Dolores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED2566D1EA4E923007CB655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7ED2566F1EA4E923007CB655 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -184,6 +208,8 @@
 			children = (
 				7E19F8771EADFEAF00F05460 /* DLNetStatusView.h */,
 				7E19F8781EADFEAF00F05460 /* DLNetStatusView.m */,
+				7E19F89F1EB0746300F05460 /* DLBaseSettingCell.h */,
+				7E19F8A01EB0746300F05460 /* DLBaseSettingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,8 +221,19 @@
 				7E19F88E1EAF868D00F05460 /* DLContactCell.m */,
 				7E19F8901EAF8C5300F05460 /* DLContactSectionHeader.h */,
 				7E19F8911EAF8C5300F05460 /* DLContactSectionHeader.m */,
+				7EC591E31EB225E30094A7C1 /* DLSelectContactCell.h */,
+				7EC591E41EB225E30094A7C1 /* DLSelectContactCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7E19F8AF1EB1813900F05460 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7E19F8B01EB1816800F05460 /* DLChatDataHelper.h */,
+				7E19F8B11EB1816800F05460 /* DLChatDataHelper.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		7ED256601EA4E923007CB655 = {
@@ -275,6 +312,12 @@
 				7ED256C11EA65A9E007CB655 /* DLConversationListController.m */,
 				7E19F87D1EAE3B7E00F05460 /* DLChatController.h */,
 				7E19F87E1EAE3B7E00F05460 /* DLChatController.m */,
+				7E19F8991EB038CC00F05460 /* DLSearchResultController.h */,
+				7E19F89A1EB038CC00F05460 /* DLSearchResultController.m */,
+				7E19F89C1EB0724A00F05460 /* DLChatDetailController.h */,
+				7E19F89D1EB0724A00F05460 /* DLChatDetailController.m */,
+				7E19F8AC1EB0E1D600F05460 /* DLAddMemberController.h */,
+				7E19F8AD1EB0E1D600F05460 /* DLAddMemberController.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -296,6 +339,10 @@
 				7E19F8811EAE3F8200F05460 /* DLConversationModel.m */,
 				7E19F8891EAF30DE00F05460 /* DLMessageModel.h */,
 				7E19F88A1EAF30DE00F05460 /* DLMessageModel.m */,
+				7E19F8A21EB07ABA00F05460 /* DLSettingConfig.h */,
+				7E19F8A31EB07ABA00F05460 /* DLSettingConfig.m */,
+				7E19F8B31EB1855800F05460 /* DLUser.h */,
+				7E19F8B41EB1855800F05460 /* DLUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +357,7 @@
 		7ED256891EA5A2D4007CB655 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				7E19F8AF1EB1813900F05460 /* Utils */,
 				7ED2568A1EA5A2D4007CB655 /* Category */,
 				7ED2568B1EA5A2D4007CB655 /* CustomView */,
 			);
@@ -570,30 +618,38 @@
 			files = (
 				7ED256C21EA65A9E007CB655 /* DLConversationListController.m in Sources */,
 				7ED256711EA4E923007CB655 /* AppDelegate.m in Sources */,
+				7E19F89E1EB0724A00F05460 /* DLChatDetailController.m in Sources */,
 				7E19F8671EADD26500F05460 /* UIView+DLAdd.m in Sources */,
 				7E19F8821EAE3F8200F05460 /* DLConversationModel.m in Sources */,
 				7E19F87F1EAE3B7E00F05460 /* DLChatController.m in Sources */,
+				7E19F8B51EB1855800F05460 /* DLUser.m in Sources */,
 				7ED256AC1EA5E559007CB655 /* UITextField+Addition.m in Sources */,
 				7ED256BB1EA5E634007CB655 /* UIFont+Addition.m in Sources */,
 				7ED256CC1EA65D0A007CB655 /* DLContactListController.m in Sources */,
 				7E19F88F1EAF868D00F05460 /* DLContactCell.m in Sources */,
 				7E19F8411EADA0FC00F05460 /* DLRegisterController.m in Sources */,
 				7E19F8751EADE5D600F05460 /* UIColor+DLAdd.m in Sources */,
+				7E19F89B1EB038CC00F05460 /* DLSearchResultController.m in Sources */,
 				7ED256C61EA65BB4007CB655 /* DLRootTabController.m in Sources */,
+				7E19F8A11EB0746300F05460 /* DLBaseSettingCell.m in Sources */,
 				7E19F86E1EADD97100F05460 /* MBProgressHUD+VBAdd.m in Sources */,
 				7ED2566E1EA4E923007CB655 /* main.m in Sources */,
+				7EC591E51EB225E30094A7C1 /* DLSelectContactCell.m in Sources */,
 				7ED256A81EA5E559007CB655 /* UIImage+Addition.m in Sources */,
 				7ED256B61EA5E616007CB655 /* DTConstants.m in Sources */,
 				7ED256B71EA5E616007CB655 /* DTError.m in Sources */,
 				7E19F87C1EAE2EB900F05460 /* DLAddContactController.m in Sources */,
 				7E19F88B1EAF30DE00F05460 /* DLMessageModel.m in Sources */,
 				7ED256D21EA6F170007CB655 /* NSUserDefaults+DLUser.m in Sources */,
+				7E19F8AE1EB0E1D600F05460 /* DLAddMemberController.m in Sources */,
 				7E19F83E1EADA0E800F05460 /* DLLoginController.m in Sources */,
 				7ED256CF1EA65D88007CB655 /* DLBaseViewController.m in Sources */,
 				7ED256C91EA65C82007CB655 /* DLMineController.m in Sources */,
+				7E19F8A41EB07ABA00F05460 /* DLSettingConfig.m in Sources */,
 				7E19F8921EAF8C5300F05460 /* DLContactSectionHeader.m in Sources */,
 				7ED256AA1EA5E559007CB655 /* UITableView+Addition.m in Sources */,
 				7ED256D61EA6F52F007CB655 /* UIFloatLabelTextField.m in Sources */,
+				7E19F8B21EB1816800F05460 /* DLChatDataHelper.m in Sources */,
 				7E19F86B1EADD83F00F05460 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				7ED256AB1EA5E559007CB655 /* UITableViewCell+Register.m in Sources */,
 				7E19F8721EADE4A000F05460 /* DLLogoutCell.m in Sources */,

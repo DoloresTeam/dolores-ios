@@ -28,17 +28,23 @@
 }
 
 + (void)showMessage:(NSString *)message toView:(UIView *)view {
-    MBProgressHUD *hud = [MBProgressHUD vb_HUDForView:view];
-    hud.labelText = message;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *hud = [MBProgressHUD vb_HUDForView:view];
+        hud.labelText = message;
+    });
+
 }
 
 + (void)showCustomView:(UIView *)customView text:(NSString *)text toView:(UIView *)view hideDelay:(NSTimeInterval)delay {
-    MBProgressHUD *hud = [MBProgressHUD vb_HUDForView:view];
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.customView = customView;
-    hud.labelText = text;
-    hud.userInteractionEnabled = NO;
-    [hud hide:YES afterDelay:delay];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *hud = [MBProgressHUD vb_HUDForView:view];
+        hud.mode = MBProgressHUDModeCustomView;
+        hud.customView = customView;
+        hud.labelText = text;
+        hud.userInteractionEnabled = NO;
+        [hud hide:YES afterDelay:delay];
+    });
+
 }
 
 + (void)showInfo:(NSString *)info toView:(UIView *)view hideDelay:(NSTimeInterval)delay {

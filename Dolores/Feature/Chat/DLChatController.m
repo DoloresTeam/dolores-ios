@@ -8,6 +8,8 @@
 
 #import "DLChatController.h"
 #import "DLMessageModel.h"
+#import "DLChatDetailController.h"
+#import "UIColor+DLAdd.h"
 
 @interface DLChatController () <EaseMessageViewControllerDataSource, EaseMessageViewControllerDelegate>
 
@@ -23,23 +25,41 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;
+    self.tableView.backgroundColor = [UIColor dl_tableBGColor];
+    [self setupNav];
+}
 
+- (void)setupNav {
+    if (self.conversation.type == EMConversationTypeChat) {
+        self.navigationItem.title = self.conversation.conversationId;
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat_oto_setting_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDetail)];
+        self.navigationItem.rightBarButtonItem = item;
+    } else if (self.conversation.type == EMConversationTypeGroupChat) {
+        NSDictionary *ext = self.conversation.ext;
+        if ([ext[@"subject"] length]) {
+            self.title = ext[@"subject"];
+        }
+
+        if (ext && ext[kHaveUnreadAtMessage] != nil) {
+            NSMutableDictionary *newExt = [ext mutableCopy];
+            [newExt removeObjectForKey:kHaveUnreadAtMessage];
+            self.conversation.ext = newExt;
+        }
+        self.navigationItem.title = self.title;
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat_mtm_setting_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDetail)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillLayoutSubviews {
-//    self.view.frame = [UIScreen mainScreen].bounds;
 }
 
 #pragma mark - EaseMessageViewControllerDataSource
@@ -118,5 +138,14 @@
 }
 
 #pragma mark - EaseMessageViewControllerDelegate
+
+#pragma mark - touch action
+
+- (void)onClickDetail {
+    if (self.conversation.type == EMConversationTypeChat) {
+        DLChatDetailController *chatDetailController = [[DLChatDetailController alloc] initWithUserId:self.conversation.conversationId];
+        [self.navigationController pushViewController:chatDetailController animated:YES];
+    }
+}
 
 @end

@@ -13,4 +13,6 @@
 + (UIColor *)dl_ironColor;
 
 + (UIColor *)dl_textColorStyle1;
+
++ (UIColor *)dl_tableBGColor;
 @end
