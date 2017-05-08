@@ -1,0 +1,76 @@
+PODS:
+  - DACircularProgress (2.3.1)
+  - EaseUILite (3.3.1):
+    - MJRefresh (~> 3.1.0)
+    - MWPhotoBrowser (~> 2.1.1)
+  - HyphenateLite (3.3.1)
+  - Masonry (1.0.2)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.12)
+  - MWPhotoBrowser (2.1.2):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - SDWebImage (!= 3.7.2, ~> 3.7)
+  - React/Core (0.42.0):
+    - React/cxxreact
+    - Yoga (= 0.42.0.React)
+  - React/cxxreact (0.42.0):
+    - React/jschelpers
+  - React/jschelpers (0.42.0)
+  - React/RCTNetwork (0.42.0):
+    - React/Core
+  - React/RCTText (0.42.0):
+    - React/Core
+  - React/RCTWebSocket (0.42.0):
+    - React/Core
+  - ReactiveObjC (2.1.2)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - Yoga (0.42.0.React)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+
+DEPENDENCIES:
+  - EaseUILite (from `https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git`)
+  - HyphenateLite
+  - Masonry (~> 1.0.0)
+  - React/Core (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - ReactiveObjC (~> 2.1.2)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+  - YYCategories
+
+EXTERNAL SOURCES:
+  EaseUILite:
+    :git: https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git
+  React:
+    :path: "../node_modules/react-native"
+  Yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
+CHECKOUT OPTIONS:
+  EaseUILite:
+    :commit: c9d710f75c8509826c9e145477f5acee1cf8bef9
+    :git: https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git
+
+SPEC CHECKSUMS:
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  EaseUILite: d405141e789d55ef97528b88871d558dc89f20ea
+  HyphenateLite: 1a2f256d85f3ed269351bbd9d95cf98d902b5b4f
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  React: 8ec97f0d79ba31892c526cf56425937926cc9b48
+  ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  Yoga: 4183cc70cae189d73f996b1e40c3078aca9f96ef
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+
+PODFILE CHECKSUM: c833b1e17a4f6151fdfd34338ceb1f5a77a1cade
+
+COCOAPODS: 1.2.0
