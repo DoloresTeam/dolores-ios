@@ -7,6 +7,7 @@
 //
 
 #import "DLBridgeManager.h"
+#import "DLNativeBridgeHelper.h"
 
 @implementation DLBridgeManager
 
@@ -33,6 +34,14 @@ RCT_EXPORT_METHOD(addTest:(NSString*)name) {
     [self executeEvent:name];
 }
 
+RCT_EXPORT_METHOD(getAllUser:(id)users) {
+    NSLog(@"users: %@", users);
+}
+
+
+RCT_EXPORT_METHOD(getUserWithId:(NSString *)uid user:(NSDictionary *)user) {
+    
+}
 
 #pragma mark - OC call RN
 

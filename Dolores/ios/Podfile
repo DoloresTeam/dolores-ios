@@ -8,13 +8,5 @@ target 'Dolores' do
     pod 'ReactiveObjC', '~> 2.1.2'
     pod 'YYCategories'
     
-    #pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    #'Core',
-    #'RCTText',
-    #'RCTNetwork',
-    #'RCTWebSocket', # 这个模块是用于调试功能的
-    #]
-    
-    #pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
 end
 

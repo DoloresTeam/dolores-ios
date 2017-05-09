@@ -80,6 +80,7 @@
 		7E1B12CC1EC1BBA20056370E /* UIView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B129C1EC1BBA20056370E /* UIView+DLAdd.m */; };
 		7E1B12CD1EC1BBA20056370E /* DLChatDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B12A01EC1BBA20056370E /* DLChatDataHelper.m */; };
 		7E1B12F31EC1BD7D0056370E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B12F21EC1BD7D0056370E /* Launch Screen.storyboard */; };
+		7E1B136D1EC208CB0056370E /* DLNativeBridgeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B136C1EC208CB0056370E /* DLNativeBridgeHelper.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 /* End PBXBuildFile section */
@@ -402,6 +403,8 @@
 		7E1B129F1EC1BBA20056370E /* DLChatDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChatDataHelper.h; sourceTree = "<group>"; };
 		7E1B12A01EC1BBA20056370E /* DLChatDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChatDataHelper.m; sourceTree = "<group>"; };
 		7E1B12F21EC1BD7D0056370E /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7E1B136B1EC208CB0056370E /* DLNativeBridgeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNativeBridgeHelper.h; sourceTree = "<group>"; };
+		7E1B136C1EC208CB0056370E /* DLNativeBridgeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNativeBridgeHelper.m; sourceTree = "<group>"; };
 		824273D23D5D44F2972D4936 /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
@@ -750,6 +753,8 @@
 				7E1B12611EC1BBA20056370E /* DLBridgeManager.m */,
 				7E1B12621EC1BBA20056370E /* DLRNTestController.h */,
 				7E1B12631EC1BBA20056370E /* DLRNTestController.m */,
+				7E1B136B1EC208CB0056370E /* DLNativeBridgeHelper.h */,
+				7E1B136C1EC208CB0056370E /* DLNativeBridgeHelper.m */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -1489,6 +1494,7 @@
 				7E1B12A81EC1BBA20056370E /* DLAddMemberController.m in Sources */,
 				7E1B12B31EC1BBA20056370E /* DLSelectContactCell.m in Sources */,
 				7E1B12C61EC1BBA20056370E /* UIFont+Addition.m in Sources */,
+				7E1B136D1EC208CB0056370E /* DLNativeBridgeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,9 +19,9 @@ import {
     NativeModules
 } from 'react-native';
 
-var DLBridgeManager = NativeModules.DLBridgeManager;
+let DLBridgeManager = NativeModules.DLBridgeManager;
 const bridgeManager = new NativeEventEmitter(DLBridgeManager)
-// const Realm = require('realm');
+const Realm = require('realm');
 var subscription;
 
 const UserSchema = {
@@ -77,13 +77,7 @@ export default class Dolores extends Component {
             }
         );
 
-        realm.write(() => {
-            let user = realm.create('user', {
-                userId: 1,
-                userName: 'heath',
-                nickName: 'nice',
-            }, true);
-        });
+        this.setState({userInfo: '用户总数:' + realm.objects('user').length});
     }
 
     componentWillUnmount() {
@@ -96,15 +90,33 @@ export default class Dolores extends Component {
 
                 <Text>{this.state.message}</Text>
                 <CustomButton text='RN调用iOS原生方法'
-                           onPress={() => {DLBridgeManager.addTest('ok');}}
+                              onPress={() => {DLBridgeManager.addTest('ok');}}
                 />
                 <Text style={styles.welcome}>{this.state.userInfo}</Text>
-                < CustomButton onPress={() => {
-                this.setState({
-                    userInfo: realm.objects('user').length
-                });
+                <CustomButton text='插入数据' onPress={() => {
+                    let users = realm.objects('user');
+                    realm.write(() => {
+                        realm.create('user', {
+                            userId: users.length + 1,
+                            userName: 'heath' + users.length,
+                            nickName: 'nice' + users.length,
+                        }, true);
+                    });
+
+                    this.setState({
+
+                        userInfo: '用户总数:' + users.length,
+                    });
+                    }
                 }
-                }
+                />
+
+                <CustomButton text='获取所有用户'
+                              onPress={() => {
+                                  let users = realm.objects('user');
+                                  DLBridgeManager.getAllUser(users);
+                              }}
+
                 />
             </View>
         );
