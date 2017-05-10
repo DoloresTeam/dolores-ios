@@ -13,6 +13,9 @@ PODS:
     - MBProgressHUD (~> 0.9)
     - SDWebImage (!= 3.7.2, ~> 3.7)
   - ReactiveObjC (2.1.2)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -25,6 +28,7 @@ DEPENDENCIES:
   - HyphenateLite
   - Masonry (~> 1.0.0)
   - ReactiveObjC (~> 2.1.2)
+  - Realm
   - YYCategories
 
 EXTERNAL SOURCES:
@@ -45,9 +49,10 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: f4cb8c58da2abcb13420a13aa94d31a8aecc1f91
+PODFILE CHECKSUM: 3b94cf5920412143336abb07611e59fe0b3ee5c9
 
 COCOAPODS: 1.2.0

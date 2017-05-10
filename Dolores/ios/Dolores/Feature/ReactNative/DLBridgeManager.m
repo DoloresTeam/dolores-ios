@@ -38,6 +38,9 @@ RCT_EXPORT_METHOD(getAllUser:(id)users) {
     NSLog(@"users: %@", users);
 }
 
+RCT_EXPORT_METHOD(realmFilePath:(NSString *)path) {
+  NSLog(@"*** realm filePath:%@", path);
+}
 
 RCT_EXPORT_METHOD(getUserWithId:(NSString *)uid user:(NSDictionary *)user) {
     

@@ -7,6 +7,7 @@ target 'Dolores' do
 	pod 'Masonry', '~> 1.0.0'
     pod 'ReactiveObjC', '~> 2.1.2'
     pod 'YYCategories'
+    pod 'Realm'
     
 end
 

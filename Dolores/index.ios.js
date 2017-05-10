@@ -118,6 +118,13 @@ export default class Dolores extends Component {
                               }}
 
                 />
+                <CustomButton text="realm path"
+                              onPress={() => {
+                                  let filePath = Realm.defaultPath;
+                                  DLBridgeManager.realmFilePath(filePath);
+                              }}
+
+                />
             </View>
         );
     }
