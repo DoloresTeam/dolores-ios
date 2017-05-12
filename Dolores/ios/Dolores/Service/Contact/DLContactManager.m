@@ -12,6 +12,7 @@
 #import "RMDepartment.h"
 #import "NSString+YYAdd.h"
 #import "DLDBQueryHelper.h"
+#import "RMCompany.h"
 
 @implementation DLContactManager
 
@@ -88,6 +89,13 @@
             }
 
             NSLog(@"update realm finish:%@", [NSDate date]);
+            RMCompany *company = [RMCompany new];
+            company.cid = @"1";
+            company.name = @"Dolores";
+            company.departments = [RMDepartment allObjects];
+            [realm transactionWithBlock:^{
+                [realm addOrUpdateObject:company];
+            }];
         });
 
 

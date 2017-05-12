@@ -10,6 +10,10 @@
 
 @implementation RMCompany
 
++ (NSString *)primaryKey {
+    return @"cid";
+}
+
 // Specify default values for properties
 
 //+ (NSDictionary *)defaultPropertyValues

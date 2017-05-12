@@ -9,5 +9,6 @@ target 'Dolores' do
     pod 'YYCategories'
     pod 'Realm'
     pod 'AFNetworking', '~> 3.0'
+    pod 'RATreeView', '~> 2.1.2'
 end
 

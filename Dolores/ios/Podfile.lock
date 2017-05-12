@@ -27,6 +27,7 @@ PODS:
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - SDWebImage (!= 3.7.2, ~> 3.7)
+  - RATreeView (2.1.2)
   - ReactiveObjC (2.1.2)
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - EaseUILite (from `https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git`)
   - HyphenateLite
   - Masonry (~> 1.0.0)
+  - RATreeView (~> 2.1.2)
   - ReactiveObjC (~> 2.1.2)
   - Realm
   - YYCategories
@@ -65,11 +67,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  RATreeView: 380cde0090cfde21dc6ac29137f49d3b768fdd28
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: acfb37afc88744adf37f3ca13f0787bbffa1760a
+PODFILE CHECKSUM: 6841ff14ba211afb5094ca68b5048a30109f7586
 
 COCOAPODS: 1.2.0
