@@ -23,4 +23,12 @@
     return [UIColor colorWithHexString:@"f8f8f8"];
 }
 
++ (UIColor *)dl_leadColor {
+    return [UIColor colorWithHexString:@"191919"];
+}
+
++ (UIColor *)dl_separatorColor {
+    return [UIColor colorWithRed:0.176 green:0.188 blue:0.200 alpha:0.20];
+}
+
 @end

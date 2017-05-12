@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class RMStaff;
+
 @interface DLOrgUserCell : UITableViewCell
+
+- (void)updateStaff:(RMStaff *)staff level:(NSInteger)level;
 
 @end

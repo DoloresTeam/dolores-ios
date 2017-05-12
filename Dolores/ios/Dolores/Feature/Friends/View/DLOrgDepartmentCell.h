@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class RMDepartment;
+
 @interface DLOrgDepartmentCell : UITableViewCell
 
+- (void)updateDepartment:(RMDepartment *)department level:(NSInteger)level;
+
+- (void)animateExpandRow:(BOOL)expand;
 @end

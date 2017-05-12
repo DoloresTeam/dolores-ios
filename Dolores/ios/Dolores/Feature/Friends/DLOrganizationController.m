@@ -70,11 +70,14 @@
 }
 
 - (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(nullable id)item {
+    NSInteger level = [treeView levelForCellForItem:item];
     if ([item isKindOfClass:[RMDepartment class]]) {
         DLOrgDepartmentCell *departmentCell = [treeView dequeueReusableCellWithIdentifier:[DLOrgDepartmentCell identifier]];
+        [departmentCell updateDepartment:item level:level];
         return departmentCell;
     } else if ([item isKindOfClass:[RMStaff class]]) {
         DLOrgUserCell *userCell = [treeView dequeueReusableCellWithIdentifier:[DLOrgUserCell identifier]];
+        [userCell updateStaff:item level:level];
         return userCell;
     }
     return nil;
@@ -87,8 +90,6 @@
     if ([item isKindOfClass:[RMDepartment class]]) {
         RMDepartment *department = item;
         NSInteger staffCount = department.staffs.count;
-//        NSInteger departmentCount = department.childrenDepartments.count;
-//        NSInteger totalRow = department.staffs.count + department.childrenDepartments.count;
         // 部门层级包含staff和子部门，先展示staff
         id dataSource;
         if (staffCount > 0) {
@@ -109,22 +110,40 @@
 #pragma mark - RATreeViewDelegate
 
 - (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item {
-    return 44;
+    return 48;
 }
 
 - (void)treeView:(RATreeView *)treeView willDisplayCell:(UITableViewCell *)cell forItem:(id)item {
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)treeView:(RATreeView *)treeView didSelectRowForItem:(id)item {
-    [treeView deselectRowForItem:item animated:YES];
+//- (void)treeView:(RATreeView *)treeView didSelectRowForItem:(id)item {
+//    [treeView deselectRowForItem:item animated:YES];
+//}
+
+- (void)treeView:(RATreeView *)treeView willExpandRowForItem:(id)item {
+    UITableViewCell *cell = [treeView cellForItem:item];
+    if ([cell isKindOfClass:[DLOrgDepartmentCell class]]) {
+        DLOrgDepartmentCell *orgDepartmentCell = (DLOrgDepartmentCell *) cell;
+        [orgDepartmentCell animateExpandRow:YES];
+    }
 }
+
+- (void)treeView:(RATreeView *)treeView willCollapseRowForItem:(id)item {
+    UITableViewCell *cell = [treeView cellForItem:item];
+    if ([cell isKindOfClass:[DLOrgDepartmentCell class]]) {
+        DLOrgDepartmentCell *orgDepartmentCell = (DLOrgDepartmentCell *) cell;
+        [orgDepartmentCell animateExpandRow:NO];
+    }
+}
+
 
 #pragma mark - Getter
 
 - (RATreeView *)treeView {
     if (!_treeView) {
         _treeView = [[RATreeView alloc] initWithFrame:CGRectZero style:RATreeViewStylePlain];
+        _treeView.separatorStyle = RATreeViewCellSeparatorStyleNone;
 
         [_treeView registerClass:[DLOrgUserCell class] forCellReuseIdentifier:[DLOrgUserCell identifier]];
         [_treeView registerClass:[DLOrgDepartmentCell class] forCellReuseIdentifier:[DLOrgDepartmentCell identifier]];

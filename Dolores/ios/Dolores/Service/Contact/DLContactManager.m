@@ -92,7 +92,7 @@
             RMCompany *company = [RMCompany new];
             company.cid = @"1";
             company.name = @"Dolores";
-            company.departments = [RMDepartment allObjects];
+            company.departments = [DLDBQueryHelper departmentsInList:@[@"1", @"2"]];
             [realm transactionWithBlock:^{
                 [realm addOrUpdateObject:company];
             }];
