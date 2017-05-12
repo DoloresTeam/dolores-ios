@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#define SharedContactManager [DLContactManager sharedInstance]
+
 @interface DLContactManager : NSObject
 
++ (instancetype)sharedInstance;
+
+- (void)fetchOrganization;
 @end

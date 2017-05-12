@@ -7,6 +7,7 @@
 //
 
 #import "DLContactManager.h"
+#import "DLNetworkService.h"
 
 @implementation DLContactManager
 
@@ -18,6 +19,14 @@
     });
     
     return _sharedContactManager;
+}
+
+- (void)fetchOrganization {
+    [[SharedNetwork rac_GET:@"/organization" parameters:@{}] subscribeNext:^(RACTuple *tuple) {
+        NSDictionary *resp = tuple.first;
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 @end

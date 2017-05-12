@@ -13,6 +13,7 @@
 #import "RMDepartment.h"
 #import <Realm.h>
 #import "BFNetworkActivityLogger.h"
+#import "DLContactManager.h"
 
 @interface AppDelegate ()
 
@@ -123,6 +124,8 @@
 
     NSLog(@"realm file path:%@", [RLMRealm defaultRealm].configuration.fileURL);
 
+    [SharedContactManager fetchOrganization];
+    /*
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         RLMRealm *realm = [RLMRealm defaultRealm];
         RMStaff *staff1 = [[RMStaff alloc] initWithValue:@{@"uid": @"1", @"userName": @"heath1"}];
@@ -143,6 +146,7 @@
         }];
 
     });
+     */
 }
 
 #pragma mark - observer

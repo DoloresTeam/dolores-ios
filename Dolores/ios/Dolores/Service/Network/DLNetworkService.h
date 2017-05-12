@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define SharedNetwork   [DLNetworkService sharedInstance]
+
 @protocol AFMultipartFormData;
 
 extern NSString *const kRACAFNResponseObjectErrorKey;
