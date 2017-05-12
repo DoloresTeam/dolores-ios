@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "DLRootTabController.h"
 #import "DLLoginController.h"
+#import "RMStaff.h"
+#import "RMDepartment.h"
+#import <Realm.h>
+#import "BFNetworkActivityLogger.h"
 
 @interface AppDelegate ()
 
@@ -21,10 +25,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self configRLMDatabase];
     [self setupGlobalUI];
     [self registerEMSDK];
     [self setupWindow];
     [self configObserver];
+    [self setupRequestLog];
     return YES;
 }
 
@@ -79,13 +85,64 @@
 
 - (void)registerEMSDK {
     EMOptions *options = [EMOptions optionsWithAppkey:@"1123170417178103#dolores"];
-    options.enableConsoleLog = YES;
+    options.enableConsoleLog = NO;
     options.isDeleteMessagesWhenExitGroup = NO;
     options.isDeleteMessagesWhenExitChatRoom = NO;
     options.enableDeliveryAck = YES;
     options.logLevel = EMLogLevelError;
     options.isAutoLogin = YES;
     [[EMClient sharedClient] initializeSDKWithOptions:options];
+}
+
+/**
+ * 配置http网络请求log
+ */
+- (void)setupRequestLog {
+#ifdef DEBUG
+    BFNetworkActivityLogger *logger = [BFNetworkActivityLogger sharedLogger];
+    [logger setLevel:BFLoggerLevelDebug];
+    [logger startLogging];
+#endif
+}
+
+- (void)configRLMDatabase {
+
+    RLMRealmConfiguration *configuration = [RLMRealmConfiguration defaultConfiguration];
+    uint64_t version = 0;
+    configuration.schemaVersion = version;
+    configuration.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
+        if (oldSchemaVersion < version) {
+
+        }
+    };
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *cacheDirectory = paths[0];
+    configuration.fileURL = [[NSURL URLWithString:[cacheDirectory stringByAppendingPathComponent:@"dolores"]] URLByAppendingPathExtension:@"realm"];
+    [RLMRealmConfiguration setDefaultConfiguration:configuration];
+    [RLMRealm defaultRealm];
+
+    NSLog(@"realm file path:%@", [RLMRealm defaultRealm].configuration.fileURL);
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        RMStaff *staff1 = [[RMStaff alloc] initWithValue:@{@"uid": @"1", @"userName": @"heath1"}];
+        RMStaff *staff2 = [[RMStaff alloc] initWithValue:@{@"uid": @"2", @"userName": @"heath2"}];
+        RMStaff *staff3 = [[RMStaff alloc] initWithValue:@{@"uid": @"3", @"userName": @"heath3"}];
+        RMStaff *staff4 = [[RMStaff alloc] initWithValue:@{@"uid": @"4", @"userName": @"heath4"}];
+        RMStaff *staff5 = [[RMStaff alloc] initWithValue:@{@"uid": @"5", @"userName": @"heath5"}];
+
+        RMDepartment *department2 = [[RMDepartment alloc] initWithValue:@{@"departmentId": @"2", @"departmentName": @"child1"}];
+        [department2.staffs addObjects:@[staff3, staff4, staff5, staff1]];
+
+        RMDepartment *department = [[RMDepartment alloc] initWithValue:@{@"departmentId": @"1", @"departmentName": @"All"}];
+        [department.staffs addObjects:@[staff1, staff2]];
+        [department.childrenDepartments addObjects:@[department2]];
+
+        [realm transactionWithBlock:^{
+            [realm addOrUpdateObject:department];
+        }];
+
+    });
 }
 
 #pragma mark - observer

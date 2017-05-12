@@ -12,13 +12,11 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* DoloresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DoloresTests.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -30,7 +28,6 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		2DCD954D1E0B4F2C00145EB5 /* DoloresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DoloresTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		7E1B12A11EC1BBA20056370E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B122F1EC1BBA20056370E /* UINavigationController+FDFullscreenPopGesture.m */; };
 		7E1B12A21EC1BBA20056370E /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B12311EC1BBA20056370E /* DateTools.bundle */; };
@@ -77,6 +74,12 @@
 		7E1B12CC1EC1BBA20056370E /* UIView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B129C1EC1BBA20056370E /* UIView+DLAdd.m */; };
 		7E1B12CD1EC1BBA20056370E /* DLChatDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B12A01EC1BBA20056370E /* DLChatDataHelper.m */; };
 		7E1B12F31EC1BD7D0056370E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1B12F21EC1BD7D0056370E /* Launch Screen.storyboard */; };
+		7E1B13C71EC2BDC80056370E /* RMCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B13C61EC2BDC80056370E /* RMCompany.m */; };
+		7E1B13CA1EC2BDFB0056370E /* RMDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B13C91EC2BDFB0056370E /* RMDepartment.m */; };
+		7E1B13CD1EC2BE310056370E /* RMStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B13CC1EC2BE310056370E /* RMStaff.m */; };
+		7E1B14341EC54F4D0056370E /* DLNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14331EC54F4D0056370E /* DLNetworkService.m */; };
+		7E1B14381EC55AE50056370E /* BFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14371EC55AE50056370E /* BFNetworkActivityLogger.m */; };
+		7E1B143C1EC55BB30056370E /* DLContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B143B1EC55BB30056370E /* DLContactManager.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 /* End PBXBuildFile section */
@@ -117,13 +120,6 @@
 			remoteGlobalIDString = 832C81801AAF6DEF007FA2F7;
 			remoteInfo = RCTVibration;
 		};
-		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = Dolores;
-		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
@@ -144,13 +140,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
-		};
-		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "Dolores-tvOS";
 		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -280,7 +269,6 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* DoloresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoloresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* DoloresTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoloresTests.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -293,7 +281,6 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		19A89C54A2EF69ABB85570CA /* Pods-Dolores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* Dolores-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dolores-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* Dolores-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dolores-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dolores.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -389,19 +376,23 @@
 		7E1B129F1EC1BBA20056370E /* DLChatDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChatDataHelper.h; sourceTree = "<group>"; };
 		7E1B12A01EC1BBA20056370E /* DLChatDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChatDataHelper.m; sourceTree = "<group>"; };
 		7E1B12F21EC1BD7D0056370E /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7E1B13C51EC2BDC80056370E /* RMCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCompany.h; sourceTree = "<group>"; };
+		7E1B13C61EC2BDC80056370E /* RMCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCompany.m; sourceTree = "<group>"; };
+		7E1B13C81EC2BDFB0056370E /* RMDepartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDepartment.h; sourceTree = "<group>"; };
+		7E1B13C91EC2BDFB0056370E /* RMDepartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDepartment.m; sourceTree = "<group>"; };
+		7E1B13CB1EC2BE310056370E /* RMStaff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMStaff.h; sourceTree = "<group>"; };
+		7E1B13CC1EC2BE310056370E /* RMStaff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStaff.m; sourceTree = "<group>"; };
+		7E1B14321EC54F4D0056370E /* DLNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetworkService.h; sourceTree = "<group>"; };
+		7E1B14331EC54F4D0056370E /* DLNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetworkService.m; sourceTree = "<group>"; };
+		7E1B14361EC55AE50056370E /* BFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFNetworkActivityLogger.h; sourceTree = "<group>"; };
+		7E1B14371EC55AE50056370E /* BFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFNetworkActivityLogger.m; sourceTree = "<group>"; };
+		7E1B143A1EC55BB30056370E /* DLContactManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContactManager.h; sourceTree = "<group>"; };
+		7E1B143B1EC55BB30056370E /* DLContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContactManager.m; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00E356EB1AD99517003FC87E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -433,13 +424,6 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48D1E0B4A5D006451C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				7E1B123D1EC1BBA20056370E /* Feature */,
-				7E1B122C1EC1BBA20056370E /*  Thirdparty */,
+				7E1B122C1EC1BBA20056370E /* Thirdparty */,
 				7E1B126F1EC1BBA20056370E /* Header */,
 				7E1B12751EC1BBA20056370E /* Model */,
 				7E1B127E1EC1BBA20056370E /* Resource */,
@@ -594,15 +578,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7E1B122C1EC1BBA20056370E /*  Thirdparty */ = {
+		7E1B122C1EC1BBA20056370E /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				7E1B14351EC55AE50056370E /* BFNetworkActivityLogger */,
 				7E1B122D1EC1BBA20056370E /* FDFullscreenPopGesture */,
 				7E1B12301EC1BBA20056370E /* NSDateTools */,
 				7E1B12381EC1BBA20056370E /* UIFloatLabelTextField */,
-				7E1B123B1EC1BBA20056370E /* UIViewController-BackButtonHandler-master */,
 			);
-			name = " Thirdparty";
+			name = Thirdparty;
 			path = "Dolores/ Thirdparty";
 			sourceTree = "<group>";
 		};
@@ -636,13 +620,6 @@
 				7E1B123A1EC1BBA20056370E /* UIFloatLabelTextField.m */,
 			);
 			path = UIFloatLabelTextField;
-			sourceTree = "<group>";
-		};
-		7E1B123B1EC1BBA20056370E /* UIViewController-BackButtonHandler-master */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "UIViewController-BackButtonHandler-master";
 			sourceTree = "<group>";
 		};
 		7E1B123D1EC1BBA20056370E /* Feature */ = {
@@ -780,6 +757,7 @@
 		7E1B12751EC1BBA20056370E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7E1B13C41EC2AC660056370E /* Realm */,
 				7E1B12761EC1BBA20056370E /* DLConversationModel.h */,
 				7E1B12771EC1BBA20056370E /* DLConversationModel.m */,
 				7E1B12781EC1BBA20056370E /* DLMessageModel.h */,
@@ -804,6 +782,8 @@
 		7E1B127F1EC1BBA20056370E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7E1B14391EC55BA40056370E /* Contact */,
+				7E1B142E1EC54E400056370E /* Network */,
 			);
 			name = Service;
 			path = Dolores/Service;
@@ -884,6 +864,46 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		7E1B13C41EC2AC660056370E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				7E1B13C51EC2BDC80056370E /* RMCompany.h */,
+				7E1B13C61EC2BDC80056370E /* RMCompany.m */,
+				7E1B13C81EC2BDFB0056370E /* RMDepartment.h */,
+				7E1B13C91EC2BDFB0056370E /* RMDepartment.m */,
+				7E1B13CB1EC2BE310056370E /* RMStaff.h */,
+				7E1B13CC1EC2BE310056370E /* RMStaff.m */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		7E1B142E1EC54E400056370E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7E1B14321EC54F4D0056370E /* DLNetworkService.h */,
+				7E1B14331EC54F4D0056370E /* DLNetworkService.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7E1B14351EC55AE50056370E /* BFNetworkActivityLogger */ = {
+			isa = PBXGroup;
+			children = (
+				7E1B14361EC55AE50056370E /* BFNetworkActivityLogger.h */,
+				7E1B14371EC55AE50056370E /* BFNetworkActivityLogger.m */,
+			);
+			path = BFNetworkActivityLogger;
+			sourceTree = "<group>";
+		};
+		7E1B14391EC55BA40056370E /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				7E1B143A1EC55BB30056370E /* DLContactManager.h */,
+				7E1B143B1EC55BB30056370E /* DLContactManager.m */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -921,17 +941,16 @@
 				1A8AA922985DC4BB19A187AB /* Pods */,
 				1E6A5FB1528C4DD0DDEF1733 /* Frameworks */,
 			);
-			indentWidth = 2;
+			indentWidth = 4;
 			sourceTree = "<group>";
-			tabWidth = 2;
+			tabWidth = 4;
+			usesTabs = 0;
 		};
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Dolores.app */,
-				00E356EE1AD99517003FC87E /* DoloresTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* Dolores-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* Dolores-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -939,24 +958,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* DoloresTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DoloresTests" */;
-			buildPhases = (
-				00E356EA1AD99517003FC87E /* Sources */,
-				00E356EB1AD99517003FC87E /* Frameworks */,
-				00E356EC1AD99517003FC87E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				00E356F51AD99517003FC87E /* PBXTargetDependency */,
-			);
-			name = DoloresTests;
-			productName = DoloresTests;
-			productReference = 00E356EE1AD99517003FC87E /* DoloresTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		13B07F861A680F5B00A75B9A /* Dolores */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dolores" */;
@@ -996,45 +997,19 @@
 			productReference = 2D02E47B1E0B4A5D006451C7 /* Dolores-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* Dolores-tvOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Dolores-tvOSTests" */;
-			buildPhases = (
-				2D02E48C1E0B4A5D006451C7 /* Sources */,
-				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
-				2D02E48E1E0B4A5D006451C7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
-			);
-			name = "Dolores-tvOSTests";
-			productName = "Dolores-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* Dolores-tvOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DL;
 				LastUpgradeCheck = 610;
-				ORGANIZATIONNAME = Facebook;
+				ORGANIZATIONNAME = Dolores;
 				TargetAttributes = {
-					00E356ED1AD99517003FC87E = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 13B07F861A680F5B00A75B9A;
-					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
-					};
-					2D02E48F1E0B4A5D006451C7 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
 				};
 			};
@@ -1098,9 +1073,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Dolores */,
-				00E356ED1AD99517003FC87E /* DoloresTests */,
 				2D02E47A1E0B4A5D006451C7 /* Dolores-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* Dolores-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1284,13 +1257,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		00E356EC1AD99517003FC87E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1302,13 +1268,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D02E4791E0B4A5D006451C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48E1E0B4A5D006451C7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1394,14 +1353,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00E356EA1AD99517003FC87E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				00E356F31AD99517003FC87E /* DoloresTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1418,6 +1369,7 @@
 				7E1B12C11EC1BBA20056370E /* NSUserDefaults+DLUser.m in Sources */,
 				7E1B12C51EC1BBA20056370E /* UIColor+DLAdd.m in Sources */,
 				7E1B12A91EC1BBA20056370E /* DLChatController.m in Sources */,
+				7E1B13CD1EC2BE310056370E /* RMStaff.m in Sources */,
 				7E1B12AB1EC1BBA20056370E /* DLConversationListController.m in Sources */,
 				7E1B12C01EC1BBA20056370E /* DLUser.m in Sources */,
 				7E1B12BE1EC1BBA20056370E /* DLMessageModel.m in Sources */,
@@ -1426,6 +1378,7 @@
 				7E1B12B51EC1BBA20056370E /* DLRegisterController.m in Sources */,
 				7E1B12B71EC1BBA20056370E /* DLRNTestController.m in Sources */,
 				7E1B12AD1EC1BBA20056370E /* DLBaseSettingCell.m in Sources */,
+				7E1B13CA1EC2BDFB0056370E /* RMDepartment.m in Sources */,
 				7E1B12A41EC1BBA20056370E /* DTError.m in Sources */,
 				7E1B12C91EC1BBA20056370E /* UITableView+Addition.m in Sources */,
 				7E1B12AF1EC1BBA20056370E /* DLAddContactController.m in Sources */,
@@ -1436,10 +1389,14 @@
 				7E1B12A31EC1BBA20056370E /* DTConstants.m in Sources */,
 				7E1B12BA1EC1BBA20056370E /* DLMineController.m in Sources */,
 				7E1B12B41EC1BBA20056370E /* DLLoginController.m in Sources */,
+				7E1B143C1EC55BB30056370E /* DLContactManager.m in Sources */,
+				7E1B14381EC55AE50056370E /* BFNetworkActivityLogger.m in Sources */,
 				7E1B12B21EC1BBA20056370E /* DLContactSectionHeader.m in Sources */,
+				7E1B14341EC54F4D0056370E /* DLNetworkService.m in Sources */,
 				7E1B12B61EC1BBA20056370E /* DLBridgeManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				7E1B12BD1EC1BBA20056370E /* DLConversationModel.m in Sources */,
+				7E1B13C71EC2BDC80056370E /* RMCompany.m in Sources */,
 				7E1B12C81EC1BBA20056370E /* UILabel+Addition.m in Sources */,
 				7E1B12A51EC1BBA20056370E /* NSDate+DateTools.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
@@ -1462,71 +1419,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D02E48C1E0B4A5D006451C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2DCD954D1E0B4F2C00145EB5 /* DoloresTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* Dolores */;
-			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* Dolores-tvOS */;
-			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		00E356F61AD99517003FC87E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = DoloresTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dolores.app/Dolores";
-			};
-			name = Debug;
-		};
-		00E356F71AD99517003FC87E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COPY_PHASE_STRIP = NO;
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = DoloresTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dolores.app/Dolores";
-			};
-			name = Release;
-		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19A89C54A2EF69ABB85570CA /* Pods-Dolores.debug.xcconfig */;
@@ -1630,50 +1525,6 @@
 			};
 			name = Release;
 		};
-		2D02E4991E0B4A5E006451C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Dolores-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Dolores-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dolores-tvOS.app/Dolores-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
-			};
-			name = Debug;
-		};
-		2D02E49A1E0B4A5E006451C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Dolores-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Dolores-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dolores-tvOS.app/Dolores-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
-			};
-			name = Release;
-		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1753,15 +1604,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DoloresTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				00E356F61AD99517003FC87E /* Debug */,
-				00E356F71AD99517003FC87E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dolores" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1776,15 +1618,6 @@
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
 				2D02E4981E0B4A5E006451C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Dolores-tvOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D02E4991E0B4A5E006451C7 /* Debug */,
-				2D02E49A1E0B4A5E006451C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

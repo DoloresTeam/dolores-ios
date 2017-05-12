@@ -7,7 +7,6 @@
 //
 
 #import "DLBridgeManager.h"
-#import "DLNativeBridgeHelper.h"
 
 @implementation DLBridgeManager
 

@@ -8,6 +8,6 @@ target 'Dolores' do
     pod 'ReactiveObjC', '~> 2.1.2'
     pod 'YYCategories'
     pod 'Realm'
-    
+    pod 'AFNetworking', '~> 3.0'
 end
 
