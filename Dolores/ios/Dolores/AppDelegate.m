@@ -125,28 +125,7 @@
     NSLog(@"realm file path:%@", [RLMRealm defaultRealm].configuration.fileURL);
 
     [SharedContactManager fetchOrganization];
-    /*
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        RMStaff *staff1 = [[RMStaff alloc] initWithValue:@{@"uid": @"1", @"userName": @"heath1"}];
-        RMStaff *staff2 = [[RMStaff alloc] initWithValue:@{@"uid": @"2", @"userName": @"heath2"}];
-        RMStaff *staff3 = [[RMStaff alloc] initWithValue:@{@"uid": @"3", @"userName": @"heath3"}];
-        RMStaff *staff4 = [[RMStaff alloc] initWithValue:@{@"uid": @"4", @"userName": @"heath4"}];
-        RMStaff *staff5 = [[RMStaff alloc] initWithValue:@{@"uid": @"5", @"userName": @"heath5"}];
 
-        RMDepartment *department2 = [[RMDepartment alloc] initWithValue:@{@"departmentId": @"2", @"departmentName": @"child1"}];
-        [department2.staffs addObjects:@[staff3, staff4, staff5, staff1]];
-
-        RMDepartment *department = [[RMDepartment alloc] initWithValue:@{@"departmentId": @"1", @"departmentName": @"All"}];
-        [department.staffs addObjects:@[staff1, staff2]];
-        [department.childrenDepartments addObjects:@[department2]];
-
-        [realm transactionWithBlock:^{
-            [realm addOrUpdateObject:department];
-        }];
-
-    });
-     */
 }
 
 #pragma mark - observer

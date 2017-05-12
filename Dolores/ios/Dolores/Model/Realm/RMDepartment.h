@@ -33,6 +33,8 @@ RLM_ARRAY_TYPE(RMDepartment)
  */
 @property RLMArray<RMStaff *><RMStaff> *staffs;
 
+- (instancetype)initWithId:(NSString *)id name:(NSString *)name description:(NSString *)description;
+
 @end
 
 

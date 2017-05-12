@@ -32,4 +32,15 @@
 //    return @[];
 //}
 
+- (instancetype)initWithId:(NSString *)id1 name:(NSString *)name description:(NSString *)description {
+    self = [super init];
+    if (self) {
+        _departmentId = id1;
+        _departmentName = name;
+        _departmentDes = description;
+    }
+    return self;
+}
+
+
 @end

@@ -80,6 +80,8 @@
 		7E1B14341EC54F4D0056370E /* DLNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14331EC54F4D0056370E /* DLNetworkService.m */; };
 		7E1B14381EC55AE50056370E /* BFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14371EC55AE50056370E /* BFNetworkActivityLogger.m */; };
 		7E1B143C1EC55BB30056370E /* DLContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B143B1EC55BB30056370E /* DLContactManager.m */; };
+		7E1B143F1EC5880C0056370E /* DLDBQueryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B143E1EC5880C0056370E /* DLDBQueryHelper.m */; };
+		7E1B14421EC58C750056370E /* NSArray+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14411EC58C750056370E /* NSArray+DLAdd.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 /* End PBXBuildFile section */
@@ -388,6 +390,10 @@
 		7E1B14371EC55AE50056370E /* BFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFNetworkActivityLogger.m; sourceTree = "<group>"; };
 		7E1B143A1EC55BB30056370E /* DLContactManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContactManager.h; sourceTree = "<group>"; };
 		7E1B143B1EC55BB30056370E /* DLContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContactManager.m; sourceTree = "<group>"; };
+		7E1B143D1EC5880C0056370E /* DLDBQueryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDBQueryHelper.h; sourceTree = "<group>"; };
+		7E1B143E1EC5880C0056370E /* DLDBQueryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDBQueryHelper.m; sourceTree = "<group>"; };
+		7E1B14401EC58C750056370E /* NSArray+DLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+DLAdd.h"; sourceTree = "<group>"; };
+		7E1B14411EC58C750056370E /* NSArray+DLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DLAdd.m"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -815,6 +821,8 @@
 			children = (
 				7E1B12841EC1BBA20056370E /* NSUserDefaults+DLUser.h */,
 				7E1B12851EC1BBA20056370E /* NSUserDefaults+DLUser.m */,
+				7E1B14401EC58C750056370E /* NSArray+DLAdd.h */,
+				7E1B14411EC58C750056370E /* NSArray+DLAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -873,6 +881,8 @@
 				7E1B13C91EC2BDFB0056370E /* RMDepartment.m */,
 				7E1B13CB1EC2BE310056370E /* RMStaff.h */,
 				7E1B13CC1EC2BE310056370E /* RMStaff.m */,
+				7E1B143D1EC5880C0056370E /* DLDBQueryHelper.h */,
+				7E1B143E1EC5880C0056370E /* DLDBQueryHelper.m */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -1378,10 +1388,12 @@
 				7E1B12B51EC1BBA20056370E /* DLRegisterController.m in Sources */,
 				7E1B12B71EC1BBA20056370E /* DLRNTestController.m in Sources */,
 				7E1B12AD1EC1BBA20056370E /* DLBaseSettingCell.m in Sources */,
+				7E1B143F1EC5880C0056370E /* DLDBQueryHelper.m in Sources */,
 				7E1B13CA1EC2BDFB0056370E /* RMDepartment.m in Sources */,
 				7E1B12A41EC1BBA20056370E /* DTError.m in Sources */,
 				7E1B12C91EC1BBA20056370E /* UITableView+Addition.m in Sources */,
 				7E1B12AF1EC1BBA20056370E /* DLAddContactController.m in Sources */,
+				7E1B14421EC58C750056370E /* NSArray+DLAdd.m in Sources */,
 				7E1B12AA1EC1BBA20056370E /* DLChatDetailController.m in Sources */,
 				7E1B12C71EC1BBA20056370E /* UIImage+Addition.m in Sources */,
 				7E1B12B81EC1BBA20056370E /* DLBaseViewController.m in Sources */,

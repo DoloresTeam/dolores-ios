@@ -33,4 +33,16 @@
 //    return @[];
 //}
 
+- (instancetype)initWithDict:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        _uid = dictionary[@"id"];
+        _nickName = dictionary[@"name"];
+        _realName = dictionary[@"realName"];
+        _title = dictionary[@"title"];
+    }
+    return self;
+}
+
+
 @end

@@ -26,6 +26,8 @@
 // 反转，隶属于部门列表
 @property (readonly) RLMLinkingObjects *belongs;
 
+- (instancetype)initWithDict:(NSDictionary *)dictionary;
+
 @end
 
 // This protocol enables typed collections. i.e.:
