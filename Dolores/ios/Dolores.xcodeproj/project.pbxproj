@@ -83,6 +83,8 @@
 		7E1B143F1EC5880C0056370E /* DLDBQueryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B143E1EC5880C0056370E /* DLDBQueryHelper.m */; };
 		7E1B14421EC58C750056370E /* NSArray+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14411EC58C750056370E /* NSArray+DLAdd.m */; };
 		7E1B14451EC596D20056370E /* DLOrganizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14441EC596D20056370E /* DLOrganizationController.m */; };
+		7E1B14531EC599800056370E /* DLOrgUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14521EC599800056370E /* DLOrgUserCell.m */; };
+		7E1B146F1EC599910056370E /* DLOrgDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B146E1EC599910056370E /* DLOrgDepartmentCell.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 /* End PBXBuildFile section */
@@ -397,6 +399,10 @@
 		7E1B14411EC58C750056370E /* NSArray+DLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DLAdd.m"; sourceTree = "<group>"; };
 		7E1B14431EC596D20056370E /* DLOrganizationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOrganizationController.h; sourceTree = "<group>"; };
 		7E1B14441EC596D20056370E /* DLOrganizationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOrganizationController.m; sourceTree = "<group>"; };
+		7E1B14511EC599800056370E /* DLOrgUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOrgUserCell.h; sourceTree = "<group>"; };
+		7E1B14521EC599800056370E /* DLOrgUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOrgUserCell.m; sourceTree = "<group>"; };
+		7E1B146D1EC599910056370E /* DLOrgDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOrgDepartmentCell.h; sourceTree = "<group>"; };
+		7E1B146E1EC599910056370E /* DLOrgDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOrgDepartmentCell.m; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -697,6 +703,10 @@
 				7E1B12571EC1BBA20056370E /* DLContactSectionHeader.m */,
 				7E1B12581EC1BBA20056370E /* DLSelectContactCell.h */,
 				7E1B12591EC1BBA20056370E /* DLSelectContactCell.m */,
+				7E1B14511EC599800056370E /* DLOrgUserCell.h */,
+				7E1B14521EC599800056370E /* DLOrgUserCell.m */,
+				7E1B146D1EC599910056370E /* DLOrgDepartmentCell.h */,
+				7E1B146E1EC599910056370E /* DLOrgDepartmentCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1389,6 +1399,7 @@
 				7E1B12C01EC1BBA20056370E /* DLUser.m in Sources */,
 				7E1B12BE1EC1BBA20056370E /* DLMessageModel.m in Sources */,
 				7E1B12AC1EC1BBA20056370E /* DLSearchResultController.m in Sources */,
+				7E1B14531EC599800056370E /* DLOrgUserCell.m in Sources */,
 				7E1B12CC1EC1BBA20056370E /* UIView+DLAdd.m in Sources */,
 				7E1B12B51EC1BBA20056370E /* DLRegisterController.m in Sources */,
 				7E1B12B71EC1BBA20056370E /* DLRNTestController.m in Sources */,
@@ -1420,6 +1431,7 @@
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				7E1B12C21EC1BBA20056370E /* MBProgressHUD+VBAdd.m in Sources */,
 				7E1B12B91EC1BBA20056370E /* DLRootTabController.m in Sources */,
+				7E1B146F1EC599910056370E /* DLOrgDepartmentCell.m in Sources */,
 				7E1B12A61EC1BBA20056370E /* UIFloatLabelTextField.m in Sources */,
 				7E1B12AE1EC1BBA20056370E /* DLNetStatusView.m in Sources */,
 				7E1B12A81EC1BBA20056370E /* DLAddMemberController.m in Sources */,

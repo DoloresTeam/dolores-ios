@@ -13,6 +13,7 @@
 #import "DLChatController.h"
 #import "DLChatDataHelper.h"
 #import "DLUser.h"
+#import "DLOrganizationController.h"
 
 @interface DLContactListController () <DLBaseControllerProtocol, UITableViewDataSource, UITableViewDelegate>
 
@@ -158,9 +159,12 @@
 #pragma mark - touch action
 
 - (void)onClickToAdd {
-    DLAddContactController *addContactController = [DLAddContactController new];
-    addContactController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:addContactController animated:YES];
+//    DLAddContactController *addContactController = [DLAddContactController new];
+//    addContactController.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:addContactController animated:YES];
+    DLOrganizationController *organizationController = [DLOrganizationController new];
+    organizationController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:organizationController animated:YES];
 }
 
 #pragma mark - Getter
