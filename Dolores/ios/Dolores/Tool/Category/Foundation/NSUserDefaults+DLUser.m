@@ -6,34 +6,17 @@
 //  Copyright © 2017 Dolores. All rights reserved.
 //
 
+#import <YYCategories/NSString+YYAdd.h>
 #import "NSUserDefaults+DLUser.h"
 
-static NSString *const kIsLogin = @"isLoginKey";
-static NSString *const kLastLoginUser = @"lastLoginUserKey";
 static NSString *const kLastFetchQiniuToken = @"lastFetchQiniuTokenKey";
-static NSString *const kDoloresToken = @"DoloresTokenKey";
+static NSString *const kQiniuToken = @"qiniuTokenKey";
+static NSString *const kCurrentUser = @"CurrentUserKey";
 
 
 @implementation NSUserDefaults (DLUser)
 
 #pragma mark - public method
-
-+ (void)setLoginStatus:(BOOL)isLogin {
-    [self saveObject:@(isLogin) key:kIsLogin];
-}
-
-+ (BOOL)getLoginStatus {
-    NSNumber *status = [self getObjectWithKey:kIsLogin];
-    return [status boolValue];
-}
-
-+ (void)saveLastUser:(NSString *)user {
-    [self saveObject:user ? : @"" key:kLastLoginUser];
-}
-
-+ (NSString *)getLastUser {
-    return [self getObjectWithKey:kLastLoginUser];
-}
 
 + (void)saveLastFetchQiniuToken:(NSTimeInterval)timestamp {
     [self saveObject:@(timestamp) key:kLastFetchQiniuToken];
@@ -45,12 +28,20 @@ static NSString *const kDoloresToken = @"DoloresTokenKey";
     return [[NSDate date] timeIntervalSince1970] - timestamp.doubleValue > 300;
 }
 
-+ (void)saveDoloresToken:(NSString *)token {
-    [self saveObject:token key:kDoloresToken];
++ (void)saveQiniuToken:(NSString *)qiniuToken {
+    [self saveObject:qiniuToken key:kQiniuToken];
 }
 
-+ (NSString *)getDoloresToken {
-    return [self getObjectWithKey:kDoloresToken];
++ (NSString *)getQiniuToken {
+    return [self getObjectWithKey:kQiniuToken];
+}
+
++ (void)setCurrentUser:(NSString *)username {
+    [self saveObject:username key:kCurrentUser];
+}
+
++ (NSString *)getCurrentUser {
+    return [self getObjectWithKey:kCurrentUser];
 }
 
 #pragma mark - private method

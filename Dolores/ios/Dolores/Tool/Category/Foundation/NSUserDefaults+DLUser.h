@@ -10,18 +10,13 @@
 
 @interface NSUserDefaults (DLUser)
 
-+ (void)setLoginStatus:(BOOL)isLogin;
-
-+ (BOOL)getLoginStatus;
-
-+ (void)saveLastUser:(NSString *)user;
-
-+ (NSString *)getLastUser;
-
 + (void)saveLastFetchQiniuToken:(NSTimeInterval)timestamp;
 + (BOOL)shouldFetchQiniuToken;
 
-+ (void)saveDoloresToken:(NSString *)token;
-+ (NSString *)getDoloresToken;
++ (void)saveQiniuToken:(NSString *)qiniuToken;
++ (NSString *)getQiniuToken;
+
++ (void)setCurrentUser:(NSString *)username;
++ (NSString *)getCurrentUser;
 
 @end

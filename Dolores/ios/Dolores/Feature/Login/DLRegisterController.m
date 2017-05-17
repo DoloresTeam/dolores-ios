@@ -100,7 +100,7 @@
         if (aError) {
             [self showInfo:aError.errorDescription];
         } else {
-            [NSUserDefaults setLoginStatus:YES];
+            
             [self dismissViewControllerAnimated:YES completion:^{
 
             }];

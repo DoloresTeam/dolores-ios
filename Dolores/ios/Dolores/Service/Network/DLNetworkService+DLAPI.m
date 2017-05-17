@@ -19,11 +19,26 @@
 }
 
 + (RACSignal *)refreshToken {
-    return [SharedNetwork rac_GET:@"/api/v1/resfresh_token" parameters:@{}];
+    return [[SharedNetwork rac_GET:@"/api/v1/refresh_token" parameters:@{}] doNext:^(NSDictionary *resp) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm transactionWithBlock:^{
+                RMUser *user = [DLDBQueryHelper currentUser];
+                if (user) {
+                    user.token = resp[@"token"];
+                    user.expireDate = resp[@"expire"];
+                    [realm addOrUpdateObject:user];
+                }
+            }];
+        });
+    }];
 }
 
 + (RACSignal *)getQiniuToken {
-    return [SharedNetwork rac_GET:@"/api/v1/upload_token" parameters:nil];
+    return [[SharedNetwork rac_GET:@"/api/v1/upload_token" parameters:nil] doNext:^(NSDictionary *resp) {
+        [NSUserDefaults saveQiniuToken:resp[@"token"]];
+        [NSUserDefaults saveLastFetchQiniuToken:[[NSDate date] timeIntervalSince1970]];
+    }];
 }
 
 + (RACSignal *)updateUserAvater:(NSString *)urlString {

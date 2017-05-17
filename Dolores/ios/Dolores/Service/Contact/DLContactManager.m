@@ -27,12 +27,11 @@
 }
 
 - (void)fetchOrganization {
-    [[SharedNetwork rac_GET:@"/organization" parameters:@{}] subscribeNext:^(RACTuple *tuple) {
+    [[SharedNetwork rac_GET:@"/api/v1/organization" parameters:@{}] subscribeNext:^(NSDictionary *resp) {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             NSLog(@"update realm begin:%@", [NSDate date]);
 
-            NSDictionary *resp = tuple.first;
             NSArray *departments = resp[@"departments"];
             RLMRealm *realm = [RLMRealm defaultRealm];
 
@@ -40,7 +39,7 @@
                 @autoreleasepool {
                     NSString *dpId = departmentDict[@"id"];
                     if (dpId) {
-                        RMDepartment *rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"name"] description:departmentDict[@"description"]];
+                        RMDepartment *rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"cn"] description:departmentDict[@"description"]];
                         NSString *parentId = departmentDict[@"pid"];
                         if ([parentId isNotBlank]) {
                             RMDepartment *parentDep = [RMDepartment objectForPrimaryKey:parentId];

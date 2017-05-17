@@ -94,7 +94,7 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
             if (error) {
                 [self handleFailure:error responseObject:responseObject subscriber:subscriber];
             } else {
-                [self handleSuccessResponse:responseObject response:response subscriber:subscriber];
+                [self handleSuccessResponse:responseObject subscriber:subscriber];
             }
         }];
         [task resume];
@@ -114,7 +114,7 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
             if (error) {
                 [self handleFailure:error responseObject:responseObject subscriber:subscriber];
             } else {
-                [self handleSuccessResponse:responseObject response:response subscriber:subscriber];
+                [self handleSuccessResponse:responseObject subscriber:subscriber];
             }
         }];
         [task resume];
@@ -137,14 +137,15 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
         userInfo[@"message"] = message;
         errorRes = [NSError errorWithDomain:error.domain code:code userInfo:userInfo];
     } else {
+        userInfo[@"message"] = userInfo[NSLocalizedDescriptionKey];
         errorRes = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
     }
     
     [subscriber sendError:errorRes];
 }
 
-- (void)handleSuccessResponse:(id)responseObj response:(NSURLResponse *)response subscriber:(id <RACSubscriber>)subscriber {
-    [subscriber sendNext:RACTuplePack(responseObj, response)];
+- (void)handleSuccessResponse:(id)responseObj subscriber:(id <RACSubscriber>)subscriber {
+    [subscriber sendNext:responseObj];
     [subscriber sendCompleted];
 }
 

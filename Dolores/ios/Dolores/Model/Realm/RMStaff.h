@@ -14,7 +14,6 @@
 
 @property NSString *uid; //用户id
 @property NSString *easemobAccount; //环信id
-@property NSString *userName; //用户名，用于登陆
 @property NSString *realName; //真实名
 @property NSString *nickName; //显示名
 
@@ -22,6 +21,7 @@
 @property NSString *signature; //签名
 @property NSString *avatarURL; //头像URL
 @property NSString *email; //可能多个,";"分割
+@property NSString *mobile;
 @property NSNumber<RLMInt> *gender; //性别，0: 女 1: 男
 // 反转，隶属于部门列表
 @property (readonly) RLMLinkingObjects *belongs;

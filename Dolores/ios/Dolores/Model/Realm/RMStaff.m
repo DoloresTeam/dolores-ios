@@ -38,8 +38,17 @@
     if (self) {
         _uid = dictionary[@"id"];
         _nickName = dictionary[@"name"];
-        _realName = dictionary[@"realName"];
-        _title = dictionary[@"title"];
+        _realName = dictionary[@"cn"];
+        _avatarURL = dictionary[@"labeledURI"];
+        _gender = dictionary[@"gender"];
+        _mobile = dictionary[@"telephoneNumber"];
+        _easemobAccount = dictionary[@"thirdAccount"];
+
+        NSArray *emails = dictionary[@"email"];
+        _email = [emails componentsJoinedByString:@","];
+
+        NSArray *titles = dictionary[@"title"];
+        _title = [titles componentsJoinedByString:@","];
     }
     return self;
 }

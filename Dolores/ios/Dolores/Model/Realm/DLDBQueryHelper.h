@@ -9,9 +9,23 @@
 #import <Foundation/Foundation.h>
 #import <Realm.h>
 #import "RMDepartment.h"
+#import "RMUser.h"
+#import "RMStaff.h"
+#import "RMCompany.h"
 
 @interface DLDBQueryHelper : NSObject
 
++ (void)configDefaultRealmDB:(NSString *)username;
+
 + (RLMResults<RMDepartment *> *)departmentsInList:(NSArray *)idList;
 
++ (RMUser *)currentUser;
+
++ (RLMResults<RMUser *> *)userList;
+
++ (BOOL)isLogin;
+
++ (void)saveLoginUser:(NSDictionary *)dict;
+
 @end
+

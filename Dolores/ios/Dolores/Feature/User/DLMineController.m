@@ -52,9 +52,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        [[EMClient sharedClient] logout:NO completion:^(EMError *aError) {
+
+        [self showLoadingView];
+        [[EMClient sharedClient] logout:YES completion:^(EMError *aError) {
             if (!aError) {
+                RLMRealm *realm = [RLMRealm defaultRealm];
+                [realm transactionWithBlock:^{
+                    RMUser *user = [DLDBQueryHelper currentUser];
+                    user.logoutTimestamp = @([[NSDate date] timeIntervalSince1970]);
+                    user.isLogin = @(NO);
+                    [realm addOrUpdateObject:user];
+                }];
+                [self hideLoadingView];
                 [[NSNotificationCenter defaultCenter] postNotificationOnMainThreadWithName:kLoginStatusNotification object:@(NO) userInfo:nil];
+            } else {
+                [self showInfo:aError.errorDescription];
             }
         }];
     }

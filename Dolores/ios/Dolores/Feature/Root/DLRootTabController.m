@@ -59,7 +59,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [self checkLoginStatus];
 }
 
 #pragma mark - UITabBarControllerDelegate
@@ -72,16 +71,7 @@
 #pragma mark - observer
 
 - (void)setupObserver {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogoutNotification) name:kUserLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leaveChatController) name:kLeaveChatControllerNotification object:nil];
-
-}
-
-- (void)userLogoutNotification {
-    // TODO: 清除上个用户的数据
-    self.selectedIndex = 0;
-    [NSUserDefaults setLoginStatus:NO];
-    [self checkLoginStatus];
 }
 
 - (void)leaveChatController {
@@ -89,14 +79,6 @@
 }
 
 #pragma mark - private method
-
-- (void)checkLoginStatus {
-    if (![NSUserDefaults getLoginStatus]) {
-        DLLoginController *loginController = [DLLoginController new];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginController];
-        [self presentViewController:nav animated:NO completion:NULL];
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

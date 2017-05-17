@@ -16,6 +16,7 @@
 #import "DLNetworkService+DLAPI.h"
 #import "NSDate+YYAdd.h"
 #import "AFHTTPSessionManager.h"
+#import "DLContactManager.h"
 
 @interface DLLoginController ()
 
@@ -37,8 +38,8 @@
 }
 
 - (void)setupNavigationBar {
-    UIBarButtonItem *barButtonItem = [UIBarButtonItem initWithTitle:@"注册" target:self action:@selector(onClickRegisterButton:)];
-    self.navigationItem.rightBarButtonItem = barButtonItem;
+//    UIBarButtonItem *barButtonItem = [UIBarButtonItem initWithTitle:@"注册" target:self action:@selector(onClickRegisterButton:)];
+//    self.navigationItem.rightBarButtonItem = barButtonItem;
 }
 
 
@@ -51,10 +52,8 @@
 }
 
 - (void)setupData {
-    NSString *user = [NSUserDefaults getLastUser];
-    self.fldUser.text = user;
+    self.fldUser.text = [NSUserDefaults getCurrentUser];
 }
-
 
 - (void)setupViewConstraints {
     [self.fldUser mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,25 +110,42 @@
 
     [self showLoadingView];
 
-    [[DLNetworkService login:self.fldUser.text password:[self.fldPassword.text md5String]] subscribeNext:^(RACTuple *tuple) {
-        NSDictionary *resp = tuple.first;
+    [[DLNetworkService login:self.fldUser.text password:[self.fldPassword.text md5String]] subscribeNext:^(id resp) {
         // "expire" : "2017-05-18T13:27:14+08:00"
-        [[DLNetworkService sharedInstance] setHeader:@"Authorization" headerField:[NSString stringWithFormat:@"Dolores %@", resp[@"token"]]];
-        NSDate *date = [NSDate dateWithString:resp[@"expire"] format:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ" timeZone:[NSTimeZone timeZoneForSecondsFromGMT:28800] locale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+        [NSUserDefaults setCurrentUser:self.fldUser.text];
+        [DLDBQueryHelper configDefaultRealmDB:self.fldUser.text];
+        [[DLNetworkService sharedInstance] setHeader:[NSString stringWithFormat:@"Dolores %@", resp[@"token"]] headerField:@"Authorization"];
 
+        [[DLNetworkService myProfile] subscribeNext:^(id resp1) {
+            [[DLContactManager sharedInstance] fetchOrganization];
 
-        [NSUserDefaults saveLastUser:self.fldUser.text];
-        [NSUserDefaults setLoginStatus:YES];
-        [self hideLoadingView];
+            NSString *uid = resp1[@"id"];
+            [DLDBQueryHelper saveLoginUser:resp1];
 
-        [[DLNetworkService myOrganization] subscribeNext:^(id x) {
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm beginWriteTransaction];
+            RMUser *user = [RMUser objectForPrimaryKey:uid];
+            user.token = resp[@"token"];
+            user.expireDate = resp[@"expire"];
+            [realm commitWriteTransaction];
+
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                EMError *error = [[EMClient sharedClient] loginWithUsername:resp1[@"thirdAccount"] password:resp1[@"thirdPassword"]];
+                if (error) {
+                    [self showInfo:error.errorDescription];
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self hideLoadingView];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
+                    });
+                }
+            });
+
 
         } error:^(NSError *error) {
-
+            [self showInfo:error.message];
         }];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
-//        });
+
     } error:^(NSError *error) {
 
         [self showInfo:error.message];

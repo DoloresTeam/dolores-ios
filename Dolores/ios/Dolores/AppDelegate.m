@@ -9,11 +9,10 @@
 #import "AppDelegate.h"
 #import "DLRootTabController.h"
 #import "DLLoginController.h"
-#import "RMStaff.h"
-#import "RMDepartment.h"
-#import <Realm.h>
+#import "DLNetworkService.h"
+#import "AFHTTPSessionManager.h"
+#import "DLNetworkService+DLAPI.h"
 #import "BFNetworkActivityLogger.h"
-#import "DLContactManager.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self configRLMDatabase];
+
     [self setupGlobalUI];
     [self registerEMSDK];
     [self setupWindow];
@@ -56,8 +56,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self fetchQiniuToken];
+    [self refreshUserToken];
 }
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -107,25 +108,32 @@
 }
 
 - (void)configRLMDatabase {
+    [DLDBQueryHelper configDefaultRealmDB:[NSUserDefaults getCurrentUser] ? : @"dolores"];
+}
 
-    RLMRealmConfiguration *configuration = [RLMRealmConfiguration defaultConfiguration];
-    uint64_t version = 0;
-    configuration.schemaVersion = version;
-    configuration.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
-        if (oldSchemaVersion < version) {
+#pragma mark - fetch
 
+- (void)fetchQiniuToken {
+    if ([NSUserDefaults shouldFetchQiniuToken] && [DLDBQueryHelper isLogin]) {
+        [[DLNetworkService getQiniuToken] subscribeNext:^(id x) {
+
+        } error:^(NSError *error) {
+
+        }];
+    }
+}
+
+- (void)refreshUserToken {
+    RMUser *user = [DLDBQueryHelper currentUser];
+    if (user && ![user isInvalidated]) {
+        if ([[user tokenExpireDate] timeIntervalSinceNow] < 600) {
+            [[DLNetworkService refreshToken] subscribeNext:^(id x) {
+
+            } error:^(NSError *error) {
+
+            }];
         }
-    };
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *cacheDirectory = paths[0];
-    configuration.fileURL = [[NSURL URLWithString:[cacheDirectory stringByAppendingPathComponent:@"dolores"]] URLByAppendingPathExtension:@"realm"];
-    [RLMRealmConfiguration setDefaultConfiguration:configuration];
-    [RLMRealm defaultRealm];
-
-    NSLog(@"realm file path:%@", [RLMRealm defaultRealm].configuration.fileURL);
-
-//    [SharedContactManager fetchOrganization];
-
+    }
 }
 
 #pragma mark - observer
@@ -133,16 +141,26 @@
 - (void)configObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:kLoginStatusNotification object:nil];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@([EMClient sharedClient].isAutoLogin)];
+    RMUser *user = [DLDBQueryHelper currentUser];
+    if (user && ![user isInvalidated]) {
+        [SharedNetwork setHeader:[NSString stringWithFormat:@"Dolores %@", user.token] headerField:@"Authorization"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(NO)];
+    }
+
 }
 
 - (void)loginStatusChanged:(NSNotification *)notification {
     BOOL loginStatus = [notification.object boolValue];
     if (loginStatus) {
+
         DLRootTabController *rootTabController = [DLRootTabController new];
         self.window.rootViewController = rootTabController;
         [self.window makeKeyAndVisible];
     } else {
+        [SharedNetwork.sessionManager.requestSerializer clearAuthorizationHeader];
+
         DLLoginController *loginController = [DLLoginController new];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginController];
         self.window.rootViewController = nav;
