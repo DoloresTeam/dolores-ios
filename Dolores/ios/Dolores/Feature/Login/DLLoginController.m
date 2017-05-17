@@ -12,6 +12,10 @@
 #import "UIColor+YYAdd.h"
 #import "UIBarButtonItem+DLAdd.h"
 #import "DLRegisterController.h"
+#import "DLNetworkService.h"
+#import "DLNetworkService+DLAPI.h"
+#import "NSDate+YYAdd.h"
+#import "AFHTTPSessionManager.h"
 
 @interface DLLoginController ()
 
@@ -106,19 +110,30 @@
     }
 
     [self showLoadingView];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        EMError *error = [[EMClient sharedClient] loginWithUsername:self.fldUser.text password:self.fldPassword.text];
-        if (error) {
-            [self showInfo:error.errorDescription];
-        } else {
-            [NSUserDefaults saveLastUser:self.fldUser.text];
-            [NSUserDefaults setLoginStatus:YES];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
-            });
-        }
-    });
 
+    [[DLNetworkService login:self.fldUser.text password:[self.fldPassword.text md5String]] subscribeNext:^(RACTuple *tuple) {
+        NSDictionary *resp = tuple.first;
+        // "expire" : "2017-05-18T13:27:14+08:00"
+        [[DLNetworkService sharedInstance] setHeader:@"Authorization" headerField:[NSString stringWithFormat:@"Dolores %@", resp[@"token"]]];
+        NSDate *date = [NSDate dateWithString:resp[@"expire"] format:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ" timeZone:[NSTimeZone timeZoneForSecondsFromGMT:28800] locale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+
+
+        [NSUserDefaults saveLastUser:self.fldUser.text];
+        [NSUserDefaults setLoginStatus:YES];
+        [self hideLoadingView];
+
+        [[DLNetworkService myOrganization] subscribeNext:^(id x) {
+
+        } error:^(NSError *error) {
+
+        }];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
+//        });
+    } error:^(NSError *error) {
+
+        [self showInfo:error.message];
+    }];
 
 }
 
@@ -133,7 +148,8 @@
     if (!_fldUser) {
         _fldUser = [[UIFloatLabelTextField alloc] init];
         _fldUser.placeholder = @"用户名";
-        _fldUser.floatLabelActiveColor = [UIColor colorWithHexString:@"b8f51e"];
+        _fldUser.keyboardType = UIKeyboardTypePhonePad;
+        _fldUser.floatLabelActiveColor = [UIColor colorWithHexString:@"1ef06a"];
     }
     return _fldUser;
 }
@@ -142,7 +158,7 @@
     if (!_fldPassword) {
         _fldPassword = [[UIFloatLabelTextField alloc] init];
         _fldPassword.placeholder = @"密码";
-        _fldPassword.floatLabelActiveColor = [UIColor colorWithHexString:@"b8f51e"];
+        _fldPassword.floatLabelActiveColor = [UIColor colorWithHexString:@"1ef06a"];
         _fldPassword.secureTextEntry = YES;
     }
     return _fldPassword;

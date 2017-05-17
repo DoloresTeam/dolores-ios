@@ -8,6 +8,7 @@
 
 #import "DLNetworkService.h"
 #import "AFURLRequestSerialization.h"
+#import "AFHTTPSessionManager.h"
 #import <AFNetworking/AFNetworking.h>
 
 NSString *const kRACAFNResponseObjectErrorKey = @"responseObject";
@@ -48,9 +49,10 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
     _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
     
     // config request
-    _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
     _sessionManager.requestSerializer.timeoutInterval = kHttpRequestTimeoutInterval;
-    
+
+    _sessionManager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/javascript", @"text/plain", nil];
 }
 
@@ -127,16 +129,31 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
 
 - (void)handleFailure:(NSError *)error responseObject:(id)responseObject subscriber:(id <RACSubscriber>)subscriber {
     NSMutableDictionary *userInfo = [error.userInfo mutableCopy];
+    NSError *errorRes;
     if (responseObject) {
         userInfo[kRACAFNResponseObjectErrorKey] = responseObject;
+        NSInteger code = [responseObject[@"code"] integerValue];
+        NSString *message = responseObject[@"message"];
+        userInfo[@"message"] = message;
+        errorRes = [NSError errorWithDomain:error.domain code:code userInfo:userInfo];
+    } else {
+        errorRes = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
     }
-    NSError *errorRes = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
+    
     [subscriber sendError:errorRes];
 }
 
 - (void)handleSuccessResponse:(id)responseObj response:(NSURLResponse *)response subscriber:(id <RACSubscriber>)subscriber {
     [subscriber sendNext:RACTuplePack(responseObj, response)];
     [subscriber sendCompleted];
+}
+
+@end
+
+@implementation NSError (DLAdd)
+
+- (NSString *)message {
+    return self.userInfo[@"message"];
 }
 
 @end

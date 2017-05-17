@@ -11,10 +11,13 @@
 #define SharedNetwork   [DLNetworkService sharedInstance]
 
 @protocol AFMultipartFormData;
+@class AFHTTPSessionManager;
 
 extern NSString *const kRACAFNResponseObjectErrorKey;
 
 @interface DLNetworkService : NSObject
+
+@property (nonatomic, readonly) AFHTTPSessionManager *sessionManager;
 
 + (instancetype)sharedInstance;
 
@@ -37,5 +40,12 @@ extern NSString *const kRACAFNResponseObjectErrorKey;
 - (RACSignal *)rac_DELETE:(NSString *)path parameters:(id)parameters;
 
 - (RACSignal *)rac_POST:(NSString *)path parameters:(id)parameters constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block;
+
+@end
+
+
+@interface NSError (DLAdd)
+
+- (NSString *)message;
 
 @end

@@ -124,7 +124,7 @@
 
     NSLog(@"realm file path:%@", [RLMRealm defaultRealm].configuration.fileURL);
 
-    [SharedContactManager fetchOrganization];
+//    [SharedContactManager fetchOrganization];
 
 }
 

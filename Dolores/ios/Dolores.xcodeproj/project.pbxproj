@@ -85,6 +85,7 @@
 		7E1B14451EC596D20056370E /* DLOrganizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14441EC596D20056370E /* DLOrganizationController.m */; };
 		7E1B14531EC599800056370E /* DLOrgUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B14521EC599800056370E /* DLOrgUserCell.m */; };
 		7E1B146F1EC599910056370E /* DLOrgDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B146E1EC599910056370E /* DLOrgDepartmentCell.m */; };
+		7E1E89721ECAE83F00874483 /* DLNetworkService+DLAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E89711ECAE83F00874483 /* DLNetworkService+DLAPI.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 /* End PBXBuildFile section */
@@ -403,6 +404,8 @@
 		7E1B14521EC599800056370E /* DLOrgUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOrgUserCell.m; sourceTree = "<group>"; };
 		7E1B146D1EC599910056370E /* DLOrgDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOrgDepartmentCell.h; sourceTree = "<group>"; };
 		7E1B146E1EC599910056370E /* DLOrgDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOrgDepartmentCell.m; sourceTree = "<group>"; };
+		7E1E89701ECAE83F00874483 /* DLNetworkService+DLAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DLNetworkService+DLAPI.h"; sourceTree = "<group>"; };
+		7E1E89711ECAE83F00874483 /* DLNetworkService+DLAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DLNetworkService+DLAPI.m"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -907,6 +910,8 @@
 			children = (
 				7E1B14321EC54F4D0056370E /* DLNetworkService.h */,
 				7E1B14331EC54F4D0056370E /* DLNetworkService.m */,
+				7E1E89701ECAE83F00874483 /* DLNetworkService+DLAPI.h */,
+				7E1E89711ECAE83F00874483 /* DLNetworkService+DLAPI.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1425,6 +1430,7 @@
 				7E1B12B61EC1BBA20056370E /* DLBridgeManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				7E1B12BD1EC1BBA20056370E /* DLConversationModel.m in Sources */,
+				7E1E89721ECAE83F00874483 /* DLNetworkService+DLAPI.m in Sources */,
 				7E1B13C71EC2BDC80056370E /* RMCompany.m in Sources */,
 				7E1B12C81EC1BBA20056370E /* UILabel+Addition.m in Sources */,
 				7E1B12A51EC1BBA20056370E /* NSDate+DateTools.m in Sources */,

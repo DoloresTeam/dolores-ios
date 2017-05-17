@@ -17,4 +17,11 @@
 + (void)saveLastUser:(NSString *)user;
 
 + (NSString *)getLastUser;
+
++ (void)saveLastFetchQiniuToken:(NSTimeInterval)timestamp;
++ (BOOL)shouldFetchQiniuToken;
+
++ (void)saveDoloresToken:(NSString *)token;
++ (NSString *)getDoloresToken;
+
 @end
