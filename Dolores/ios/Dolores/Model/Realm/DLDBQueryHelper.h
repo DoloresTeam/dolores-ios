@@ -19,6 +19,8 @@
 
 + (RLMResults<RMDepartment *> *)departmentsInList:(NSArray *)idList;
 
++ (RLMResults<RMDepartment *> *)rootDepartments;
+
 + (RMUser *)currentUser;
 
 + (RLMResults<RMUser *> *)userList;

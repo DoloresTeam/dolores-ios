@@ -18,7 +18,7 @@
 #import "AFHTTPSessionManager.h"
 #import "DLContactManager.h"
 
-@interface DLLoginController ()
+@interface DLLoginController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UIFloatLabelTextField *fldUser;
 @property (nonatomic, strong) UIFloatLabelTextField *fldPassword;
@@ -94,6 +94,13 @@
 
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self onClickLogin];
+    return YES;
+}
+
 #pragma mark - touch action
 
 - (void)onClickRegisterButton:(UIButton *)sender {
@@ -135,6 +142,13 @@
                     [self showInfo:error.errorDescription];
                 } else {
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        RLMRealm *realm = [RLMRealm defaultRealm];
+                        [realm beginWriteTransaction];
+                        RMUser *user = [RMUser objectForPrimaryKey:uid];
+                        user.isLogin = @(YES);
+                        [realm commitWriteTransaction];
+                        
                         [self hideLoadingView];
                         [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
                     });
@@ -166,6 +180,7 @@
         _fldUser.placeholder = @"用户名";
         _fldUser.keyboardType = UIKeyboardTypePhonePad;
         _fldUser.floatLabelActiveColor = [UIColor colorWithHexString:@"1ef06a"];
+        _fldUser.delegate = self;
     }
     return _fldUser;
 }
@@ -176,6 +191,7 @@
         _fldPassword.placeholder = @"密码";
         _fldPassword.floatLabelActiveColor = [UIColor colorWithHexString:@"1ef06a"];
         _fldPassword.secureTextEntry = YES;
+        _fldPassword.delegate = self;
     }
     return _fldPassword;
 }

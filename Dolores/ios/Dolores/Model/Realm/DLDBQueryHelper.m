@@ -34,6 +34,12 @@
     return results;
 }
 
++ (RLMResults<RMDepartment *> *)rootDepartments {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentDep = NULL"];
+    RLMResults<RMDepartment *> *results = [RMDepartment objectsWithPredicate:predicate];
+    return results;
+}
+
 + (RMUser *)currentUser {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLogin = %@", @(YES)];
     RLMResults<RMUser *> *results = [RMUser objectsWithPredicate:predicate];
@@ -63,7 +69,7 @@
     if (dict[@"telephoneNumber"]) {
         user.userName = dict[@"telephoneNumber"];
     }
-    user.isLogin = @(YES);
+    
     user.staff = staff;
 
     [realm transactionWithBlock:^{

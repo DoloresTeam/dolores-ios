@@ -62,7 +62,7 @@
 }
 
 - (void)updateStaff:(RMStaff *)staff level:(NSInteger)level {
-    self.lblName.text = staff.nickName;
+    self.lblName.text = staff.realName;
     self.lblTitle.text = staff.title;
     [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(kDefaultGap + 20 * level));

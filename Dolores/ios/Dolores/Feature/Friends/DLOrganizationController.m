@@ -13,11 +13,12 @@
 #import "RMDepartment.h"
 #import "RMStaff.h"
 #import "RMCompany.h"
+#import "DLDBQueryHelper.h"
 
 @interface DLOrganizationController () <RATreeViewDataSource, RATreeViewDelegate>
 
 @property (nonatomic, strong) RATreeView *treeView;
-@property (nonatomic, strong) RMCompany *company;
+@property (nonatomic, strong) RLMResults<RMDepartment *> *departments;
 
 @end
 
@@ -43,7 +44,7 @@
 }
 
 - (void)setupData {
-    self.company = [RMCompany objectForPrimaryKey:@"1"];
+    self.departments = [DLDBQueryHelper rootDepartments];
 }
 
 - (void)setupNavigationBar {
@@ -60,7 +61,7 @@
 
 - (NSInteger)treeView:(RATreeView *)treeView numberOfChildrenOfItem:(nullable id)item {
     if (!item) {
-        return self.company.departments.count;
+        return self.departments.count;
     }
     if ([item isKindOfClass:[RMDepartment class]]) {
         RMDepartment *department = item;
@@ -85,7 +86,7 @@
 
 - (id)treeView:(RATreeView *)treeView child:(NSInteger)index ofItem:(nullable id)item {
     if (!item) {
-        return [self.company.departments objectAtIndex:index];
+        return [self.departments objectAtIndex:index];
     }
     if ([item isKindOfClass:[RMDepartment class]]) {
         RMDepartment *department = item;

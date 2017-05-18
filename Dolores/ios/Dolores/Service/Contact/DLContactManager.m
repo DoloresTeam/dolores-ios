@@ -69,7 +69,7 @@
                     NSString *uid = staffDict[@"id"];
                     if (uid) {
                         RMStaff *rmStaff = [[RMStaff alloc] initWithDict:staffDict];
-                        NSArray *belongDepartments = staffDict[@"departmentIDs"];
+                        NSArray *belongDepartments = staffDict[@"unitID"];
 
                         if (belongDepartments.count > 0) {
                             RLMResults<RMDepartment *> *staffDepartments = [DLDBQueryHelper departmentsInList:belongDepartments];
@@ -88,13 +88,7 @@
             }
 
             NSLog(@"update realm finish:%@", [NSDate date]);
-            RMCompany *company = [RMCompany new];
-            company.cid = @"1";
-            company.name = @"Dolores";
-            company.departments = [DLDBQueryHelper departmentsInList:@[@"1", @"2"]];
-            [realm transactionWithBlock:^{
-                [realm addOrUpdateObject:company];
-            }];
+            
         });
 
 
