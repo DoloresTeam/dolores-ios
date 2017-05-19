@@ -10,6 +10,8 @@
 
 @interface MBProgressHUD (VBAdd)
 
++ (instancetype)vb_HUDForView:(UIView *)view;
+
 + (void)showMessage:(NSString *)message toView:(UIView *)view;
 
 + (void)showInfo:(NSString *)info toView:(UIView *)view hideDelay:(NSTimeInterval)delay;

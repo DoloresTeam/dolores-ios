@@ -25,7 +25,7 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
-    self.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
+    self.backgroundColor = [UIColor colorWithHexString:@"E6E6E6"];
     [self loadViews];
 
     return self;
@@ -68,6 +68,14 @@
     [self.imgAvatar sd_setImageWithURL:[NSURL URLWithString:user.staff.avatarURL] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
 }
 
+#pragma mark - touch
+
+- (void)onTappedUserAvatar {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapUserAvatar)]) {
+        [self.delegate didTapUserAvatar];
+    }
+}
+
 #pragma mark - Getter
 
 - (UIView *)containerView {
@@ -96,6 +104,9 @@
 - (UIImageView *)imgAvatar {
     if (!_imgAvatar) {
         _imgAvatar = [[UIImageView alloc] init];
+        _imgAvatar.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTappedUserAvatar)];
+        [_imgAvatar addGestureRecognizer:tapGestureRecognizer];
     }
     return _imgAvatar;
 }

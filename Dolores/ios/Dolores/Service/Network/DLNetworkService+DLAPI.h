@@ -14,7 +14,7 @@
 + (RACSignal *)myProfile;
 + (RACSignal *)refreshToken;
 + (RACSignal *)getQiniuToken;
-+ (RACSignal *)updateUserAvater:(NSString *)urlString;
++ (RACSignal *)updateUserAvatar:(NSString *)urlString;
 + (RACSignal *)myOrganization;
 
 @end

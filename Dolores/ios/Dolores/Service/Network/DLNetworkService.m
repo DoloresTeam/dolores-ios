@@ -137,7 +137,7 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
         userInfo[@"message"] = message;
         errorRes = [NSError errorWithDomain:error.domain code:code userInfo:userInfo];
     } else {
-        userInfo[@"message"] = userInfo[NSLocalizedDescriptionKey];
+        userInfo[@"message"] = userInfo[NSLocalizedDescriptionKey] ? : userInfo[@"NSDebugDescription"];
         errorRes = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
     }
     

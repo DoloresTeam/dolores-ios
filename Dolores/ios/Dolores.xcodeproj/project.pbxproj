@@ -88,6 +88,9 @@
 		7E1E89721ECAE83F00874483 /* DLNetworkService+DLAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E89711ECAE83F00874483 /* DLNetworkService+DLAPI.m */; };
 		7E1E89911ECC46E700874483 /* RMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E89901ECC46E700874483 /* RMUser.m */; };
 		7E37966D1ECEC74300A7BA84 /* DLMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37966C1ECEC74300A7BA84 /* DLMineHeaderView.m */; };
+		7E3796891ECECECC00A7BA84 /* DLTableCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3796881ECECECC00A7BA84 /* DLTableCellConfig.m */; };
+		7E37968C1ECED3F300A7BA84 /* DLMineSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37968B1ECED3F300A7BA84 /* DLMineSettingCell.m */; };
+		7E37968F1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37968E1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 /* End PBXBuildFile section */
@@ -412,6 +415,12 @@
 		7E1E89901ECC46E700874483 /* RMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUser.m; sourceTree = "<group>"; };
 		7E37966B1ECEC74300A7BA84 /* DLMineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineHeaderView.h; sourceTree = "<group>"; };
 		7E37966C1ECEC74300A7BA84 /* DLMineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineHeaderView.m; sourceTree = "<group>"; };
+		7E3796871ECECECC00A7BA84 /* DLTableCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTableCellConfig.h; sourceTree = "<group>"; };
+		7E3796881ECECECC00A7BA84 /* DLTableCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTableCellConfig.m; sourceTree = "<group>"; };
+		7E37968A1ECED3F300A7BA84 /* DLMineSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineSettingCell.h; sourceTree = "<group>"; };
+		7E37968B1ECED3F300A7BA84 /* DLMineSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineSettingCell.m; sourceTree = "<group>"; };
+		7E37968D1ECEDAD600A7BA84 /* UIAlertView+DLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+DLAdd.h"; sourceTree = "<group>"; };
+		7E37968E1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+DLAdd.m"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -770,6 +779,8 @@
 				7E1B126E1EC1BBA20056370E /* DLLogoutCell.m */,
 				7E37966B1ECEC74300A7BA84 /* DLMineHeaderView.h */,
 				7E37966C1ECEC74300A7BA84 /* DLMineHeaderView.m */,
+				7E37968A1ECED3F300A7BA84 /* DLMineSettingCell.h */,
+				7E37968B1ECED3F300A7BA84 /* DLMineSettingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -798,6 +809,8 @@
 				7E1B127B1EC1BBA20056370E /* DLSettingConfig.m */,
 				7E1B127C1EC1BBA20056370E /* DLUser.h */,
 				7E1B127D1EC1BBA20056370E /* DLUser.m */,
+				7E3796871ECECECC00A7BA84 /* DLTableCellConfig.h */,
+				7E3796881ECECECC00A7BA84 /* DLTableCellConfig.m */,
 			);
 			name = Model;
 			path = Dolores/Model;
@@ -878,6 +891,8 @@
 				7E1B129A1EC1BBA20056370E /* UITextField+Addition.m */,
 				7E1B129B1EC1BBA20056370E /* UIView+DLAdd.h */,
 				7E1B129C1EC1BBA20056370E /* UIView+DLAdd.m */,
+				7E37968D1ECEDAD600A7BA84 /* UIAlertView+DLAdd.h */,
+				7E37968E1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1433,10 +1448,12 @@
 				7E1B12A11EC1BBA20056370E /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				7E1B12A31EC1BBA20056370E /* DTConstants.m in Sources */,
 				7E1B12BA1EC1BBA20056370E /* DLMineController.m in Sources */,
+				7E3796891ECECECC00A7BA84 /* DLTableCellConfig.m in Sources */,
 				7E1B12B41EC1BBA20056370E /* DLLoginController.m in Sources */,
 				7E1B143C1EC55BB30056370E /* DLContactManager.m in Sources */,
 				7E1B14381EC55AE50056370E /* BFNetworkActivityLogger.m in Sources */,
 				7E1B12B21EC1BBA20056370E /* DLContactSectionHeader.m in Sources */,
+				7E37968C1ECED3F300A7BA84 /* DLMineSettingCell.m in Sources */,
 				7E1B14341EC54F4D0056370E /* DLNetworkService.m in Sources */,
 				7E1B12B61EC1BBA20056370E /* DLBridgeManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
@@ -1453,6 +1470,7 @@
 				7E1B12A61EC1BBA20056370E /* UIFloatLabelTextField.m in Sources */,
 				7E1B12AE1EC1BBA20056370E /* DLNetStatusView.m in Sources */,
 				7E1B12A81EC1BBA20056370E /* DLAddMemberController.m in Sources */,
+				7E37968F1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m in Sources */,
 				7E1B12B31EC1BBA20056370E /* DLSelectContactCell.m in Sources */,
 				7E1B12C61EC1BBA20056370E /* UIFont+Addition.m in Sources */,
 			);

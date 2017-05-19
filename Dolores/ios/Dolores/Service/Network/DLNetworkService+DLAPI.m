@@ -41,8 +41,8 @@
     }];
 }
 
-+ (RACSignal *)updateUserAvater:(NSString *)urlString {
-    return [SharedNetwork rac_GET:@"/api/v1/update_avatar" parameters:@{@"avatar": urlString}];
++ (RACSignal *)updateUserAvatar:(NSString *)urlString {
+    return [SharedNetwork rac_POST:@"/api/v1/update_avatar" parameters:@{@"avatarURL": urlString}];
 }
 
 + (RACSignal *)myOrganization {

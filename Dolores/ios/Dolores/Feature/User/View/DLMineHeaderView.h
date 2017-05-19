@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MineHeaderDelegate <NSObject>
+
+- (void)didTapUserAvatar;
+
+@end
+
 @interface DLMineHeaderView : UIView
+
+@property (nonatomic, weak) id <MineHeaderDelegate> delegate;
 
 - (void)updateUserInfo;
 @end
