@@ -17,6 +17,11 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+#pragma mark - Size bounds
+
+#define kScreenWidth            [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight           [UIScreen mainScreen].bounds.size.height
+
 #pragma mark - Message
 
 #define kHaveUnreadAtMessage    @"kHaveAtMessage"
@@ -29,9 +34,9 @@
 
 #pragma mark - notification
 
-#define kLoginStatusNotification              @"kUserLoginNotification"
-#define kUserLogoutNotification             @"kUserLogoutNotification"
-#define kLeaveChatControllerNotification    @"kLeaveChatController"
+#define kLoginStatusNotification                @"kUserLoginNotification"
+#define kUserLogoutNotification                 @"kUserLogoutNotification"
+#define kLeaveChatControllerNotification        @"kLeaveChatController"
 
 
 #endif /* DefineMacro_h */

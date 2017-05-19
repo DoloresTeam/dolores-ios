@@ -9,9 +9,11 @@
 #import "DLMineController.h"
 #import "DLLogoutCell.h"
 #import "NSNotificationCenter+YYAdd.h"
+#import "DLMineHeaderView.h"
 
 @interface DLMineController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) DLMineHeaderView *headerView;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -27,13 +29,15 @@
 
 - (void)setupView {
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.headerView;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
+    [self.headerView updateUserInfo];
 }
 
 - (void)setupNavigationBar {
-    self.navigationItem.title = @"我";
+    self.navigationItem.title = @"我的";
 }
 
 #pragma mark - UITableViewDataSource
@@ -88,6 +92,13 @@
 
     }
     return _tableView;
+}
+
+- (DLMineHeaderView *)headerView {
+    if (!_headerView) {
+        _headerView = [[DLMineHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    }
+    return _headerView;
 }
 
 

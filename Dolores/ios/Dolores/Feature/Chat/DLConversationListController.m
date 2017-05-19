@@ -55,8 +55,8 @@
     self.navigationItem.titleView = self.netStatusView;
     self.netStatusView.titleLabel.text = @"Dolores";
     
-    UIBarButtonItem *testItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(testRN)];
-    self.navigationItem.rightBarButtonItem = testItem;
+//    UIBarButtonItem *testItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(testRN)];
+//    self.navigationItem.rightBarButtonItem = testItem;
 }
 
 - (void)didReceiveMemoryWarning {
