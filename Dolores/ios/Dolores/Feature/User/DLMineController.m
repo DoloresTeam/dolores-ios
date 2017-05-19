@@ -261,18 +261,13 @@
         QNUploadManager *uploadManager = [[QNUploadManager alloc] init];
         [uploadManager putData:data key:nil token:[NSUserDefaults getQiniuToken] complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
             if (resp) {
-                NSLog(@"**** %@", resp);
+                
                 [[DLNetworkService updateUserAvatar:resp[@"hash"]] subscribeNext:^(id x) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [hud hide:YES];
                     });
                 } error:^(NSError *error) {
                     [MBProgressHUD showError:[error message] toView:self.navigationController.view hideDelay:1.5];
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        hud.mode = MBProgressHUDModeText;
-//                        hud.labelText = @"上传头像失败，请重试";
-//                        [hud hide:YES afterDelay:1.5];
-//                    });
                 }];
 
             } else {
@@ -281,21 +276,9 @@
                         [self uploadImage:image];
                     } error:^(NSError *error) {
                         [MBProgressHUD showError:@"上传头像失败，请重试" toView:self.navigationController.view hideDelay:1.5];
-//                        dispatch_async(dispatch_get_main_queue(), ^{
-//                            hud.mode = MBProgressHUDModeText;
-//                            hud.labelText = @"上传头像失败，请重试";
-//                            [hud hide:YES afterDelay:1.5];
-//                        });
                     }];
                 } else {
                     [MBProgressHUD showError:@"上传头像失败，请重试" toView:self.navigationController.view hideDelay:1.5];
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        hud.mode = MBProgressHUDModeText;
-//                        hud.labelText = @"上传头像失败，请重试";
-//                        [hud hide:YES afterDelay:1.5];
-//                    });
-
-
                 }
             }
         } option:uploadOption];
