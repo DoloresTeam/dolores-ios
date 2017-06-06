@@ -133,11 +133,11 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
     if (responseObject) {
         userInfo[kRACAFNResponseObjectErrorKey] = responseObject;
         NSInteger code = [responseObject[@"code"] integerValue];
-        NSString *message = responseObject[@"message"];
-        userInfo[@"message"] = message;
+        NSString *message = responseObject[@"errMsg"];
+        userInfo[@"errMsg"] = message;
         errorRes = [NSError errorWithDomain:error.domain code:code userInfo:userInfo];
     } else {
-        userInfo[@"message"] = userInfo[NSLocalizedDescriptionKey] ? : userInfo[@"NSDebugDescription"];
+        userInfo[@"errMsg"] = userInfo[NSLocalizedDescriptionKey] ? : userInfo[@"NSDebugDescription"];
         errorRes = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
     }
     
@@ -154,7 +154,7 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
 @implementation NSError (DLAdd)
 
 - (NSString *)message {
-    return self.userInfo[@"message"];
+    return self.userInfo[@"errMsg"];
 }
 
 @end
