@@ -39,16 +39,17 @@
         _uid = dictionary[@"id"];
         _nickName = dictionary[@"name"];
         _realName = dictionary[@"cn"];
-        _avatarURL = dictionary[@"labeledURI"];
-        _gender = dictionary[@"gender"];
+//        http://oq1inckvi.bkt.clouddn.com/Fg33R-I3b67l0QHXsgkCYvzfGYqU
+        NSString *avatarURI = dictionary[@"labeledURI"];
+        _avatarURL = [NSString stringWithFormat:@"%@/%@", @"http://oq1inckvi.bkt.clouddn.com", avatarURI];
+        NSString *gender = dictionary[@"gender"];
+        _gender = @(gender.integerValue);
         _mobile = dictionary[@"telephoneNumber"];
         _easemobAccount = dictionary[@"thirdAccount"];
 
         NSArray *emails = dictionary[@"email"];
         _email = [emails componentsJoinedByString:@","];
-
-        NSArray *titles = dictionary[@"title"];
-        _title = [titles componentsJoinedByString:@","];
+        _title = dictionary[@"title"];
     }
     return self;
 }

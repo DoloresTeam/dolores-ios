@@ -137,7 +137,7 @@
             [realm commitWriteTransaction];
 
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-                EMError *error = [[EMClient sharedClient] loginWithUsername:resp1[@"thirdAccount"] password:resp1[@"thirdPassword"]];
+                EMError *error = [[EMClient sharedClient] loginWithUsername:resp1[@"id"] password:resp1[@"thirdPassword"]];
                 if (error) {
                     [self showInfo:error.errorDescription];
                 } else {
