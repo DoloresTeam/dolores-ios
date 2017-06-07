@@ -77,8 +77,10 @@
                             [realm addOrUpdateObject:rmStaff];
                             for (int i = 0; i < staffDepartments.count; ++i) {
                                 RMDepartment *department = [staffDepartments objectAtIndex:i];
-                                [department.staffs addObject:rmStaff];
-                                [realm addOrUpdateObject:department];
+                                if (!department.isInvalidated) {
+                                    [department.staffs addObject:rmStaff];
+                                    [realm addOrUpdateObject:department];
+                                }
                             }
                             [realm commitWriteTransaction];
                         }
