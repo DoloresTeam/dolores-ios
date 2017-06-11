@@ -83,9 +83,24 @@
 
 - (id <IMessageModel>)messageViewController:(EaseMessageViewController *)viewController modelForMessage:(EMMessage *)message {
     DLMessageModel *messageModel = [[DLMessageModel alloc] initWithMessage:message];
-    // TODO: 用户信息更新
-    messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
-    messageModel.nickname = @"Heath";
+    
+    if (messageModel.isSender) {
+        RMUser *user = [DLDBQueryHelper currentUser];
+        messageModel.nickname = user.staff.realName;
+        if (user.staff.avatarURL.length > 0) {
+            messageModel.avatarURLPath = [user.staff qiniuURLWithSize:CGSizeMake(88, 88)];
+        } else {
+            messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
+        }
+    } else {
+        messageModel.nickname = self.chatUser.realName;
+        if (self.chatUser.avatarURL.length > 0) {
+            messageModel.avatarURLPath = [self.chatUser qiniuURLWithSize:CGSizeMake(88, 88)];
+        } else {
+            messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
+        }
+    }
+    
     return messageModel;
 }
 
