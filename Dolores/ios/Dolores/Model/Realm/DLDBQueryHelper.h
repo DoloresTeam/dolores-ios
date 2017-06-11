@@ -11,7 +11,6 @@
 #import "RMDepartment.h"
 #import "RMUser.h"
 #import "RMStaff.h"
-#import "RMCompany.h"
 
 @interface DLDBQueryHelper : NSObject
 

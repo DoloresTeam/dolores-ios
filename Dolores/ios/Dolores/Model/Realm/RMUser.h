@@ -20,6 +20,7 @@ RLM_ARRAY_TYPE(RMUser)
 @property NSNumber<RLMBool> *isLogin;
 @property NSString *userName;
 @property NSNumber<RLMDouble> *logoutTimestamp;
+@property NSString *orgVersion;
 
 @property RMStaff *staff;
 

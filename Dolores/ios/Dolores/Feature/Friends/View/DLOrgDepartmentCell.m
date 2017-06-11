@@ -38,7 +38,7 @@
     }];
 
     [self.imgArrow mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.size.mas_equalTo(CGSizeMake(14, 14));
         make.centerY.equalTo(@0);
         make.right.equalTo(@(-10));
     }];
@@ -101,7 +101,7 @@
 
 - (UIImageView *)imgArrow {
     if (!_imgArrow) {
-        _imgArrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bl_arrow_down_red"]];
+        _imgArrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_arrow_down"]];
     }
     return _imgArrow;
 }

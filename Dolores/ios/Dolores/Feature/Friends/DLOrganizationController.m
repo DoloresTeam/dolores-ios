@@ -12,7 +12,6 @@
 #import <RATreeView.h>
 #import "RMDepartment.h"
 #import "RMStaff.h"
-#import "RMCompany.h"
 #import "DLDBQueryHelper.h"
 
 @interface DLOrganizationController () <RATreeViewDataSource, RATreeViewDelegate>
