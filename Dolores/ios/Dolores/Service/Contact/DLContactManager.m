@@ -35,12 +35,11 @@
             RMUser *loginUser = [DLDBQueryHelper currentUser];
             if (![loginUser isInvalidated]) {
                 [realm transactionWithBlock:^{
-                    loginUser.expireDate = resp[@"version"];
+                    loginUser.orgVersion = resp[@"version"];
                 }];
             }
 
             NSArray *departments = resp[@"departments"];
-
 
             for (NSDictionary *departmentDict in departments) {
                 @autoreleasepool {

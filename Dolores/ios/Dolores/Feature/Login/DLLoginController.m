@@ -124,8 +124,7 @@
         [[DLNetworkService sharedInstance] setHeader:[NSString stringWithFormat:@"Dolores %@", resp[@"token"]] headerField:@"Authorization"];
 
         [[DLNetworkService myProfile] subscribeNext:^(id resp1) {
-            [[DLContactManager sharedInstance] fetchOrganization];
-
+            
             NSString *uid = resp1[@"id"];
             [DLDBQueryHelper saveLoginUser:resp1];
 
@@ -150,6 +149,7 @@
                         [realm commitWriteTransaction];
                         
                         [self hideLoadingView];
+                        [[DLContactManager sharedInstance] fetchOrganization];
                         [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(YES)];
                     });
                 }
