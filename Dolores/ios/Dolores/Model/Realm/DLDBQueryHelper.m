@@ -23,8 +23,8 @@
     NSString *cacheDirectory = paths[0];
     configuration.fileURL = [[NSURL URLWithString:[cacheDirectory stringByAppendingPathComponent:username]] URLByAppendingPathExtension:@"realm"];
     [RLMRealmConfiguration setDefaultConfiguration:configuration];
-    [RLMRealm defaultRealm];
-    NSLog(@"realm db path: %@", configuration.fileURL);
+//    [RLMRealm defaultRealm];
+//    NSLog(@"realm db path: %@", configuration.fileURL);
 }
 
 

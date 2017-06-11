@@ -37,6 +37,7 @@
 #define kLoginStatusNotification                @"kUserLoginNotification"
 #define kUserLogoutNotification                 @"kUserLogoutNotification"
 #define kLeaveChatControllerNotification        @"kLeaveChatController"
+#define kUserOrganizationChangedNotification    @"kUserOrganizationChangedNotification"
 
 #pragma mark - api key
 

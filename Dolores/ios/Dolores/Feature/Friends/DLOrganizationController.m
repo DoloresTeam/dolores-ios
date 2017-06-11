@@ -56,6 +56,15 @@
 
 - (void)setupData {
     self.departments = [DLDBQueryHelper rootDepartments];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedOrgChanged) name:kUserOrganizationChangedNotification object:nil];
+//    @weakify(self)
+//    [self.departments addNotificationBlock:^(RLMResults<RMDepartment *> * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
+//        @strongify(self)
+//        dispatch_async(dispatch_get_main_queue(), ^(void) {
+//            [self.treeView reloadData];
+//        });
+//        
+//    }];
 }
 
 
@@ -67,6 +76,12 @@
     [self.treeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+}
+
+#pragma mark - notification
+
+- (void)receivedOrgChanged {
+    [self.treeView reloadData];
 }
 
 #pragma mark - RATreeViewDataSource
