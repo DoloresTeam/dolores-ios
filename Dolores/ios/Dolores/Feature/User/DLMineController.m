@@ -36,13 +36,23 @@
     [self setupView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchUserInfo];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+
 - (void)setupView {
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headerView;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
-    [self.headerView updateUserInfo];
+    [self.headerView updateUserInfo:[DLDBQueryHelper currentUser].staff];
 }
 
 - (void)setupNavigationBar {
@@ -283,6 +293,15 @@
             }
         } option:uploadOption];
     });
+}
+
+- (void)fetchUserInfo {
+    [[DLNetworkService myProfile] subscribeNext:^(NSDictionary *resp) {
+        [DLDBQueryHelper saveLoginUser:resp];
+        [self.headerView updateUserInfo:[DLDBQueryHelper currentUser].staff];
+    } error:^(NSError *error) {
+        NSLog(@"fetch user info error: %@", [error message]);
+    }];
 }
 
 

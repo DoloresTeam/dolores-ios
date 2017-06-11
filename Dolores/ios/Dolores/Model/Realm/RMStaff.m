@@ -8,6 +8,7 @@
 
 #import "RMStaff.h"
 #import "RMDepartment.h"
+#import <YYCategories.h>
 
 @implementation RMStaff
 
@@ -40,7 +41,11 @@
         _nickName = dictionary[@"name"];
         _realName = dictionary[@"cn"];
         NSString *avatarURI = dictionary[@"labeledURI"];
-        _avatarURL = [NSString stringWithFormat:@"%@/%@", kQiuniuURLPrefix, avatarURI];
+
+        if ([avatarURI isNotBlank]) {
+            _avatarURL = [NSString stringWithFormat:@"%@/%@", kQiuniuURLPrefix, avatarURI];
+        }
+
         NSString *gender = dictionary[@"gender"];
         _gender = @(gender.integerValue);
         _mobile = dictionary[@"telephoneNumber"];

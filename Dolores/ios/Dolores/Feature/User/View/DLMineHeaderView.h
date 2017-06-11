@@ -18,5 +18,5 @@
 
 @property (nonatomic, weak) id <MineHeaderDelegate> delegate;
 
-- (void)updateUserInfo;
+- (void)updateUserInfo:(RMStaff *)user;
 @end

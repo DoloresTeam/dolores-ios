@@ -9,11 +9,13 @@
 #import "DLMineHeaderView.h"
 #import "UIColor+DLAdd.h"
 #import "UIColor+YYAdd.h"
+#import "NSString+YYAdd.h"
 
 @interface DLMineHeaderView ()
 
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UILabel *lblName;
+@property (nonatomic, strong) UILabel *lblTitle;
 @property (nonatomic, strong) UILabel *lblCompany;
 @property (nonatomic, strong) UIImageView *imgAvatar;
 
@@ -35,6 +37,7 @@
     [self addSubview:self.containerView];
 
     [self.containerView addSubview:self.lblName];
+    [self.containerView addSubview:self.lblTitle];
     [self.containerView addSubview:self.lblCompany];
     [self.containerView addSubview:self.imgAvatar];
 
@@ -46,6 +49,12 @@
     [self.lblName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(kDefaultGap));
         make.centerY.equalTo(self.imgAvatar.mas_centerY);
+        make.right.equalTo(self.imgAvatar.mas_left).offset(-20);
+    }];
+
+    [self.lblTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@(kDefaultGap));
+        make.top.equalTo(self.lblName.mas_bottom);
         make.right.equalTo(self.imgAvatar.mas_left).offset(-20);
     }];
 
@@ -62,10 +71,17 @@
     }];
 }
 
-- (void)updateUserInfo {
-    RMUser *user = [DLDBQueryHelper currentUser];
-    self.lblName.text = user.staff.realName;
-    [self.imgAvatar sd_setImageWithURL:[NSURL URLWithString:user.staff.avatarURL] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
+- (void)updateUserInfo:(RMStaff *)user {
+
+    NSMutableString *name = [NSMutableString string];
+    [name appendString:user.realName];;
+    if ([user.nickName isNotBlank]) {
+        [name appendFormat:@"【%@】", user.nickName];
+    }
+    self.lblName.text = name;
+
+    self.lblTitle.text = user.title;
+    [self.imgAvatar sd_setImageWithURL:[NSURL URLWithString:user.avatarURL] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
 }
 
 #pragma mark - touch
@@ -109,6 +125,13 @@
         [_imgAvatar addGestureRecognizer:tapGestureRecognizer];
     }
     return _imgAvatar;
+}
+
+- (UILabel *)lblTitle {
+    if (!_lblTitle) {
+        _lblTitle = [UILabel labelWithAlignment:NSTextAlignmentLeft textColor:[UIColor dl_leadColor] font:[UIFont baseFont:14]];
+    }
+    return _lblTitle;
 }
 
 
