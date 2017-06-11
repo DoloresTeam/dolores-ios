@@ -81,7 +81,7 @@
     self.lblName.text = name;
 
     self.lblTitle.text = user.title;
-    [self.imgAvatar sd_setImageWithURL:[NSURL URLWithString:user.avatarURL] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
+    [self.imgAvatar sd_setImageWithURL:[NSURL URLWithString:[user qiniuURLWithSize:CGSizeMake(52, 52)]] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
 }
 
 #pragma mark - touch

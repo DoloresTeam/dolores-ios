@@ -16,6 +16,7 @@
 @interface DLOrgUserCell ()
 
 @property (nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) UIImageView *imgAvatar;
 @property (nonatomic, strong) UILabel *lblName;
 @property (nonatomic, strong) UILabel *lblTitle;
 @property (nonatomic, strong) UIView *line;
@@ -31,13 +32,31 @@
     self.contentView.backgroundColor = [UIColor colorWithHexString:@"e7f4da"];
     [self.contentView addSubview:self.containerView];
     [self.contentView addSubview:self.line];
-    [self.containerView addSubview:self.lblName];
-    [self.containerView addSubview:self.lblTitle];
+
+    [self.containerView addSubview:self.imgAvatar];
+
+    UIView *viewTmp = [UIView new];
+    [self.containerView addSubview:viewTmp];
+    [viewTmp addSubview:self.lblName];
+    [viewTmp addSubview:self.lblTitle];
 
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(@0);
+
+        make.top.bottom.equalTo(@0);
         make.right.equalTo(@-10);
         make.left.equalTo(@(kDefaultGap));
+    }];
+
+    [self.imgAvatar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(@0);
+        make.left.equalTo(@0);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
+
+    [viewTmp mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.imgAvatar.mas_right).offset(6);
+        make.right.equalTo(@0);
+        make.centerY.equalTo(@0);
     }];
 
     [self.lblName mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,6 +85,10 @@
     self.lblTitle.text = staff.title;
     [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(kDefaultGap + 20 * level));
+    }];
+
+    [self.imgAvatar sd_setImageWithURL:[NSURL URLWithString:[staff qiniuURLWithSize:CGSizeMake(40, 40)]] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+
     }];
 }
 
@@ -109,6 +132,14 @@
         _lblTitle = [UILabel labelWithAlignment:NSTextAlignmentLeft textColor:[UIColor dl_leadColor] font:[UIFont baseFont:15]];
     }
     return _lblTitle;
+}
+
+- (UIImageView *)imgAvatar {
+    if (!_imgAvatar) {
+        _imgAvatar = [[UIImageView alloc] init];
+        _imgAvatar.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _imgAvatar;
 }
 
 

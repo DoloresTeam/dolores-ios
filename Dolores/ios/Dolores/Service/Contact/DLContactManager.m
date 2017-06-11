@@ -12,6 +12,7 @@
 #import "RMDepartment.h"
 #import "NSString+YYAdd.h"
 #import "DLDBQueryHelper.h"
+#import "DLNetworkService+DLAPI.h"
 
 @implementation DLContactManager
 
@@ -25,11 +26,18 @@
     return _sharedContactManager;
 }
 
+- (void)syncOrganization {
+    [[DLNetworkService syncOrganization:[DLDBQueryHelper currentUser].orgVersion] subscribeNext:^(id x) {
+
+    } error:^(NSError *error) {
+
+    }];
+}
+
 - (void)fetchOrganization {
     [[SharedNetwork rac_GET:@"/api/v1/organization" parameters:@{}] subscribeNext:^(NSDictionary *resp) {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            NSLog(@"update realm begin:%@", [NSDate date]);
             RLMRealm *realm = [RLMRealm defaultRealm];
 
             RMUser *loginUser = [DLDBQueryHelper currentUser];
@@ -95,8 +103,6 @@
 
             }
 
-            NSLog(@"update realm finish:%@", [NSDate date]);
-            
         });
 
 

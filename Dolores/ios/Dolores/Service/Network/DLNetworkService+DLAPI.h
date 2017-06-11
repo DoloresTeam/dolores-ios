@@ -16,5 +16,6 @@
 + (RACSignal *)getQiniuToken;
 + (RACSignal *)updateUserAvatar:(NSString *)urlString;
 + (RACSignal *)myOrganization;
++ (RACSignal *)syncOrganization:(NSString *)version;
 
 @end

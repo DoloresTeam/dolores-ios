@@ -28,6 +28,7 @@
 
 - (instancetype)initWithDict:(NSDictionary *)dictionary;
 
+- (NSString *)qiniuURLWithSize:(CGSize)size;
 @end
 
 // This protocol enables typed collections. i.e.:

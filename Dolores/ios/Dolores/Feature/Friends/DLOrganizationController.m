@@ -13,6 +13,7 @@
 #import "RMDepartment.h"
 #import "RMStaff.h"
 #import "DLDBQueryHelper.h"
+#import "DLContactManager.h"
 
 @interface DLOrganizationController () <RATreeViewDataSource, RATreeViewDelegate>
 
@@ -36,6 +37,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[DLContactManager sharedInstance] syncOrganization];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+
 - (void)setupView {
     [self.view addSubview:self.treeView];
     [self setupViewConstraints];
@@ -45,6 +56,7 @@
 - (void)setupData {
     self.departments = [DLDBQueryHelper rootDepartments];
 }
+
 
 - (void)setupNavigationBar {
     self.navigationItem.title = @"组织架构";

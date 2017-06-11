@@ -49,5 +49,9 @@
     return [SharedNetwork rac_GET:@"/api/v1/organization" parameters:nil];
 }
 
++ (RACSignal *)syncOrganization:(NSString *)version {
+    return [SharedNetwork rac_GET:[NSString stringWithFormat:@"/api/v1/sync_organization/%@",version] parameters:nil];
+}
+
 
 @end

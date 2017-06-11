@@ -58,5 +58,13 @@
     return self;
 }
 
+- (NSString *)qiniuURLWithSize:(CGSize)size {
+    if ([self.avatarURL isNotBlank]) {
+        CGFloat scale = [UIScreen mainScreen].scale;
+        NSString *target = [NSString stringWithFormat:@"%@?imageView2/1/w/%ld/h/%ld", self.avatarURL, (long) (size.width * scale), (long) (size.height * scale)];
+        return target;
+    }
+    return self.avatarURL;
+}
 
 @end
