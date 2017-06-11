@@ -39,9 +39,8 @@
         _uid = dictionary[@"id"];
         _nickName = dictionary[@"name"];
         _realName = dictionary[@"cn"];
-//        http://oq1inckvi.bkt.clouddn.com/Fg33R-I3b67l0QHXsgkCYvzfGYqU
         NSString *avatarURI = dictionary[@"labeledURI"];
-        _avatarURL = [NSString stringWithFormat:@"%@/%@", @"http://oq1inckvi.bkt.clouddn.com", avatarURI];
+        _avatarURL = [NSString stringWithFormat:@"%@/%@", kQiuniuURLPrefix, avatarURI];
         NSString *gender = dictionary[@"gender"];
         _gender = @(gender.integerValue);
         _mobile = dictionary[@"telephoneNumber"];

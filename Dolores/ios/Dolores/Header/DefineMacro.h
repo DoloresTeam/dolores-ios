@@ -38,5 +38,9 @@
 #define kUserLogoutNotification                 @"kUserLogoutNotification"
 #define kLeaveChatControllerNotification        @"kLeaveChatController"
 
+#pragma mark - api key
+
+#define kQiuniuURLPrefix                        @"http://oq1inckvi.bkt.clouddn.com"
+
 
 #endif /* DefineMacro_h */
