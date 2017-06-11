@@ -14,6 +14,7 @@
 #import "RMStaff.h"
 #import "DLDBQueryHelper.h"
 #import "DLContactManager.h"
+#import "DLUserDetailController.h"
 
 @interface DLOrganizationController () <RATreeViewDataSource, RATreeViewDelegate>
 
@@ -129,9 +130,18 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-//- (void)treeView:(RATreeView *)treeView didSelectRowForItem:(id)item {
-//    [treeView deselectRowForItem:item animated:YES];
-//}
+- (void)treeView:(RATreeView *)treeView didSelectRowForItem:(id)item {
+    [treeView deselectRowForItem:item animated:YES];
+    if ([item isKindOfClass:[RMStaff class]]) {
+        RMStaff *staff = item;
+        RMUser *loginUser = [DLDBQueryHelper currentUser];
+        if (![loginUser.staff.uid isEqualToString:staff.uid]) {
+            DLUserDetailController *detailController = [[DLUserDetailController alloc] initWithUser:staff];
+            detailController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:detailController animated:YES];
+        }
+    }
+}
 
 - (void)treeView:(RATreeView *)treeView willExpandRowForItem:(id)item {
     UITableViewCell *cell = [treeView cellForItem:item];

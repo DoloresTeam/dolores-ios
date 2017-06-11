@@ -90,6 +90,7 @@
 		7E3796891ECECECC00A7BA84 /* DLTableCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3796881ECECECC00A7BA84 /* DLTableCellConfig.m */; };
 		7E37968C1ECED3F300A7BA84 /* DLMineSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37968B1ECED3F300A7BA84 /* DLMineSettingCell.m */; };
 		7E37968F1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37968E1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m */; };
+		7E52086F1EED3A5100D32668 /* DLUserDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E52086E1EED3A5100D32668 /* DLUserDetailController.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 /* End PBXBuildFile section */
@@ -418,6 +419,8 @@
 		7E37968B1ECED3F300A7BA84 /* DLMineSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineSettingCell.m; sourceTree = "<group>"; };
 		7E37968D1ECEDAD600A7BA84 /* UIAlertView+DLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+DLAdd.h"; sourceTree = "<group>"; };
 		7E37968E1ECEDAD600A7BA84 /* UIAlertView+DLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+DLAdd.m"; sourceTree = "<group>"; };
+		7E52086D1EED3A5100D32668 /* DLUserDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserDetailController.h; sourceTree = "<group>"; };
+		7E52086E1EED3A5100D32668 /* DLUserDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserDetailController.m; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -698,13 +701,15 @@
 		7E1B124E1EC1BBA20056370E /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				7E1B12531EC1BBA20056370E /* View */,
 				7E1B124F1EC1BBA20056370E /* DLAddContactController.h */,
 				7E1B12501EC1BBA20056370E /* DLAddContactController.m */,
 				7E1B12511EC1BBA20056370E /* DLContactListController.h */,
 				7E1B12521EC1BBA20056370E /* DLContactListController.m */,
 				7E1B14431EC596D20056370E /* DLOrganizationController.h */,
 				7E1B14441EC596D20056370E /* DLOrganizationController.m */,
-				7E1B12531EC1BBA20056370E /* View */,
+				7E52086D1EED3A5100D32668 /* DLUserDetailController.h */,
+				7E52086E1EED3A5100D32668 /* DLUserDetailController.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -1426,6 +1431,7 @@
 				7E1B12AC1EC1BBA20056370E /* DLSearchResultController.m in Sources */,
 				7E1B14531EC599800056370E /* DLOrgUserCell.m in Sources */,
 				7E1B12CC1EC1BBA20056370E /* UIView+DLAdd.m in Sources */,
+				7E52086F1EED3A5100D32668 /* DLUserDetailController.m in Sources */,
 				7E1B12B51EC1BBA20056370E /* DLRegisterController.m in Sources */,
 				7E1B12B71EC1BBA20056370E /* DLRNTestController.m in Sources */,
 				7E1B12AD1EC1BBA20056370E /* DLBaseSettingCell.m in Sources */,

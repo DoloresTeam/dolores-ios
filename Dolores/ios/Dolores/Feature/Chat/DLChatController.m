@@ -13,6 +13,8 @@
 
 @interface DLChatController () <EaseMessageViewControllerDataSource, EaseMessageViewControllerDelegate>
 
+@property (nonatomic, strong) RMStaff *chatUser;
+
 @end
 
 @implementation DLChatController
@@ -22,6 +24,8 @@
     if (!self) return nil;
 
     self.hidesBottomBarWhenPushed = YES;
+    _chatUser = [RMStaff objectForPrimaryKey:conversationChatter];
+    
     return self;
 }
 
@@ -37,7 +41,8 @@
 
 - (void)setupNav {
     if (self.conversation.type == EMConversationTypeChat) {
-        self.navigationItem.title = self.conversation.conversationId;
+        
+        self.navigationItem.title = self.chatUser.realName;
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat_oto_setting_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDetail)];
         self.navigationItem.rightBarButtonItem = item;
     } else if (self.conversation.type == EMConversationTypeGroupChat) {
