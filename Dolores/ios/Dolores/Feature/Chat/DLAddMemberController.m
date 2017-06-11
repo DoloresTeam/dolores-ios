@@ -57,7 +57,6 @@
     NSArray *sortArray = [DLChatDataHelper sortContactList:contacts selectContect:self.currentMembers];
     self.sectionTitles = [NSMutableArray arrayWithArray:sortArray[0]];
     self.dataArray = [NSMutableArray arrayWithArray:sortArray[1]];
-
 }
 
 - (void)setupNavigationBar {

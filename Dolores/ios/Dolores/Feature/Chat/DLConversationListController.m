@@ -69,7 +69,9 @@
 - (id <IConversationModel>)conversationListViewController:(EaseConversationListViewController *)conversationListViewController modelForConversation:(EMConversation *)conversation {
     DLConversationModel *conversationModel = [[DLConversationModel alloc] initWithConversation:conversation];
     if (conversationModel.conversation.type == EMConversationTypeChat) {
-
+        RMStaff *staff = [RMStaff objectForPrimaryKey:conversation.conversationId];
+        conversationModel.title = staff.realName;
+        conversationModel.avatarURLPath = [staff qiniuURLWithSize:CGSizeMake(88, 88)];
     } else if (conversationModel.conversation.type == EMConversationTypeGroupChat) {
 
         if (!conversation.ext[@"subject"]) {
