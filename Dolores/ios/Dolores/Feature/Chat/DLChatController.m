@@ -13,7 +13,7 @@
 
 @interface DLChatController () <EaseMessageViewControllerDataSource, EaseMessageViewControllerDelegate>
 
-@property (nonatomic, strong) RMStaff *chatUser;
+@property (nonatomic, copy) NSString *userid;
 
 @end
 
@@ -24,7 +24,7 @@
     if (!self) return nil;
 
     self.hidesBottomBarWhenPushed = YES;
-    _chatUser = [RMStaff objectForPrimaryKey:conversationChatter];
+    _userid = conversationChatter;
     
     return self;
 }
@@ -42,7 +42,7 @@
 - (void)setupNav {
     if (self.conversation.type == EMConversationTypeChat) {
         
-        self.navigationItem.title = self.chatUser.realName;
+        self.navigationItem.title = [RMStaff objectForPrimaryKey:self.userid].realName;
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat_oto_setting_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDetail)];
         self.navigationItem.rightBarButtonItem = item;
     } else if (self.conversation.type == EMConversationTypeGroupChat) {
@@ -93,9 +93,10 @@
             messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
         }
     } else {
-        messageModel.nickname = self.chatUser.realName;
-        if (self.chatUser.avatarURL.length > 0) {
-            messageModel.avatarURLPath = [self.chatUser qiniuURLWithSize:CGSizeMake(88, 88)];
+        RMStaff *chatUser = [RMStaff objectForPrimaryKey:self.userid];
+        messageModel.nickname = chatUser.realName;
+        if (chatUser.avatarURL.length > 0) {
+            messageModel.avatarURLPath = [chatUser qiniuURLWithSize:CGSizeMake(88, 88)];
         } else {
             messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
         }
