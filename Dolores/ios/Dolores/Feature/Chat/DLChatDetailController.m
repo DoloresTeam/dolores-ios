@@ -93,10 +93,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0 && indexPath.row == 0) {
-        DLAddMemberController *addMemberController = [[DLAddMemberController alloc] initWithCurrentMembers:@[self.userId]];
-        addMemberController.delegate = self;
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addMemberController];
-        [self.navigationController presentViewController:nav animated:YES completion:NULL];
+        [MBProgressHUD showInfo:@"To Be Done." toView:self.navigationController.view hideDelay:1.5];
+        
+//        DLAddMemberController *addMemberController = [[DLAddMemberController alloc] initWithCurrentMembers:@[self.userId]];
+//        addMemberController.delegate = self;
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addMemberController];
+//        [self.navigationController presentViewController:nav animated:YES completion:NULL];
+    } else if (indexPath.section == 2) {
+        [self deleteChat];
     }
 }
 
@@ -106,6 +110,22 @@
     DLChatController *chatController = [[DLChatController alloc] initWithConversationChatter:groupId conversationType:EMConversationTypeGroupChat];
     [self.navigationController pushViewController:chatController animated:YES];
    
+}
+
+- (void)deleteChat {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"是否删除聊天记录" message:nil delegate:nil cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    [[alertView rac_buttonClickedSignal] subscribeNext:^(NSNumber *x) {
+        if (x.integerValue == 1) {
+            [[EMClient sharedClient].chatManager deleteConversation:self.userId isDeleteMessages:YES completion:^(NSString *aConversationId, EMError *aError) {
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                });
+
+            }];
+        }
+    }];
+    [alertView show];
 }
 
 

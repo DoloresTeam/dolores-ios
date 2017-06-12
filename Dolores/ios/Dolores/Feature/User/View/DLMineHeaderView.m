@@ -72,7 +72,9 @@
 }
 
 - (void)updateUserInfo:(RMStaff *)user {
-
+    if (!user) {
+        return;
+    }
     NSMutableString *name = [NSMutableString string];
     [name appendString:user.realName];;
     if ([user.nickName isNotBlank]) {
