@@ -14,6 +14,7 @@
 #import "DLNetworkService+DLAPI.h"
 #import "BFNetworkActivityLogger.h"
 #import "AppDelegate+EMChatMgrDelegate.h"
+#import "DLContactManager.h"
 
 @interface AppDelegate ()
 
@@ -61,6 +62,12 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [self fetchQiniuToken];
     [self refreshUserToken];
+
+        // 更新组织架构
+    if ([self didLogin]) {
+        [[DLContactManager sharedInstance] syncOrganization];
+    }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -141,6 +148,11 @@
             }];
         }
     }
+}
+
+- (BOOL)didLogin {
+    RMUser *user = [DLDBQueryHelper currentUser];
+    return user && ![user isInvalidated];
 }
 
 #pragma mark - observer

@@ -40,7 +40,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[DLContactManager sharedInstance] syncOrganization];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
