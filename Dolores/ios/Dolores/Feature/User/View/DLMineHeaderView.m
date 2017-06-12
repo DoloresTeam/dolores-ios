@@ -63,6 +63,8 @@
         make.top.equalTo(@(kDefaultGap));
         make.right.equalTo(@(-kDefaultGap));
     }];
+    self.imgAvatar.clipsToBounds = YES;
+    self.imgAvatar.layer.cornerRadius = 4.f;
 
     [self.lblCompany mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(kDefaultGap));

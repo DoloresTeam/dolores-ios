@@ -52,6 +52,8 @@
         make.left.equalTo(@0);
         make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
+    self.imgAvatar.clipsToBounds = YES;
+    self.imgAvatar.layer.cornerRadius = 20;
 
     [viewTmp mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imgAvatar.mas_right).offset(6);

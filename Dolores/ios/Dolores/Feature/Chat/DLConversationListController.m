@@ -179,6 +179,7 @@
     if ([cell isKindOfClass:[EaseConversationCell class]]) {
         EaseConversationCell *conversationCell = (EaseConversationCell *) cell;
         conversationCell.avatarView.imageView.backgroundColor = [UIColor clearColor];
+        conversationCell.avatarView.imageCornerRadius = conversationCell.avatarView.bounds.size.width / 2;
     }
     return cell;
 }
