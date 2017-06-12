@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate+EMChatMgrDelegate.h"
+#import "DLContactManager.h"
 
 @implementation AppDelegate (EMChatMgrDelegate)
 
@@ -15,6 +16,7 @@
         EMCmdMessageBody *body = (EMCmdMessageBody *)message.body;
         if ([body.action isEqual: @"sync_organization"]) {
             NSLog(@"----Please Sync Organization---");
+            [[DLContactManager sharedInstance] syncOrganization];
         }
     }
 }
