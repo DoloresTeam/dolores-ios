@@ -13,6 +13,7 @@
 #import "AFHTTPSessionManager.h"
 #import "DLNetworkService+DLAPI.h"
 #import "BFNetworkActivityLogger.h"
+#import "AppDelegate+EMChatMgrDelegate.h"
 
 @interface AppDelegate ()
 
@@ -32,6 +33,8 @@
     [self setupWindow];
     [self configObserver];
     [self setupRequestLog];
+    [self setupEMChatManagerDelegate];
+
     return YES;
 }
 
@@ -94,6 +97,10 @@
     options.logLevel = EMLogLevelError;
     options.isAutoLogin = YES;
     [[EMClient sharedClient] initializeSDKWithOptions:options];
+}
+
+- (void)setupEMChatManagerDelegate {
+    [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
 }
 
 /**
