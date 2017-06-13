@@ -211,7 +211,7 @@ NSString *const kTypeDepartment = @"department";
     NSString *dpId = departmentDict[@"id"];
 
     if (dpId) {
-        RMDepartment *rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"cn"] description:departmentDict[@"description"]];
+        RMDepartment *rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"ou"] description:departmentDict[@"description"]];
         NSString *parentId = departmentDict[@"pid"];
         if ([parentId isNotBlank]) {
             RMDepartment *parentDep = [RMDepartment objectForPrimaryKey:parentId];
