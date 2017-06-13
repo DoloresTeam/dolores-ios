@@ -21,6 +21,7 @@ RLM_ARRAY_TYPE(RMDepartment)
 @property NSString *departmentId; //id
 @property NSString *departmentName; //部门名
 @property NSString *departmentDes;  //部门描述
+@property NSNumber<RLMInt> *priority;
 @property NSString *parentId;
 
 /**
@@ -35,6 +36,7 @@ RLM_ARRAY_TYPE(RMDepartment)
 
 - (instancetype)initWithId:(NSString *)id name:(NSString *)name description:(NSString *)description;
 
+- (RLMResults<RMDepartment *> *)sortedChild;
 @end
 
 

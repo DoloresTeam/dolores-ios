@@ -20,10 +20,10 @@
 
 // Specify default values for properties
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
++ (NSDictionary *)defaultPropertyValues
+{
+    return @{@"priority": @(0)};
+}
 
 // Specify properties to ignore (Realm won't persist these)
 
@@ -40,6 +40,12 @@
         _departmentDes = description;
     }
     return self;
+}
+
+- (RLMResults<RMDepartment *> *)sortedChild {
+    RLMSortDescriptor *sortPriority = [RLMSortDescriptor sortDescriptorWithKeyPath:@"priority" ascending:NO];
+    RLMSortDescriptor *sortName = [RLMSortDescriptor sortDescriptorWithKeyPath:@"departmentName" ascending:YES];
+    return [self.childrenDepartments sortedResultsUsingDescriptors:@[sortPriority, sortName]];
 }
 
 

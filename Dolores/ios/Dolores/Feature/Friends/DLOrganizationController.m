@@ -123,10 +123,10 @@
             if (index < staffCount) {
                 dataSource = [department.staffs objectAtIndex:index];
             } else {
-                dataSource = [department.childrenDepartments objectAtIndex:index - staffCount];
+                dataSource = [[department sortedChild] objectAtIndex:index - staffCount];
             }
         } else {
-            dataSource = [department.childrenDepartments objectAtIndex:index];
+            dataSource = [[department sortedChild] objectAtIndex:index];
         }
         return dataSource;
     } else {

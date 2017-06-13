@@ -12,7 +12,7 @@
 
 + (void)configDefaultRealmDB:(NSString *)username {
     RLMRealmConfiguration *configuration = [RLMRealmConfiguration defaultConfiguration];
-    uint64_t version = 0;
+    uint64_t version = 1;
     configuration.schemaVersion = version;
     configuration.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         if (oldSchemaVersion < version) {
@@ -24,7 +24,7 @@
     configuration.fileURL = [[NSURL URLWithString:[cacheDirectory stringByAppendingPathComponent:username]] URLByAppendingPathExtension:@"realm"];
     [RLMRealmConfiguration setDefaultConfiguration:configuration];
 //    [RLMRealm defaultRealm];
-//    NSLog(@"realm db path: %@", configuration.fileURL);
+    NSLog(@"realm db path: %@", configuration.fileURL);
 }
 
 
@@ -37,6 +37,9 @@
 + (RLMResults<RMDepartment *> *)rootDepartments {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentId = NULL"];
     RLMResults<RMDepartment *> *results = [RMDepartment objectsWithPredicate:predicate];
+    RLMSortDescriptor *sortPriorty = [RLMSortDescriptor sortDescriptorWithKeyPath:@"priority" ascending:NO];
+    RLMSortDescriptor *sortName = [RLMSortDescriptor sortDescriptorWithKeyPath:@"departmentName" ascending:YES];
+    results = [results sortedResultsUsingDescriptors:@[sortPriorty, sortName]];
     return results;
 }
 
