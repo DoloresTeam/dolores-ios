@@ -24,6 +24,8 @@
 
 + (RLMResults<RMUser *> *)userList;
 
++ (RLMResults<RMStaff *> *)allOtherStaffs;
+
 + (BOOL)isLogin;
 
 + (void)saveLoginUser:(NSDictionary *)dict;

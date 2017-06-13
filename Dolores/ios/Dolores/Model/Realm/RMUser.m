@@ -33,7 +33,7 @@
 #pragma mark - public method
 
 - (NSDate *)tokenExpireDate {
-    if ([self.expireDate isNotBlank]) {
+    if (![NSString isEmpty:self.expireDate]) {
         // GMT +8
         return [NSDate dateWithString:self.expireDate format:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ" timeZone:[NSTimeZone timeZoneForSecondsFromGMT:28800] locale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
     } else {

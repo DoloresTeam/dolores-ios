@@ -21,7 +21,7 @@ RLM_ARRAY_TYPE(RMDepartment)
 @property NSString *departmentId; //id
 @property NSString *departmentName; //部门名
 @property NSString *departmentDes;  //部门描述
-@property RMDepartment *parentDep;
+@property NSString *parentId;
 
 /**
  * 子部门

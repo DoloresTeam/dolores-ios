@@ -51,7 +51,7 @@
     } else {
         self.userLabel.text = user.buddy;
     }
-    if ([user.avatarURLPath isNotBlank]) {
+    if (![NSString isEmpty:user.avatarURLPath]) {
         [self.imgAvatar sd_setImageWithURL:[NSURL URLWithString:user.avatarURLPath] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
     } else if (user.avatarImage) {
         [self.imgAvatar setImage:user.avatarImage];

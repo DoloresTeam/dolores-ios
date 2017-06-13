@@ -35,7 +35,7 @@
 }
 
 + (RLMResults<RMDepartment *> *)rootDepartments {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentDep = NULL"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parentId = NULL"];
     RLMResults<RMDepartment *> *results = [RMDepartment objectsWithPredicate:predicate];
     return results;
 }
@@ -52,6 +52,13 @@
 + (RLMResults<RMUser *> *)userList {
     RLMResults<RMUser *> *users = [[RMUser allObjects] sortedResultsUsingKeyPath:@"logoutTimestamp" ascending:NO];
     return users;
+}
+
++ (RLMResults<RMStaff *> *)allOtherStaffs {
+    RMUser *currentUser = [self currentUser];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid != %@", currentUser.staff.uid];
+    RLMResults<RMStaff *> *results = [RMStaff objectsWithPredicate:predicate];
+    return results;
 }
 
 + (BOOL)isLogin {

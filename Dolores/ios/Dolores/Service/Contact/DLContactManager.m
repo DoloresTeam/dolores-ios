@@ -47,15 +47,19 @@ NSString *const kTypeDepartment = @"department";
 }
 
 - (void)fetchOrganization {
-    RMUser *user = [DLDBQueryHelper currentUser];
-    if (![user.orgVersion isNotBlank]) {
-        return;
-    }
 
     [[SharedNetwork rac_GET:@"/api/v1/organization" parameters:@{}] subscribeNext:^(NSDictionary *resp) {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             RLMRealm *realm = [RLMRealm defaultRealm];
+            
+            // remove all data, then add.
+            RLMResults *allDeps = [RMDepartment allObjects];
+            RLMResults *otherStaffs = [DLDBQueryHelper allOtherStaffs];
+            [realm beginWriteTransaction];
+            [realm deleteObjects:otherStaffs];
+            [realm deleteObjects:allDeps];
+            [realm commitWriteTransaction];
 
             RMUser *loginUser = [DLDBQueryHelper currentUser];
             if (![loginUser isInvalidated]) {
@@ -213,13 +217,20 @@ NSString *const kTypeDepartment = @"department";
     if (dpId) {
         RMDepartment *rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"ou"] description:departmentDict[@"description"]];
         NSString *parentId = departmentDict[@"parentID"];
-        if ([parentId isNotBlank]) {
+        if (![NSString isEmpty:parentId]) {
             RMDepartment *parentDep = [RMDepartment objectForPrimaryKey:parentId];
-            if (!parentDep.isInvalidated) {
+            if (parentDep && ![parentDep isInvalidated]) {
 
                 [realm beginWriteTransaction];
-                rmDepartment.parentDep = parentDep;
+                rmDepartment.parentId = parentId;
                 [realm addOrUpdateObject:rmDepartment];
+                
+                // remove child first.
+                NSInteger index = [parentDep.childrenDepartments indexOfObject:rmDepartment];
+                if (index != NSNotFound) {
+                    [parentDep.childrenDepartments removeObjectAtIndex:index];
+                }
+                
                 [parentDep.childrenDepartments addObject:rmDepartment];
                 [realm addOrUpdateObject:parentDep];
                 [realm commitWriteTransaction];

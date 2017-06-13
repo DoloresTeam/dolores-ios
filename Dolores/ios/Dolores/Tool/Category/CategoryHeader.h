@@ -21,5 +21,6 @@
 
 #pragma mark - Core Foundation
 #import "NSUserDefaults+DLUser.h"
+#import "NSString+DLCheck.h"
 
 #endif /* CategoryHeader_h */
