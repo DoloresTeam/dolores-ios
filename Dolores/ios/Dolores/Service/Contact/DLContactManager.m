@@ -48,7 +48,7 @@ NSString *const kTypeDepartment = @"department";
 
 - (void)fetchOrganization {
     RMUser *user = [DLDBQueryHelper currentUser];
-    if ([user.orgVersion isNotBlank] && user.orgVersion.length > @"20170611132456".length) {
+    if (![user.orgVersion isNotBlank]) {
         return;
     }
 
@@ -212,7 +212,7 @@ NSString *const kTypeDepartment = @"department";
 
     if (dpId) {
         RMDepartment *rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"ou"] description:departmentDict[@"description"]];
-        NSString *parentId = departmentDict[@"pid"];
+        NSString *parentId = departmentDict[@"parentID"];
         if ([parentId isNotBlank]) {
             RMDepartment *parentDep = [RMDepartment objectForPrimaryKey:parentId];
             if (!parentDep.isInvalidated) {
