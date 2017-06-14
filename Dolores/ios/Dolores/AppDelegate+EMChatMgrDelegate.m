@@ -14,8 +14,7 @@
 - (void)cmdMessagesDidReceive:(NSArray *)aCmdMessages {
     for (EMMessage *message in aCmdMessages) {
         EMCmdMessageBody *body = (EMCmdMessageBody *)message.body;
-        if ([body.action isEqual: @"sync_organization"]) {
-            NSLog(@"----Please Sync Organization---");
+        if ([body.action isEqualToString: @"sync_organization"]) {
             [[DLContactManager sharedInstance] syncOrganization];
         }
     }
