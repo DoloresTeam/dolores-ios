@@ -188,26 +188,35 @@ NSString *const kTypeDepartment = @"department";
 - (void)addOrUpdateStaff:(NSDictionary *)staffDict realm:(RLMRealm *)realm {
     NSString *uid = staffDict[@"id"];
     if (uid) {
-        RMStaff *rmStaff = [[RMStaff alloc] initWithDict:staffDict];
+        
+        RMStaff *rmStaff = [RMStaff objectForPrimaryKey:uid];
+        if (!rmStaff || [rmStaff isInvalidated]) {
+            rmStaff = [[RMStaff alloc] initWithDict:staffDict];
+        }
+        
+        [realm beginWriteTransaction];
+        // update user.
+        [realm addOrUpdateObject:rmStaff];
+        
+        // check add add to department.
         NSArray *belongDepartments = staffDict[@"unitID"];
-
         if (belongDepartments.count > 0) {
             RLMResults<RMDepartment *> *staffDepartments = [DLDBQueryHelper departmentsInList:belongDepartments];
-            [realm beginWriteTransaction];
-            [realm addOrUpdateObject:rmStaff];
             for (int i = 0; i < staffDepartments.count; ++i) {
                 RMDepartment *department = [staffDepartments objectAtIndex:i];
                 if (!department.isInvalidated) {
+                    
+                    // if staff has add to deparent, do nothing.
                     NSInteger index = [department.staffs indexOfObject:rmStaff];
-                    if (index != NSNotFound) {
-                        [department.staffs removeObjectAtIndex:index];
+                    if (index == NSNotFound) {
+                        [department.staffs addObject:rmStaff];
+                        [realm addOrUpdateObject:department];
                     }
-                    [department.staffs addObject:rmStaff];
-                    [realm addOrUpdateObject:department];
                 }
             }
-            [realm commitWriteTransaction];
         }
+        
+        [realm commitWriteTransaction];
     }
 }
 
@@ -215,38 +224,44 @@ NSString *const kTypeDepartment = @"department";
     NSString *dpId = departmentDict[@"id"];
 
     if (dpId) {
-        RMDepartment *rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"ou"] description:departmentDict[@"description"]];
         
         NSString *priority = departmentDict[@"priority"];
+        NSNumber *priorityValue = @(0);
         if (priority) {
-            rmDepartment.priority = @(priority.integerValue);
+            priorityValue = @(priority.integerValue);
         }
+        
+        // query from db first, if not exist, create it.
+        RMDepartment *rmDepartment = [RMDepartment objectForPrimaryKey:dpId];
+        if (!rmDepartment || [rmDepartment isInvalidated]) {
+            rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"ou"] description:departmentDict[@"description"]];
+        }
+        
+        [realm beginWriteTransaction];
+        
+        rmDepartment.priority = priorityValue;
+        [realm addOrUpdateObject:rmDepartment];
         
         NSString *parentId = departmentDict[@"parentID"];
         if (![NSString isEmpty:parentId]) {
             RMDepartment *parentDep = [RMDepartment objectForPrimaryKey:parentId];
             if (parentDep && ![parentDep isInvalidated]) {
-
-                [realm beginWriteTransaction];
+                
                 rmDepartment.parentId = parentId;
                 [realm addOrUpdateObject:rmDepartment];
                 
-                // remove child first.
+                // if child has add to parent, do nothing.
                 NSInteger index = [parentDep.childrenDepartments indexOfObject:rmDepartment];
-                if (index != NSNotFound) {
-                    [parentDep.childrenDepartments removeObjectAtIndex:index];
+                if (index == NSNotFound) {
+                    [parentDep.childrenDepartments addObject:rmDepartment];
+                    [realm addOrUpdateObject:parentDep];
                 }
                 
-                [parentDep.childrenDepartments addObject:rmDepartment];
-                [realm addOrUpdateObject:parentDep];
-                [realm commitWriteTransaction];
             }
-        } else {
-
-            [realm beginWriteTransaction];
-            [realm addOrUpdateObject:rmDepartment];
-            [realm commitWriteTransaction];
         }
+        
+        [realm commitWriteTransaction];
+        
     }
 }
 
