@@ -72,21 +72,16 @@ NSString *const kTypeDepartment = @"department";
 
             for (NSDictionary *departmentDict in departments) {
                 @autoreleasepool {
-
                     [self addOrUpdateDepartment:departmentDict realm:realm];
-
                 }
             }
 
-
             NSArray *staffs = resp[@"members"];
+
             for (NSDictionary *staffDict in staffs) {
                 @autoreleasepool {
-
                     [self addOrUpdateStaff:staffDict realm:realm];
-
                 }
-
             }
 
         });
@@ -188,12 +183,10 @@ NSString *const kTypeDepartment = @"department";
 - (void)addOrUpdateStaff:(NSDictionary *)staffDict realm:(RLMRealm *)realm {
     NSString *uid = staffDict[@"id"];
     if (uid) {
-        
-        RMStaff *rmStaff = [RMStaff objectForPrimaryKey:uid];
-        if (!rmStaff || [rmStaff isInvalidated]) {
-            rmStaff = [[RMStaff alloc] initWithDict:staffDict];
-        }
-        
+
+        // 因为staff是最小数据库对象，不存在child object，所以可以直接初始化并add or update.
+        RMStaff *rmStaff = [[RMStaff alloc] initWithDict:staffDict];
+
         [realm beginWriteTransaction];
         // update user.
         [realm addOrUpdateObject:rmStaff];
@@ -233,13 +226,19 @@ NSString *const kTypeDepartment = @"department";
         
         // query from db first, if not exist, create it.
         RMDepartment *rmDepartment = [RMDepartment objectForPrimaryKey:dpId];
+        BOOL hasExisted = YES;
         if (!rmDepartment || [rmDepartment isInvalidated]) {
+            hasExisted = NO;
             rmDepartment = [[RMDepartment alloc] initWithId:dpId name:departmentDict[@"ou"] description:departmentDict[@"description"]];
         }
         
         [realm beginWriteTransaction];
         
         rmDepartment.priority = priorityValue;
+        if (hasExisted) {
+            rmDepartment.departmentName = departmentDict[@"ou"];
+            rmDepartment.departmentDes = departmentDict[@"description"];
+        }
         [realm addOrUpdateObject:rmDepartment];
         
         NSString *parentId = departmentDict[@"parentID"];

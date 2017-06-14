@@ -42,10 +42,16 @@
     return self;
 }
 
-- (RLMResults<RMDepartment *> *)sortedChild {
+- (RLMResults<RMDepartment *> *)sortedChildDepartments {
     RLMSortDescriptor *sortPriority = [RLMSortDescriptor sortDescriptorWithKeyPath:@"priority" ascending:NO];
     RLMSortDescriptor *sortName = [RLMSortDescriptor sortDescriptorWithKeyPath:@"departmentName" ascending:YES];
     return [self.childrenDepartments sortedResultsUsingDescriptors:@[sortPriority, sortName]];
+}
+
+- (RLMResults<RMStaff *> *)sortedStaffs {
+    RLMSortDescriptor *sortPriority = [RLMSortDescriptor sortDescriptorWithKeyPath:@"priority" ascending:NO];
+    RLMSortDescriptor *sortName = [RLMSortDescriptor sortDescriptorWithKeyPath:@"realName" ascending:YES];
+    return [self.staffs sortedResultsUsingDescriptors:@[sortPriority, sortName]];
 }
 
 

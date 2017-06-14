@@ -22,10 +22,10 @@
 
 // Specify default values for properties
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
++ (NSDictionary *)defaultPropertyValues
+{
+    return @{@"priority": @(0)};
+}
 
 // Specify properties to ignore (Realm won't persist these)
 
@@ -54,6 +54,11 @@
         NSArray *emails = dictionary[@"email"];
         _email = [emails componentsJoinedByString:@","];
         _title = dictionary[@"title"];
+
+        NSString *priority = dictionary[@"priority"];
+        if (priority) {
+            _priority = @(priority.integerValue);
+        }
     }
     return self;
 }

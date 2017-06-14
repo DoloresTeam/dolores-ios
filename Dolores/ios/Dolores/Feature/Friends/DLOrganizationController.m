@@ -121,12 +121,12 @@
         id dataSource;
         if (staffCount > 0) {
             if (index < staffCount) {
-                dataSource = [department.staffs objectAtIndex:index];
+                dataSource = [[department sortedStaffs] objectAtIndex:index];
             } else {
-                dataSource = [[department sortedChild] objectAtIndex:index - staffCount];
+                dataSource = [[department sortedChildDepartments] objectAtIndex:index - staffCount];
             }
         } else {
-            dataSource = [[department sortedChild] objectAtIndex:index];
+            dataSource = [[department sortedChildDepartments] objectAtIndex:index];
         }
         return dataSource;
     } else {
