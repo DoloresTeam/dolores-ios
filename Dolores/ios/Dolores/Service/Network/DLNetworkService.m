@@ -13,7 +13,7 @@
 
 NSString *const kRACAFNResponseObjectErrorKey = @"responseObject";
 static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
-static NSString *const kBaseURL = @"http://www.dolores.store:3280";
+//static NSString *const kBaseURL = @"http://www.dolores.store:3280";
 
 @interface DLNetworkService ()
 
@@ -40,7 +40,7 @@ static NSString *const kBaseURL = @"http://www.dolores.store:3280";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self configBaseURL:kBaseURL];
+        [self configBaseURL:kBaseDoloresUrl];
     }
     return self;
 }

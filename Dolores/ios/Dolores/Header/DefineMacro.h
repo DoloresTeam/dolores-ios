@@ -42,6 +42,7 @@
 #pragma mark - api key
 
 #define kQiuniuURLPrefix                        @"http://oq1inckvi.bkt.clouddn.com"
+#define kBaseDoloresUrl                         @"http://www.dolores.store:3280"
 
 
 #endif /* DefineMacro_h */
