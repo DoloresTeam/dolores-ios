@@ -12,7 +12,6 @@
 #import "DLChatController.h"
 #import "DLConversationModel.h"
 #import "DLSearchResultController.h"
-#import "DLRNTestController.h"
 
 @interface DLConversationListController () <DLBaseControllerProtocol, EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
 
@@ -55,8 +54,6 @@
     self.navigationItem.titleView = self.netStatusView;
     self.netStatusView.titleLabel.text = @"Dolores";
     
-//    UIBarButtonItem *testItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(testRN)];
-//    self.navigationItem.rightBarButtonItem = testItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -182,14 +179,6 @@
         conversationCell.avatarView.imageCornerRadius = conversationCell.avatarView.bounds.size.width / 2;
     }
     return cell;
-}
-
-#pragma mark - touch action
-
-- (void)testRN {
-    DLRNTestController *aRNTestController = [DLRNTestController new];
-    aRNTestController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:aRNTestController animated:YES];
 }
 
 #pragma mark - overwrite
