@@ -228,15 +228,15 @@
 		0A8771841EF775E000711690 /* Dolores */ = {
 			isa = PBXGroup;
 			children = (
+				0A8771991EF775E000711690 /* AppDelegate.h */,
+				0A87719A1EF775E000711690 /* AppDelegate.m */,
+				0A87719E1EF775E000711690 /* Feature */,
+				0A8771D71EF775E000711690 /* Header */,
 				0A8771851EF775E000711690 /*  Thirdparty */,
 				0A8771971EF775E000711690 /* AppDelegate+EMChatMgrDelegate.h */,
 				0A8771981EF775E000711690 /* AppDelegate+EMChatMgrDelegate.m */,
-				0A8771991EF775E000711690 /* AppDelegate.h */,
-				0A87719A1EF775E000711690 /* AppDelegate.m */,
 				0A87719B1EF775E000711690 /* Assets.xcassets */,
 				0A87719C1EF775E000711690 /* LaunchScreen.storyboard */,
-				0A87719E1EF775E000711690 /* Feature */,
-				0A8771D71EF775E000711690 /* Header */,
 				0A8771DC1EF775E000711690 /* Info.plist */,
 				0A8771DD1EF775E000711690 /* Launch Screen.storyboard */,
 				0A8771DE1EF775E000711690 /* main.m */,
