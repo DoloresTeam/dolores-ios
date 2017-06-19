@@ -55,3 +55,4 @@ fastlane/screenshots
 node_modules/
 Pods/
 Podfile.lock
+contents.xcworkspacedata
