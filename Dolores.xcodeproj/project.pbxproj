@@ -42,7 +42,6 @@
 		0A8772421EF775E000711690 /* DLLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771D21EF775E000711690 /* DLLogoutCell.m */; };
 		0A8772431EF775E000711690 /* DLMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771D41EF775E000711690 /* DLMineHeaderView.m */; };
 		0A8772441EF775E000711690 /* DLMineSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771D61EF775E000711690 /* DLMineSettingCell.m */; };
-		0A8772451EF775E000711690 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8771DC1EF775E000711690 /* Info.plist */; };
 		0A8772461EF775E000711690 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8771DD1EF775E000711690 /* Launch Screen.storyboard */; };
 		0A8772471EF775E000711690 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771DE1EF775E000711690 /* main.m */; };
 		0A8772481EF775E000711690 /* DLConversationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771E11EF775E000711690 /* DLConversationModel.m */; };
@@ -663,7 +662,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A8772451EF775E000711690 /* Info.plist in Resources */,
 				0A87722C1EF775E000711690 /* LaunchScreen.storyboard in Resources */,
 				0A87722B1EF775E000711690 /* Assets.xcassets in Resources */,
 				0A8772461EF775E000711690 /* Launch Screen.storyboard in Resources */,
