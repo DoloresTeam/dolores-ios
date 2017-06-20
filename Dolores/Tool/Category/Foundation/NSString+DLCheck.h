@@ -13,3 +13,10 @@
 + (BOOL)isEmpty:(NSString *)string;
 
 @end
+
+@interface NSString (DLURL)
+
+- (NSString *)qiniuURL;
+- (NSString *)qiniuURLWithSize:(CGSize)size;
+
+@end

@@ -34,3 +34,18 @@
 }
 
 @end
+
+@implementation NSString (DLURL)
+
+- (NSString *)qiniuURL {
+    return [NSString stringWithFormat:@"%@/%@", kQiuniuURLPrefix, self];;
+}
+
+- (NSString *)qiniuURLWithSize:(CGSize)size {
+    CGFloat scale = [UIScreen mainScreen].scale;
+    NSString *target = [NSString stringWithFormat:@"%@?imageView2/1/w/%ld/h/%ld", self, (long) (size.width * scale), (long) (size.height * scale)];
+    return [target copy];
+}
+
+
+@end

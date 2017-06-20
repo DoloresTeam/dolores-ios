@@ -17,5 +17,6 @@
 + (RACSignal *)updateUserAvatar:(NSString *)urlString;
 + (RACSignal *)myOrganization;
 + (RACSignal *)syncOrganization:(NSString *)version;
++ (RACSignal *)getUserInfoWithIds:(NSArray<NSString *> *)ids;
 
 @end

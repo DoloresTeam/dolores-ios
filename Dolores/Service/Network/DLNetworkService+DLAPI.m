@@ -53,5 +53,24 @@
     return [SharedNetwork rac_GET:[NSString stringWithFormat:@"/api/v1/sync_organization/%@",version] parameters:nil];
 }
 
++ (RACSignal *)getUserInfoWithIds:(NSArray<NSString *> *)ids {
+    return [[SharedNetwork rac_GET:@"/api/v1/basic_profile" parameters:@{@"id": ids}] doNext:^(id x) {
+        if ([x isKindOfClass:[NSArray class]]) {
+            NSArray *users = x;
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm beginWriteTransaction];
+            for (NSDictionary *user in users) {
+                RMStaff *staff = [RMStaff new];
+                staff.uid = user[@"id"];
+                staff.realName = user[@"name"];
+                staff.avatarURL = [user[@"labeledURI"] qiniuURL];
+                [realm addOrUpdateObject:staff];
+            }
+
+            [realm commitWriteTransaction];
+        }
+    }];
+}
+
 
 @end

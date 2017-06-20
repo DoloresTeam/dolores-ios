@@ -40,10 +40,10 @@
         _uid = dictionary[@"id"];
         _nickName = dictionary[@"name"];
         _realName = dictionary[@"cn"];
-        NSString *avatarURI = dictionary[@"labeledURI"];
 
+        NSString *avatarURI = dictionary[@"labeledURI"];
         if (![NSString isEmpty:avatarURI]) {
-            _avatarURL = [NSString stringWithFormat:@"%@/%@", kQiuniuURLPrefix, avatarURI];
+            _avatarURL = [avatarURI qiniuURL];
         }
 
         NSString *gender = dictionary[@"gender"];
@@ -65,9 +65,7 @@
 
 - (NSString *)qiniuURLWithSize:(CGSize)size {
     if (![NSString isEmpty:self.avatarURL]) {
-        CGFloat scale = [UIScreen mainScreen].scale;
-        NSString *target = [NSString stringWithFormat:@"%@?imageView2/1/w/%ld/h/%ld", self.avatarURL, (long) (size.width * scale), (long) (size.height * scale)];
-        return target;
+        return [self.avatarURL qiniuURLWithSize:size];
     }
     return self.avatarURL;
 }

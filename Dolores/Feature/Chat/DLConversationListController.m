@@ -12,6 +12,8 @@
 #import "DLChatController.h"
 #import "DLConversationModel.h"
 #import "DLSearchResultController.h"
+#import "DLNetworkService.h"
+#import "DLNetworkService+DLAPI.h"
 
 @interface DLConversationListController () <DLBaseControllerProtocol, EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
 
@@ -66,9 +68,28 @@
 - (id <IConversationModel>)conversationListViewController:(EaseConversationListViewController *)conversationListViewController modelForConversation:(EMConversation *)conversation {
     DLConversationModel *conversationModel = [[DLConversationModel alloc] initWithConversation:conversation];
     if (conversationModel.conversation.type == EMConversationTypeChat) {
+
         RMStaff *staff = [RMStaff objectForPrimaryKey:conversation.conversationId];
-        conversationModel.title = staff.realName;
-        conversationModel.avatarURLPath = [staff qiniuURLWithSize:CGSizeMake(88, 88)];
+        // if staff not exist, get it from server.
+        if ([staff isInvalidated] || !staff) {
+            [[DLNetworkService getUserInfoWithIds:@[conversation.conversationId]] subscribeNext:^(id x) {
+                if ([x isKindOfClass:[NSArray class]]) {
+                    NSArray *users = x;
+                    if (users.count > 0) {
+                        NSDictionary *user = users[0];
+                        conversationModel.title = user[@"name"];
+                        NSString *avatar = user[@"labeledURI"];
+                        conversationModel.avatarURLPath = [[avatar qiniuURL] qiniuURLWithSize:CGSizeMake(88, 88)];
+                    }
+                }
+            } error:^(NSError *error) {
+
+            }];
+        } else {
+            conversationModel.title = staff.realName;
+            conversationModel.avatarURLPath = [staff qiniuURLWithSize:CGSizeMake(88, 88)];
+        }
+
     } else if (conversationModel.conversation.type == EMConversationTypeGroupChat) {
 
         if (!conversation.ext[@"subject"]) {
