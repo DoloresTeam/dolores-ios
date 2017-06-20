@@ -66,6 +66,7 @@
         // 更新组织架构
     if ([self didLogin]) {
         [[DLContactManager sharedInstance] syncOrganization];
+        [[DLContactManager sharedInstance] refreshMysteriousStaffs];
     }
 
 }

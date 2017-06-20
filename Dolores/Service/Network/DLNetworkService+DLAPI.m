@@ -61,6 +61,7 @@
             [realm beginWriteTransaction];
             for (NSDictionary *user in users) {
                 RMStaff *staff = [RMStaff new];
+                staff.isMysterious = @(YES);
                 staff.uid = user[@"id"];
                 staff.realName = user[@"name"];
                 staff.avatarURL = [user[@"labeledURI"] qiniuURL];

@@ -113,9 +113,12 @@
                 RLMRealm *realm = [RLMRealm defaultRealm];
                 [realm transactionWithBlock:^{
                     RMUser *user = [DLDBQueryHelper currentUser];
-                    user.logoutTimestamp = @([[NSDate date] timeIntervalSince1970]);
-                    user.isLogin = @(NO);
-                    [realm addOrUpdateObject:user];
+                    if (user && ![user isInvalidated]) {
+                        user.logoutTimestamp = @([[NSDate date] timeIntervalSince1970]);
+                        user.isLogin = @(NO);
+                        [realm addOrUpdateObject:user];
+                    }
+                    
                 }];
                 [self hideLoadingView];
                 [[NSNotificationCenter defaultCenter] postNotificationOnMainThreadWithName:kLoginStatusNotification object:@(NO) userInfo:nil];

@@ -33,6 +33,8 @@ NSString *const kTypeDepartment = @"department";
     return _sharedContactManager;
 }
 
+#pragma mark - fetch
+
 - (void)syncOrganization {
     [[DLNetworkService syncOrganization:[DLDBQueryHelper currentUser].orgVersion] subscribeNext:^(NSDictionary *resp) {
         NSNumber *needRefetchOrganization = resp[@"needRefetchOrganization"];
@@ -91,6 +93,25 @@ NSString *const kTypeDepartment = @"department";
         
     }];
 }
+
+/**
+ * 刷新神秘人员数据
+ */
+- (void)refreshMysteriousStaffs {
+    RLMResults<RMStaff *> *results = [DLDBQueryHelper mysteriousStaffs];
+    NSMutableArray *list = [NSMutableArray arrayWithCapacity:results.count];
+    for (int i = 0; i < results.count; ++i) {
+        RMStaff *staff = results[i];
+        [list addObject:staff.uid];
+    }
+    [[DLNetworkService getUserInfoWithIds:list] subscribeNext:^(id x) {
+
+    } error:^(NSError *error) {
+
+    }];
+}
+
+#pragma mark - deal data
 
 - (void)handleUpdateResult:(NSDictionary *)resp {
     id logsObj = resp[@"logs"];

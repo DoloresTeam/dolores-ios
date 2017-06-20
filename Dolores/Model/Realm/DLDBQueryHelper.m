@@ -12,7 +12,7 @@
 
 + (void)configDefaultRealmDB:(NSString *)username {
     RLMRealmConfiguration *configuration = [RLMRealmConfiguration defaultConfiguration];
-    uint64_t version = 2;
+    uint64_t version = 3;
     configuration.schemaVersion = version;
     configuration.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         if (oldSchemaVersion < version) {
@@ -27,6 +27,11 @@
     NSLog(@"realm db path: %@", configuration.fileURL);
 }
 
++ (RLMResults<RMStaff *> *)mysteriousStaffs {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isMysterious = %@", @(YES)];
+    RLMResults<RMStaff *> *results = [RMStaff objectsWithPredicate:predicate];
+    return results;
+}
 
 + (RLMResults<RMDepartment *> *)departmentsInList:(NSArray *)idList {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"departmentId IN %@", idList];

@@ -25,6 +25,7 @@
 @property NSNumber<RLMInt> *gender; //性别，0: 女 1: 男
 
 @property NSNumber<RLMInt> *priority;   // 优先级
+@property NSNumber<RLMBool> *isMysterious;  //是否可见
 // 反转，隶属于部门列表
 @property (readonly) RLMLinkingObjects *belongs;
 

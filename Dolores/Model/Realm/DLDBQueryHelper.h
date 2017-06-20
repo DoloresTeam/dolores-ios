@@ -24,6 +24,12 @@
 
 + (RLMResults<RMUser *> *)userList;
 
+/**
+ * 获得神秘人员
+ * @return
+ */
++ (RLMResults<RMStaff *> *)mysteriousStaffs;
+
 + (RLMResults<RMStaff *> *)allOtherStaffs;
 
 + (BOOL)isLogin;

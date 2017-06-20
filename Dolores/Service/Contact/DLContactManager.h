@@ -17,4 +17,6 @@
 - (void)syncOrganization;
 
 - (void)fetchOrganization;
+
+- (void)refreshMysteriousStaffs;
 @end
