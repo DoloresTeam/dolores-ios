@@ -69,6 +69,12 @@
 
 #pragma mark - EaseMessageViewControllerDataSource
 
+- (NSDictionary *)messageViewController:(EaseMessageViewController *)viewController extForMessage:(EMMessage *)message {
+    NSMutableDictionary *dict = [@{} mutableCopy];
+    
+    return dict;
+}
+
 - (id)messageViewController:(EaseMessageViewController *)viewController progressDelegateForMessageBodyType:(EMMessageBodyType)messageBodyType {
     return nil;
 }

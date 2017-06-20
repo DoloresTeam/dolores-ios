@@ -17,7 +17,6 @@
 		0A8772291EF775E000711690 /* AppDelegate+EMChatMgrDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771981EF775E000711690 /* AppDelegate+EMChatMgrDelegate.m */; };
 		0A87722A1EF775E000711690 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87719A1EF775E000711690 /* AppDelegate.m */; };
 		0A87722B1EF775E000711690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A87719B1EF775E000711690 /* Assets.xcassets */; };
-		0A87722C1EF775E000711690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A87719C1EF775E000711690 /* LaunchScreen.storyboard */; };
 		0A87722D1EF775E000711690 /* DLAddMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771A11EF775E000711690 /* DLAddMemberController.m */; };
 		0A87722E1EF775E000711690 /* DLChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771A31EF775E000711690 /* DLChatController.m */; };
 		0A87722F1EF775E000711690 /* DLChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8771A51EF775E000711690 /* DLChatDetailController.m */; };
@@ -94,7 +93,6 @@
 		0A8771991EF775E000711690 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0A87719A1EF775E000711690 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0A87719B1EF775E000711690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A87719D1EF775E000711690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A8771A01EF775E000711690 /* DLAddMemberController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAddMemberController.h; sourceTree = "<group>"; };
 		0A8771A11EF775E000711690 /* DLAddMemberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddMemberController.m; sourceTree = "<group>"; };
 		0A8771A21EF775E000711690 /* DLChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChatController.h; sourceTree = "<group>"; };
@@ -228,21 +226,20 @@
 		0A8771841EF775E000711690 /* Dolores */ = {
 			isa = PBXGroup;
 			children = (
-				0A8771991EF775E000711690 /* AppDelegate.h */,
-				0A87719A1EF775E000711690 /* AppDelegate.m */,
 				0A87719E1EF775E000711690 /* Feature */,
-				0A8771D71EF775E000711690 /* Header */,
-				0A8771851EF775E000711690 /*  Thirdparty */,
-				0A8771971EF775E000711690 /* AppDelegate+EMChatMgrDelegate.h */,
-				0A8771981EF775E000711690 /* AppDelegate+EMChatMgrDelegate.m */,
-				0A87719B1EF775E000711690 /* Assets.xcassets */,
-				0A87719C1EF775E000711690 /* LaunchScreen.storyboard */,
-				0A8771DC1EF775E000711690 /* Info.plist */,
-				0A8771DD1EF775E000711690 /* Launch Screen.storyboard */,
-				0A8771DE1EF775E000711690 /* main.m */,
 				0A8771DF1EF775E000711690 /* Model */,
 				0A8771F31EF775E000711690 /* Service */,
 				0A8771FC1EF775E000711690 /* Tool */,
+				0A8771D71EF775E000711690 /* Header */,
+				0A8771851EF775E000711690 /*  Thirdparty */,
+				0A8771991EF775E000711690 /* AppDelegate.h */,
+				0A87719A1EF775E000711690 /* AppDelegate.m */,
+				0A8771971EF775E000711690 /* AppDelegate+EMChatMgrDelegate.h */,
+				0A8771981EF775E000711690 /* AppDelegate+EMChatMgrDelegate.m */,
+				0A87719B1EF775E000711690 /* Assets.xcassets */,
+				0A8771DC1EF775E000711690 /* Info.plist */,
+				0A8771DD1EF775E000711690 /* Launch Screen.storyboard */,
+				0A8771DE1EF775E000711690 /* main.m */,
 			);
 			path = Dolores;
 			sourceTree = "<group>";
@@ -662,7 +659,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A87722C1EF775E000711690 /* LaunchScreen.storyboard in Resources */,
 				0A87722B1EF775E000711690 /* Assets.xcassets in Resources */,
 				0A8772461EF775E000711690 /* Launch Screen.storyboard in Resources */,
 				0A8772241EF775E000711690 /* DateTools.bundle in Resources */,
@@ -789,17 +785,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		0A87719C1EF775E000711690 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A87719D1EF775E000711690 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
