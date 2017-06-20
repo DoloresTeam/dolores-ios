@@ -35,7 +35,7 @@
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;
-    self.tableView.backgroundColor = [UIColor dl_tableBGColor];
+    self.tableView.backgroundColor = [UIColor dl_backgroundColor];
     [self setupNav];
 }
 

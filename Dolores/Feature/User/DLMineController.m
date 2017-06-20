@@ -34,11 +34,12 @@
     [self setupNavigationBar];
     [self setupData];
     [self setupView];
+
+    [self fetchUserInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self fetchUserInfo];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

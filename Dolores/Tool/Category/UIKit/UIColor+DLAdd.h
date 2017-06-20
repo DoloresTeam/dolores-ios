@@ -22,7 +22,7 @@
  * tableview背景色，较淡，灰
  * @return
  */
-+ (UIColor *)dl_tableBGColor;
++ (UIColor *)dl_backgroundColor;
 
 /**
  * 接近最黑

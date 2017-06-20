@@ -14,6 +14,7 @@
 #import "DLSearchResultController.h"
 #import "DLNetworkService.h"
 #import "DLNetworkService+DLAPI.h"
+#import "UIColor+DLAdd.h"
 
 @interface DLConversationListController () <DLBaseControllerProtocol, EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
 
@@ -35,6 +36,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchConversationList];
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self.tableView.contentOffset = CGPointMake(0, self.searchController.searchBar.frame.size.height);
+    });
 }
 
 #pragma mark - DLBaseControllerProtocol
@@ -45,6 +51,7 @@
 
     self.tableView.tableHeaderView = self.searchController.searchBar;
     [self.searchController.searchBar sizeToFit];
+
 }
 
 - (void)setupData {
@@ -242,6 +249,7 @@
 
         _searchController.searchBar.placeholder = @"搜索";
         _searchController.searchBar.barStyle = UIBarStyleDefault;
+        _searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
 
         searchResultController.searchController = _searchController;
         _searchController.delegate = searchResultController;

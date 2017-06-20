@@ -19,7 +19,7 @@
     return [UIColor colorWithHexString:@"333333"];
 }
 
-+ (UIColor *)dl_tableBGColor {
++ (UIColor *)dl_backgroundColor {
     return [UIColor colorWithHexString:@"f8f8f8"];
 }
 

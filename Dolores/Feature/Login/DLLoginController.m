@@ -17,6 +17,7 @@
 #import "NSDate+YYAdd.h"
 #import "AFHTTPSessionManager.h"
 #import "DLContactManager.h"
+#import "UIColor+DLAdd.h"
 
 @interface DLLoginController () <UITextFieldDelegate>
 
@@ -179,7 +180,7 @@
         _fldUser = [[UIFloatLabelTextField alloc] init];
         _fldUser.placeholder = @"用户名";
         _fldUser.keyboardType = UIKeyboardTypePhonePad;
-        _fldUser.floatLabelActiveColor = [UIColor colorWithHexString:@"1ef06a"];
+        _fldUser.floatLabelActiveColor = [UIColor dl_primaryColor];
         _fldUser.delegate = self;
     }
     return _fldUser;
@@ -189,7 +190,7 @@
     if (!_fldPassword) {
         _fldPassword = [[UIFloatLabelTextField alloc] init];
         _fldPassword.placeholder = @"密码";
-        _fldPassword.floatLabelActiveColor = [UIColor colorWithHexString:@"1ef06a"];
+        _fldPassword.floatLabelActiveColor = [UIColor dl_primaryColor];
         _fldPassword.secureTextEntry = YES;
         _fldPassword.delegate = self;
     }
@@ -199,7 +200,7 @@
 - (UIButton *)btnLogin {
     if (!_btnLogin) {
         _btnLogin = [UIButton buttonWithFont:[UIFont baseBoldFont:16] title:@"确定" textColor:[UIColor whiteColor]
-                             backgroundColor:[UIColor blueColor]];
+                             backgroundColor:[UIColor dl_primaryColor]];
         _btnLogin.layer.masksToBounds = YES;
         _btnLogin.layer.cornerRadius = 8;
         [_btnLogin addTarget:self action:@selector(onClickLogin) forControlEvents:UIControlEventTouchUpInside];

@@ -15,6 +15,7 @@
 #import "BFNetworkActivityLogger.h"
 #import "AppDelegate+EMChatMgrDelegate.h"
 #import "DLContactManager.h"
+#import "UIColor+DLAdd.h"
 
 @interface AppDelegate ()
 
@@ -87,12 +88,21 @@
 - (void)setupGlobalUI {
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont baseBoldFont:16], NSForegroundColorAttributeName: [UIColor
             blackColor]}];
-//    [UINavigationBar appearance].tintColor = [UIColor blackColor];
+
+    [UINavigationBar appearance].tintColor = [UIColor dl_primaryColor];
     [UINavigationBar appearance].translucent = NO;
+
+    [UITabBar appearance].tintColor = [UIColor dl_primaryColor];
     [UITabBar appearance].translucent = NO;
+
+    [UITextField appearance].tintColor = [UIColor dl_primaryColor];
 
     UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
     [barButtonItem setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -64) forBarMetrics:UIBarMetricsDefault];
+
+    [[UITableView appearance] setBackgroundColor:[UIColor dl_backgroundColor]];
+
+    [[UIButton appearance] setTintColor:[UIColor dl_primaryColor]];
 
 }
 

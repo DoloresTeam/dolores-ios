@@ -31,7 +31,7 @@
 }
 
 - (void)setupControllers {
-    DLConversationListController *conversationListController = [[DLConversationListController alloc] initWithStyle:UITableViewStyleGrouped];
+    DLConversationListController *conversationListController = [[DLConversationListController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *navConversation = [[UINavigationController alloc] initWithRootViewController:conversationListController];
     UITabBarItem *barItem = [[UITabBarItem alloc] initWithTitle:@"消息" image:[UIImage imageNamed:@"tab_conversation"] selectedImage:[UIImage
             imageNamed:@"tab_conversation_click"]];
