@@ -75,21 +75,32 @@
 
 + (void)saveLoginUser:(NSDictionary *)dict {
     RLMRealm *realm = [RLMRealm defaultRealm];
-    RMUser *user = [[RMUser alloc] init];
+    [realm beginWriteTransaction];
+    
     RMStaff *staff = [[RMStaff alloc] initWithDict:dict];
-    if (dict[@"id"]) {
-        user.uid = dict[@"id"];
-        staff.uid = dict[@"id"];
-    }
-    if (dict[@"telephoneNumber"]) {
-        user.userName = dict[@"telephoneNumber"];
+    [realm addOrUpdateObject:staff];
+    RMUser *user = [DLDBQueryHelper currentUser];
+    
+    if (user && ![user isInvalidated]) {
+        if (dict[@"telephoneNumber"]) {
+            user.userName = dict[@"telephoneNumber"];
+        }
+        user.staff = staff;
+        [realm addOrUpdateObject:user];
+    } else {
+        RMUser *user = [[RMUser alloc] init];
+        if (dict[@"id"]) {
+            user.uid = dict[@"id"];
+        }
+        if (dict[@"telephoneNumber"]) {
+            user.userName = dict[@"telephoneNumber"];
+        }
+        
+        user.staff = staff;
+        [realm addOrUpdateObject:user];
     }
     
-    user.staff = staff;
-
-    [realm transactionWithBlock:^{
-        [realm addOrUpdateObject:user];
-    }];
+    [realm commitWriteTransaction];
 }
 
 
