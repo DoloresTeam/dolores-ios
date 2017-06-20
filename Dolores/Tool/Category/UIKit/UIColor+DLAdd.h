@@ -31,4 +31,10 @@
 + (UIColor *)dl_leadColor;
 
 + (UIColor *)dl_separatorColor;
+
+// 主题色
++ (UIColor *)dl_primaryColor;
+
++ (UIColor *)dl_primaryColorDark;
+
 @end

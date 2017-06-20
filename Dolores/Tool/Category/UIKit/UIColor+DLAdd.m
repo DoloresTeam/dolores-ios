@@ -27,6 +27,14 @@
     return [UIColor colorWithHexString:@"191919"];
 }
 
++ (UIColor *)dl_primaryColor {
+    return [UIColor colorWithHexString:@"009688"];
+}
+
++ (UIColor *)dl_primaryColorDark {
+    return [UIColor colorWithHexString:@"#004D40"];
+}
+
 + (UIColor *)dl_separatorColor {
     return [UIColor colorWithRed:0.176 green:0.188 blue:0.200 alpha:0.20];
 }
