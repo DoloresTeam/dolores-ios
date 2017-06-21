@@ -8,7 +8,6 @@
 
 #import <YYCategories/NSString+YYAdd.h>
 #import "DLLoginController.h"
-#import "UIFloatLabelTextField.h"
 #import "UIColor+YYAdd.h"
 #import "UIBarButtonItem+DLAdd.h"
 #import "DLRegisterController.h"
@@ -21,9 +20,10 @@
 
 @interface DLLoginController () <UITextFieldDelegate>
 
-@property (nonatomic, strong) UIFloatLabelTextField *fldUser;
-@property (nonatomic, strong) UIFloatLabelTextField *fldPassword;
+@property (nonatomic, strong) UITextField *fldUser;
+@property (nonatomic, strong) UITextField *fldPassword;
 @property (nonatomic, strong) UIButton *btnLogin;
+@property (nonatomic, strong) UIButton *btnNoAccount;
 
 @end
 
@@ -48,6 +48,7 @@
     [self.view addSubview:self.fldUser];
     [self.view addSubview:self.fldPassword];
     [self.view addSubview:self.btnLogin];
+    [self.view addSubview:self.btnNoAccount];
 
     [self setupViewConstraints];
 }
@@ -58,9 +59,9 @@
 
 - (void)setupViewConstraints {
     [self.fldUser mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@16);
-        make.right.equalTo(@(-16));
-        make.height.mas_equalTo(46);
+        make.left.equalTo(@14);
+        make.right.equalTo(@(-14));
+        make.height.mas_equalTo(36);
         make.top.equalTo(@50);
     }];
 
@@ -75,7 +76,7 @@
 
     [self.fldPassword mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(self.fldUser);
-        make.top.equalTo(self.fldUser.mas_bottom).offset(20);
+        make.top.equalTo(self.fldUser.mas_bottom);
     }];
 
     UIView *line2 = [UIView new];
@@ -92,7 +93,13 @@
         make.top.equalTo(self.fldPassword.mas_bottom).offset(20);
         make.height.equalTo(@36);
     }];
-
+    
+    [self.btnNoAccount mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@100);
+        make.height.equalTo(@30);
+        make.top.equalTo(self.btnLogin.mas_bottom).offset(10);
+        make.centerX.equalTo(self.btnLogin.mas_centerX);
+    }];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -104,9 +111,16 @@
 
 #pragma mark - touch action
 
-- (void)onClickRegisterButton:(UIButton *)sender {
-    DLRegisterController *registerController = [DLRegisterController new];
-    [self.navigationController pushViewController:registerController animated:YES];
+- (void)onClickNoAccount:(UIButton *)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Dolores不支持用户自主注册账号，请前往Github生成账号。" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"好的, 我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:true completion:^{
+        
+    }];
 }
 
 - (void)onClickLogin {
@@ -175,24 +189,26 @@
 
 #pragma mark - Getter
 
-- (UIFloatLabelTextField *)fldUser {
+- (UITextField *)fldUser {
     if (!_fldUser) {
-        _fldUser = [[UIFloatLabelTextField alloc] init];
-        _fldUser.placeholder = @"用户名";
+        _fldUser = [[UITextField alloc] init];
+        _fldUser.placeholder = @"请输入手机号";
         _fldUser.keyboardType = UIKeyboardTypePhonePad;
-        _fldUser.floatLabelActiveColor = [UIColor dl_primaryColor];
         _fldUser.delegate = self;
+        [_fldUser setLeftPaddingText:@"手机号" width:50];
+        _fldUser.font = [UIFont systemFontOfSize:14];
     }
     return _fldUser;
 }
 
-- (UIFloatLabelTextField *)fldPassword {
+- (UITextField *)fldPassword {
     if (!_fldPassword) {
-        _fldPassword = [[UIFloatLabelTextField alloc] init];
-        _fldPassword.placeholder = @"密码";
-        _fldPassword.floatLabelActiveColor = [UIColor dl_primaryColor];
+        _fldPassword = [[UITextField alloc] init];
+        _fldPassword.placeholder = @"请输入密码";
         _fldPassword.secureTextEntry = YES;
         _fldPassword.delegate = self;
+        _fldPassword.font = [UIFont systemFontOfSize:14];
+        [_fldPassword setLeftPaddingText:@"密码" width:50];
     }
     return _fldPassword;
 }
@@ -202,11 +218,18 @@
         _btnLogin = [UIButton buttonWithFont:[UIFont baseBoldFont:16] title:@"确定" textColor:[UIColor whiteColor]
                              backgroundColor:[UIColor dl_primaryColor]];
         _btnLogin.layer.masksToBounds = YES;
-        _btnLogin.layer.cornerRadius = 8;
+        _btnLogin.layer.cornerRadius = 4;
         [_btnLogin addTarget:self action:@selector(onClickLogin) forControlEvents:UIControlEventTouchUpInside];
     }
     return _btnLogin;
 }
 
+- (UIButton *)btnNoAccount {
+    if (!_btnNoAccount) {
+        _btnNoAccount = [UIButton buttonWithFont:[UIFont baseFont:12] title:@"没有账号？" textColor:[UIColor lightGrayColor]];
+        [_btnNoAccount addTarget:self action:@selector(onClickNoAccount:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _btnNoAccount;
+}
 
 @end

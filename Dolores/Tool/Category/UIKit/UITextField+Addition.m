@@ -36,3 +36,25 @@
 }
 
 @end
+
+@implementation UITextField (PaddingLabel)
+
+-(void) setLeftPaddingText:(NSString *) paddingValue width:(CGFloat) width
+{
+    UILabel *paddingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 40)];
+    paddingLabel.text = paddingValue;
+    paddingLabel.font = [UIFont systemFontOfSize:14];
+    self.leftView = paddingLabel;
+    self.leftViewMode = UITextFieldViewModeAlways;
+}
+
+-(void) setRightPaddingText:(NSString *) paddingValue width:(CGFloat) width
+{
+    UILabel *paddingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 40)];
+    paddingLabel.text = paddingValue;
+    paddingLabel.font = [UIFont systemFontOfSize:14];
+    self.rightView = paddingLabel;
+    self.rightViewMode = UITextFieldViewModeAlways;
+}
+
+@end

@@ -22,3 +22,12 @@
 + (instancetype)textFieldWithFont:(UIFont *)font textColor:(UIColor *)textColor textAlignment:(NSTextAlignment)alignment placeholder:(NSString *)placeholder keyboardType:(UIKeyboardType)keyboardType;
 
 @end
+
+@interface UITextField (PaddingLabel)
+
+-(void) setLeftPaddingText:(NSString *) paddingValue width:(CGFloat) width;
+
+-(void) setRightPaddingText:(NSString *) paddingValue width:(CGFloat) width;
+
+@end
+
