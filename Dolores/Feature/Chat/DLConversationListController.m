@@ -8,13 +8,14 @@
 
 #import "DLConversationListController.h"
 #import "DLNetStatusView.h"
-#import "NSDate+DateTools.h"
 #import "DLChatController.h"
 #import "DLConversationModel.h"
 #import "DLSearchResultController.h"
 #import "DLNetworkService.h"
 #import "DLNetworkService+DLAPI.h"
 #import "UIColor+DLAdd.h"
+#import "UIColor+DLAdd.h"
+#import "NSDate+Addition.h"
 
 @interface DLConversationListController () <DLBaseControllerProtocol, EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
 
@@ -31,12 +32,13 @@
     [self setupNavigationBar];
     [self setupData];
     [self setupView];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchConversationList];
-
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         self.tableView.contentOffset = CGPointMake(0, self.searchController.searchBar.frame.size.height);
@@ -51,6 +53,8 @@
 
     self.tableView.tableHeaderView = self.searchController.searchBar;
     [self.searchController.searchBar sizeToFit];
+    
+    self.tableView.separatorColor = [UIColor dl_separatorColor];
 }
 
 - (void)setupData {
@@ -164,21 +168,24 @@
         NSDictionary *ext = conversationModel.conversation.ext;
         if (ext && [ext[kHaveUnreadAtMessage] intValue] == kAtAllMessage) {
             latestMessageTitle = [NSString stringWithFormat:@"%@ %@", @"@所有人", latestMessageTitle];
-            attributedStr = [[NSMutableAttributedString alloc] initWithString:latestMessageTitle];
-            [attributedStr setAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:1.0 green:.0 blue:.0 alpha:0.5]}
-                                   range:NSMakeRange(0, @"@所有人".length)];
+            [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:latestMessageTitle]];
+            [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, latestMessageTitle.length)];
+            [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor dl_primaryColor] range:NSMakeRange(0, @"@所有人".length)];
 
         }
         else if (ext && [ext[kHaveUnreadAtMessage] intValue] == kAtYouMessage) {
             latestMessageTitle = [NSString stringWithFormat:@"%@ %@", @"有人@我", latestMessageTitle];
-            attributedStr = [[NSMutableAttributedString alloc] initWithString:latestMessageTitle];
-            [attributedStr setAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:1.0 green:.0 blue:.0 alpha:0.5]}
-                                   range:NSMakeRange(0, @"有人@我".length)];
+            [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:latestMessageTitle]];
+            [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, latestMessageTitle.length)];
+            [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor dl_primaryColor] range:NSMakeRange(0, @"有人@我".length)];
         }
         else {
             attributedStr = [[NSMutableAttributedString alloc] initWithString:latestMessageTitle];
         }
     }
+    
+    [attributedStr addAttribute:NSBaselineOffsetAttributeName value:@(-4) range:NSMakeRange(0, attributedStr.length)];
+    
     return attributedStr;
 }
 
@@ -186,7 +193,7 @@
     EMMessage *message = [conversationModel.conversation latestMessage];
     if (message) {
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:message.timestamp / 1000.0f];
-        return [date timeAgoSinceNow];
+        return date.formattedDateWithDoloresFormat;
     }
     return @"";
 }
@@ -202,8 +209,10 @@
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[EaseConversationCell class]]) {
         EaseConversationCell *conversationCell = (EaseConversationCell *) cell;
-        conversationCell.avatarView.imageView.backgroundColor = [UIColor clearColor];
+        conversationCell.avatarView.imageView.backgroundColor = [UIColor whiteColor];
         conversationCell.avatarView.imageCornerRadius = conversationCell.avatarView.bounds.size.width / 2;
+        conversationCell.separatorInset = UIEdgeInsetsMake(0, 60, 0, 0);
+        conversationCell.timeLabel.textColor = [UIColor lightGrayColor];
     }
     return cell;
 }

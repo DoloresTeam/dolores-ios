@@ -72,6 +72,7 @@
 		0A8772621EF775E000711690 /* UIView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721E1EF775E000711690 /* UIView+DLAdd.m */; };
 		0A8772631EF775E000711690 /* DLChatDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8772211EF775E000711690 /* DLChatDataHelper.m */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
+		EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7113D51EFA6E8700824698 /* NSDate+Addition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +210,8 @@
 		19A89C54A2EF69ABB85570CA /* Pods-Dolores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.debug.xcconfig"; sourceTree = "<group>"; };
 		69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dolores.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
+		EB7113D41EFA6E8700824698 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
+		EB7113D51EFA6E8700824698 /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -516,6 +519,8 @@
 				0A8772031EF775E000711690 /* NSString+DLCheck.m */,
 				0A8772041EF775E000711690 /* NSUserDefaults+DLUser.h */,
 				0A8772051EF775E000711690 /* NSUserDefaults+DLUser.m */,
+				EB7113D41EFA6E8700824698 /* NSDate+Addition.h */,
+				EB7113D51EFA6E8700824698 /* NSDate+Addition.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -728,6 +733,7 @@
 				0A8772561EF775E000711690 /* NSUserDefaults+DLUser.m in Sources */,
 				0A87723F1EF775E000711690 /* DLBaseViewController.m in Sources */,
 				0A8772261EF775E000711690 /* DTError.m in Sources */,
+				EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */,
 				0A87723B1EF775E000711690 /* DLOrgUserCell.m in Sources */,
 				0A8772441EF775E000711690 /* DLMineSettingCell.m in Sources */,
 				0A8772581EF775E000711690 /* UIAlertView+DLAdd.m in Sources */,
