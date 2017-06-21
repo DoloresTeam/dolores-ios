@@ -51,7 +51,6 @@
 
     self.tableView.tableHeaderView = self.searchController.searchBar;
     [self.searchController.searchBar sizeToFit];
-
 }
 
 - (void)setupData {
