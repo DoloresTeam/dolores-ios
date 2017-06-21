@@ -58,14 +58,14 @@
 
 - (void)setupViewConstraints {
     [self.fldUser mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@44);
-        make.right.equalTo(@(-44));
-        make.height.mas_equalTo(44);
-        make.top.equalTo(@80);
+        make.left.equalTo(@16);
+        make.right.equalTo(@(-16));
+        make.height.mas_equalTo(46);
+        make.top.equalTo(@50);
     }];
 
     UIView *line = [UIView new];
-    line.backgroundColor = [UIColor colorWithHexString:@"c4c4c4"];
+    line.backgroundColor = [UIColor dl_separatorColor];
     [self.view addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.fldUser);
@@ -75,11 +75,11 @@
 
     [self.fldPassword mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(self.fldUser);
-        make.top.equalTo(self.fldUser.mas_bottom).offset(5);
+        make.top.equalTo(self.fldUser.mas_bottom).offset(20);
     }];
 
     UIView *line2 = [UIView new];
-    line2.backgroundColor = [UIColor colorWithHexString:@"c4c4c4"];
+    line2.backgroundColor = [UIColor dl_separatorColor];
     [self.view addSubview:line2];
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.fldUser);
@@ -90,7 +90,7 @@
     [self.btnLogin mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.fldUser);
         make.top.equalTo(self.fldPassword.mas_bottom).offset(20);
-        make.height.equalTo(@40);
+        make.height.equalTo(@36);
     }];
 
 }

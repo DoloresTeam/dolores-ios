@@ -132,6 +132,9 @@ typedef NS_ENUM(NSUInteger, UIFloatLabelAnimationType)
  */
 @property (nonatomic, strong, readonly) UIButton *textFieldClearButton;
 
+// adjust float label vertical space.
+@property (nonatomic, assign) CGFloat floatLabelVerticalPaddingOffset;
+
 /**
  Toggles the float label using an animation
  @param animationType The desired animation (and final state) for the float label.

@@ -137,6 +137,8 @@
     // animationDuration
     _floatLabelShowAnimationDuration = @0.25f;
     _floatLabelHideAnimationDuration = @0.05f;
+    
+    _floatLabelVerticalPaddingOffset = -5;
 }
 
 - (void)setupMenuController
@@ -258,7 +260,7 @@
     _floatLabel.alpha = (animationType == UIFloatLabelAnimationTypeShow) ? 1.0f : 0.0f;
     CGFloat yOrigin = (animationType == UIFloatLabelAnimationTypeShow) ? 3.0f : 0.5f * CGRectGetHeight([self frame]);
     _floatLabel.frame = CGRectMake(_xOrigin,
-                                   yOrigin,
+                                   yOrigin + self.floatLabelVerticalPaddingOffset,
                                    CGRectGetWidth([_floatLabel frame]),
                                    CGRectGetHeight([_floatLabel frame]));
 }
