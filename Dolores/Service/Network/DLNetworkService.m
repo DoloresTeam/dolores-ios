@@ -135,7 +135,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
         NSInteger code = [responseObject[@"code"] integerValue];
         
         if (code == 401) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(NO)];
         }
         
         NSString *message = responseObject[@"errMsg"];
@@ -144,7 +144,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
     } else {
         
         if (error.code == 401) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(NO)];
         }
         
         userInfo[@"errMsg"] = userInfo[NSLocalizedDescriptionKey] ? : userInfo[@"NSDebugDescription"];
