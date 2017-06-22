@@ -133,10 +133,20 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
     if (responseObject) {
         userInfo[kRACAFNResponseObjectErrorKey] = responseObject;
         NSInteger code = [responseObject[@"code"] integerValue];
+        
+        if (code == 401) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:nil];
+        }
+        
         NSString *message = responseObject[@"errMsg"];
         userInfo[@"errMsg"] = message;
         errorRes = [NSError errorWithDomain:error.domain code:code userInfo:userInfo];
     } else {
+        
+        if (error.code == 401) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:nil];
+        }
+        
         userInfo[@"errMsg"] = userInfo[NSLocalizedDescriptionKey] ? : userInfo[@"NSDebugDescription"];
         errorRes = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
     }
