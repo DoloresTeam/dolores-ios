@@ -10,10 +10,12 @@
 #import "DLRootContactCell.h"
 #import "DLChildOrganizationController.h"
 #import "DLMyGroupController.h"
+#import "DLSearchResultController.h"
 
 @interface DLRootContactController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISearchController *searchController;
 
 @property (nonatomic, copy) NSArray<RMStaff *> *frequentStaffs;
 @property (nonatomic, assign) BOOL isExpanded;
@@ -39,8 +41,11 @@
 }
 
 - (void)setupView {
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.definesPresentationContext = YES;
+    self.searchController = [DLSearchResultController searchControlerWithNavigationController:self.navigationController];
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    [self.searchController.searchBar sizeToFit];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
@@ -86,6 +91,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return CGFLOAT_MIN;
+    }
     return 20;
 }
 

@@ -37,10 +37,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchConversationList];
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        self.tableView.contentOffset = CGPointMake(0, self.searchController.searchBar.frame.size.height);
-//    });
 }
 
 #pragma mark - DLBaseControllerProtocol

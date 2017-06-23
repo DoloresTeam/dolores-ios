@@ -8,10 +8,12 @@
 #import "DLChildOrganizationController.h"
 #import "DLRootContactCell.h"
 #import "DLUserDetailController.h"
+#import "DLSearchResultController.h"
 
 @interface DLChildOrganizationController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISearchController *searchController;
 
 #pragma mark - data
 @property (nonatomic, assign) BOOL isRoot;
@@ -56,7 +58,11 @@
 }
 
 - (void)setupView {
+    self.definesPresentationContext = YES;
+    self.searchController = [DLSearchResultController searchControlerWithNavigationController:self.navigationController];
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    [self.searchController.searchBar sizeToFit];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
