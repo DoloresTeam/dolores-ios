@@ -181,7 +181,7 @@
         }
     }
     
-    [attributedStr addAttribute:NSBaselineOffsetAttributeName value:@(-4) range:NSMakeRange(0, attributedStr.length)];
+    [attributedStr addAttribute:NSBaselineOffsetAttributeName value:@(-2) range:NSMakeRange(0, attributedStr.length)];
     
     return attributedStr;
 }
