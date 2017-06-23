@@ -70,11 +70,11 @@
 		0A8772601EF775E000711690 /* UITableViewCell+Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721A1EF775E000711690 /* UITableViewCell+Register.m */; };
 		0A8772611EF775E000711690 /* UITextField+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721C1EF775E000711690 /* UITextField+Addition.m */; };
 		0A8772621EF775E000711690 /* UIView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721E1EF775E000711690 /* UIView+DLAdd.m */; };
-		0A8772631EF775E000711690 /* DLChatDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8772211EF775E000711690 /* DLChatDataHelper.m */; };
 		5E8F002FDD7BD251B2D8B4E9 /* DLRootContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0E24C42B819C0106BCC5 /* DLRootContactCell.m */; };
 		5E8F05D3D739F21B64D049C1 /* DLChildOrganizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F04CB8247767A587AA4FE /* DLChildOrganizationController.m */; };
 		5E8F096F319DF3CAC08E21F0 /* DLRootContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */; };
 		5E8F0E88DCCFD16B4EC0FB8A /* DLMyGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0636A57E42EB984B9FDA /* DLMyGroupController.m */; };
+		7E520A3E1EFD434400D32668 /* EPEmptyDataProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 		EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7113D51EFA6E8700824698 /* NSDate+Addition.m */; };
 /* End PBXBuildFile section */
@@ -208,8 +208,6 @@
 		0A87721C1EF775E000711690 /* UITextField+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Addition.m"; sourceTree = "<group>"; };
 		0A87721D1EF775E000711690 /* UIView+DLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DLAdd.h"; sourceTree = "<group>"; };
 		0A87721E1EF775E000711690 /* UIView+DLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DLAdd.m"; sourceTree = "<group>"; };
-		0A8772201EF775E000711690 /* DLChatDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChatDataHelper.h; sourceTree = "<group>"; };
-		0A8772211EF775E000711690 /* DLChatDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChatDataHelper.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Dolores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A89C54A2EF69ABB85570CA /* Pods-Dolores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.debug.xcconfig"; sourceTree = "<group>"; };
 		5E8F00FBFE9C793684903060 /* DLRootContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRootContactCell.h; sourceTree = "<group>"; };
@@ -221,6 +219,8 @@
 		5E8F0CC9A7F0813CD0A0F7AC /* DLChildOrganizationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChildOrganizationController.h; sourceTree = "<group>"; };
 		5E8F0E24C42B819C0106BCC5 /* DLRootContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRootContactCell.m; sourceTree = "<group>"; };
 		69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dolores.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E520A3C1EFD434400D32668 /* EPEmptyDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPEmptyDataProtocol.h; sourceTree = "<group>"; };
+		7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPEmptyDataProtocol.m; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 		EB7113D41EFA6E8700824698 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		EB7113D51EFA6E8700824698 /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
@@ -579,8 +579,8 @@
 		0A87721F1EF775E000711690 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0A8772201EF775E000711690 /* DLChatDataHelper.h */,
-				0A8772211EF775E000711690 /* DLChatDataHelper.m */,
+				7E520A3C1EFD434400D32668 /* EPEmptyDataProtocol.h */,
+				7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -759,6 +759,7 @@
 				0A8772581EF775E000711690 /* UIAlertView+DLAdd.m in Sources */,
 				0A87725E1EF775E000711690 /* UILabel+Addition.m in Sources */,
 				0A87725C1EF775E000711690 /* UIFont+Addition.m in Sources */,
+				7E520A3E1EFD434400D32668 /* EPEmptyDataProtocol.m in Sources */,
 				0A8772501EF775E000711690 /* RMUser.m in Sources */,
 				0A87722E1EF775E000711690 /* DLChatController.m in Sources */,
 				0A8772331EF775E000711690 /* DLNetStatusView.m in Sources */,
@@ -776,7 +777,6 @@
 				0A8772271EF775E000711690 /* NSDate+DateTools.m in Sources */,
 				0A8772421EF775E000711690 /* DLLogoutCell.m in Sources */,
 				0A87723E1EF775E000711690 /* DLRegisterController.m in Sources */,
-				0A8772631EF775E000711690 /* DLChatDataHelper.m in Sources */,
 				0A87725D1EF775E000711690 /* UIImage+Addition.m in Sources */,
 				0A8772571EF775E000711690 /* MBProgressHUD+VBAdd.m in Sources */,
 				0A8772411EF775E000711690 /* DLMineController.m in Sources */,
