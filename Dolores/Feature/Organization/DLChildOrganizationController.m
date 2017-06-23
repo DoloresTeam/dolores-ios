@@ -84,7 +84,7 @@
                 [rootContactCell.imgPlace sd_setImageWithURL:[NSURL URLWithString:[staff qiniuURLWithSize:CGSizeMake(40, 40)]] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
                 rootContactCell.lblTitle.text = staff.realName;
             } else {
-                RMDepartment *department1 = self.department.childrenDepartments[indexPath.row - self.department.staffs.count + 1];
+                RMDepartment *department1 = self.department.childrenDepartments[indexPath.row - self.department.staffs.count];
                 [rootContactCell updateImage:[UIImage imageNamed:@"cmail_list_folder"] title:department1.departmentName];
             }
         } else {
@@ -123,7 +123,7 @@
                 DLUserDetailController *userDetailController = [[DLUserDetailController alloc] initWithUid:staff.uid];
                 [self.navigationController pushViewController:userDetailController animated:YES];
             } else {
-                RMDepartment *department1 = self.department.childrenDepartments[indexPath.row - self.department.staffs.count + 1];
+                RMDepartment *department1 = self.department.childrenDepartments[indexPath.row - self.department.staffs.count];
                 [self reviewChildDepartment:department1.departmentId];
             }
         } else {

@@ -25,6 +25,16 @@
 
     self.hidesBottomBarWhenPushed = YES;
     _userid = conversationChatter;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        RMStaff *staff = [RMStaff objectForPrimaryKey:conversationChatter];
+        if (staff && ![staff isInvalidated]) {
+            staff.frequent = @(staff.frequent.integerValue + 1);
+            [realm addOrUpdateObject:staff];
+        }
+        [realm commitWriteTransaction];
+    });
     
     return self;
 }
