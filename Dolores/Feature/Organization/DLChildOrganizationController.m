@@ -96,7 +96,7 @@
             if (indexPath.row < self.department.staffs.count) {
                 RMStaff *staff = self.department.staffs[indexPath.row];
                 [rootContactCell.imgPlace sd_setImageWithURL:[NSURL URLWithString:[staff qiniuURLWithSize:CGSizeMake(40, 40)]] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
-                rootContactCell.lblTitle.text = staff.realName;
+                rootContactCell.lblTitle.text = staff.nickName;
             } else {
                 RMDepartment *department1 = self.department.childrenDepartments[indexPath.row - self.department.staffs.count];
                 [rootContactCell updateImage:[UIImage imageNamed:@"cmail_list_folder"] title:department1.departmentName];

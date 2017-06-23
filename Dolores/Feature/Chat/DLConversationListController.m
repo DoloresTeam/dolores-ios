@@ -76,6 +76,8 @@
         RMStaff *staff = [RMStaff objectForPrimaryKey:conversation.conversationId];
         // if staff not exist, get it from server.
         if ([staff isInvalidated] || !staff) {
+            conversationModel.title = @"未知联系人";
+            conversationModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
             [[DLNetworkService getUserInfoWithIds:@[conversation.conversationId]] subscribeNext:^(id x) {
                 if ([x isKindOfClass:[NSArray class]]) {
                     NSArray *users = x;
@@ -84,13 +86,14 @@
                         conversationModel.title = user[@"name"];
                         NSString *avatar = user[@"labeledURI"];
                         conversationModel.avatarURLPath = [[avatar qiniuURL] qiniuURLWithSize:CGSizeMake(88, 88)];
+                        [self.tableView reloadData];
                     }
                 }
             } error:^(NSError *error) {
 
             }];
         } else {
-            conversationModel.title = staff.realName;
+            conversationModel.title = staff.nickName;
             conversationModel.avatarURLPath = [staff qiniuURLWithSize:CGSizeMake(88, 88)];
         }
 

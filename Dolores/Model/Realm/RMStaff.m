@@ -40,8 +40,8 @@
     self = [super init];
     if (self) {
         _uid = dictionary[@"id"];
-        _nickName = dictionary[@"name"];
-        _realName = dictionary[@"cn"];
+        _nickName = dictionary[@"cn"];
+        _realName = dictionary[@"name"];
 
         NSString *avatarURI = dictionary[@"labeledURI"];
         if (![NSString isEmpty:avatarURI]) {

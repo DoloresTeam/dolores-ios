@@ -48,7 +48,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = self.user.realName;
+    self.navigationItem.title = self.user.nickName;
     [self setupView];
     // Do any additional setup after loading the view.
 }

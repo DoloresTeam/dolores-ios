@@ -74,8 +74,8 @@
 		5E8F05D3D739F21B64D049C1 /* DLChildOrganizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F04CB8247767A587AA4FE /* DLChildOrganizationController.m */; };
 		5E8F096F319DF3CAC08E21F0 /* DLRootContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */; };
 		5E8F0E88DCCFD16B4EC0FB8A /* DLMyGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0636A57E42EB984B9FDA /* DLMyGroupController.m */; };
-		7E520A3E1EFD434400D32668 /* EPEmptyDataProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */; };
 		7E520A411EFD63C500D32668 /* DLAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A401EFD63C500D32668 /* DLAboutController.m */; };
+		7E520A441EFD67CE00D32668 /* EPEmptyDataProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A431EFD67CE00D32668 /* EPEmptyDataProtocol.m */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 		EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7113D51EFA6E8700824698 /* NSDate+Addition.m */; };
 /* End PBXBuildFile section */
@@ -220,10 +220,10 @@
 		5E8F0CC9A7F0813CD0A0F7AC /* DLChildOrganizationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChildOrganizationController.h; sourceTree = "<group>"; };
 		5E8F0E24C42B819C0106BCC5 /* DLRootContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRootContactCell.m; sourceTree = "<group>"; };
 		69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dolores.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E520A3C1EFD434400D32668 /* EPEmptyDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPEmptyDataProtocol.h; sourceTree = "<group>"; };
-		7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPEmptyDataProtocol.m; sourceTree = "<group>"; };
 		7E520A3F1EFD63C500D32668 /* DLAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAboutController.h; sourceTree = "<group>"; };
 		7E520A401EFD63C500D32668 /* DLAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAboutController.m; sourceTree = "<group>"; };
+		7E520A421EFD67CE00D32668 /* EPEmptyDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPEmptyDataProtocol.h; sourceTree = "<group>"; };
+		7E520A431EFD67CE00D32668 /* EPEmptyDataProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPEmptyDataProtocol.m; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 		EB7113D41EFA6E8700824698 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		EB7113D51EFA6E8700824698 /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
@@ -584,8 +584,8 @@
 		0A87721F1EF775E000711690 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				7E520A3C1EFD434400D32668 /* EPEmptyDataProtocol.h */,
-				7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */,
+				7E520A421EFD67CE00D32668 /* EPEmptyDataProtocol.h */,
+				7E520A431EFD67CE00D32668 /* EPEmptyDataProtocol.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -764,7 +764,7 @@
 				0A8772581EF775E000711690 /* UIAlertView+DLAdd.m in Sources */,
 				0A87725E1EF775E000711690 /* UILabel+Addition.m in Sources */,
 				0A87725C1EF775E000711690 /* UIFont+Addition.m in Sources */,
-				7E520A3E1EFD434400D32668 /* EPEmptyDataProtocol.m in Sources */,
+				7E520A441EFD67CE00D32668 /* EPEmptyDataProtocol.m in Sources */,
 				0A8772501EF775E000711690 /* RMUser.m in Sources */,
 				0A87722E1EF775E000711690 /* DLChatController.m in Sources */,
 				0A8772331EF775E000711690 /* DLNetStatusView.m in Sources */,

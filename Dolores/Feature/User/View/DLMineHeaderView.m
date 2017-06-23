@@ -78,9 +78,9 @@
         return;
     }
     NSMutableString *name = [NSMutableString string];
-    [name appendString:user.realName];;
-    if ([user.nickName isNotBlank]) {
-        [name appendFormat:@"【%@】", user.nickName];
+    [name appendString:user.nickName];;
+    if ([user.realName isNotBlank]) {
+        [name appendFormat:@"【%@】", user.realName];
     }
     self.lblName.text = name;
 
