@@ -355,6 +355,7 @@
 		0A8771AF1EF775E000711690 /* Organization */ = {
 			isa = PBXGroup;
 			children = (
+				0A8771B81EF775E000711690 /* View */,
 				0A8771B01EF775E000711690 /* DLAddContactController.h */,
 				0A8771B11EF775E000711690 /* DLAddContactController.m */,
 				0A8771B21EF775E000711690 /* DLContactListController.h */,
@@ -363,7 +364,6 @@
 				0A8771B51EF775E000711690 /* DLOrganizationController.m */,
 				0A8771B61EF775E000711690 /* DLUserDetailController.h */,
 				0A8771B71EF775E000711690 /* DLUserDetailController.m */,
-				0A8771B81EF775E000711690 /* View */,
 				5E8F097695A33C5D2B9DA064 /* DLRootContactController.h */,
 				5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */,
 				5E8F0450AA1D9A4E5A807A6D /* DLMyGroupController.h */,

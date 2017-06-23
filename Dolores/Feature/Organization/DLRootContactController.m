@@ -112,8 +112,8 @@
         [self.navigationController pushViewController:myGroupController animated:YES];
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            self.isExpanded = YES;
-            [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationFade];
+            self.isExpanded = !self.isExpanded;
+            [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationAutomatic];
         } else {
             // TODO: go to chat.
         }
