@@ -104,6 +104,9 @@ NSString *const kTypeDepartment = @"department";
         RMStaff *staff = results[i];
         [list addObject:staff.uid];
     }
+    if (list.count <= 0) {
+        return;
+    }
     [[DLNetworkService getUserInfoWithIds:list] subscribeNext:^(id x) {
 
     } error:^(NSError *error) {
