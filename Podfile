@@ -11,5 +11,6 @@ target 'Dolores' do
     pod 'AFNetworking', '~> 3.0'
     pod 'RATreeView', '~> 2.1.2'
     pod 'Qiniu', '~> 7.1.5'
+    pod 'DZNEmptyDataSet'
 end
 

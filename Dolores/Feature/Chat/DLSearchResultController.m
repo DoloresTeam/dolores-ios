@@ -27,11 +27,10 @@
 
 }
 
-
 #pragma mark - UISearchControllerDelegate
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
-
+    searchController.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)didPresentSearchController:(UISearchController *)searchController {
@@ -39,7 +38,7 @@
 }
 
 - (void)willDismissSearchController:(UISearchController *)searchController {
-
+    searchController.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)didDismissSearchController:(UISearchController *)searchController {

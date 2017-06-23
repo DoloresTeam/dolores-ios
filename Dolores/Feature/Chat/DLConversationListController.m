@@ -32,8 +32,6 @@
     [self setupNavigationBar];
     [self setupData];
     [self setupView];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -247,6 +245,7 @@
     if (!_searchController) {
         DLSearchResultController *searchResultController = [DLSearchResultController new];
         _searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultController];
+        _searchController.hidesNavigationBarDuringPresentation = YES;
 
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
         UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
