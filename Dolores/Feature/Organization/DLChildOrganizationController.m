@@ -9,11 +9,14 @@
 #import "DLRootContactCell.h"
 #import "DLUserDetailController.h"
 #import "DLSearchResultController.h"
+#import "EPEmptyDataProtocol.h"
 
 @interface DLChildOrganizationController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISearchController *searchController;
+
+@property (nonatomic, strong) EPEmptyDataProtocol *emptyDataProtocol;
 
 #pragma mark - data
 @property (nonatomic, assign) BOOL isRoot;
@@ -48,6 +51,8 @@
     }
 
     [self setupView];
+
+    self.emptyDataProtocol.shouldDisplay = !self.isRoot && (self.department.staffs.count + self.department.childrenDepartments.count) <= 0;
 }
 
 - (void)setupData {
@@ -63,6 +68,9 @@
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.searchController.searchBar;
     [self.searchController.searchBar sizeToFit];
+
+    self.emptyDataProtocol = [[EPEmptyDataProtocol alloc] initWithReferScrollView:self.tableView emptyText:@"待规划部门"];
+
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
@@ -126,6 +134,12 @@
         if (self.department.staffs.count > 0) {
             if (indexPath.row < self.department.staffs.count) {
                 RMStaff *staff = self.department.staffs[indexPath.row];
+
+                RMUser *user = [DLDBQueryHelper currentUser];
+                if ([user.uid isEqualToString:staff.uid]) {
+                    return;
+                }
+
                 DLUserDetailController *userDetailController = [[DLUserDetailController alloc] initWithUid:staff.uid];
                 [self.navigationController pushViewController:userDetailController animated:YES];
             } else {

@@ -46,7 +46,7 @@
     if (self.emptyAttrString) {
         return self.emptyAttrString;
     }
-    NSAttributedString *attr = [[NSAttributedString alloc] initWithString:self.emptyText attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor lightTextColor]}];
+    NSAttributedString *attr = [[NSAttributedString alloc] initWithString:self.emptyText attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor blackColor]}];
     return attr;
 }
 
