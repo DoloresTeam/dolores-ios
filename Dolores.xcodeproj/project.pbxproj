@@ -75,6 +75,7 @@
 		5E8F096F319DF3CAC08E21F0 /* DLRootContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */; };
 		5E8F0E88DCCFD16B4EC0FB8A /* DLMyGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0636A57E42EB984B9FDA /* DLMyGroupController.m */; };
 		7E520A3E1EFD434400D32668 /* EPEmptyDataProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */; };
+		7E520A411EFD63C500D32668 /* DLAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A401EFD63C500D32668 /* DLAboutController.m */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 		EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7113D51EFA6E8700824698 /* NSDate+Addition.m */; };
 /* End PBXBuildFile section */
@@ -221,6 +222,8 @@
 		69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dolores.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E520A3C1EFD434400D32668 /* EPEmptyDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPEmptyDataProtocol.h; sourceTree = "<group>"; };
 		7E520A3D1EFD434400D32668 /* EPEmptyDataProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPEmptyDataProtocol.m; sourceTree = "<group>"; };
+		7E520A3F1EFD63C500D32668 /* DLAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAboutController.h; sourceTree = "<group>"; };
+		7E520A401EFD63C500D32668 /* DLAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAboutController.m; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 		EB7113D41EFA6E8700824698 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		EB7113D51EFA6E8700824698 /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
@@ -326,6 +329,7 @@
 		0A87719F1EF775E000711690 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				0A8771AA1EF775E000711690 /* View */,
 				0A8771A01EF775E000711690 /* DLAddMemberController.h */,
 				0A8771A11EF775E000711690 /* DLAddMemberController.m */,
 				0A8771A21EF775E000711690 /* DLChatController.h */,
@@ -336,7 +340,6 @@
 				0A8771A71EF775E000711690 /* DLConversationListController.m */,
 				0A8771A81EF775E000711690 /* DLSearchResultController.h */,
 				0A8771A91EF775E000711690 /* DLSearchResultController.m */,
-				0A8771AA1EF775E000711690 /* View */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -418,9 +421,11 @@
 		0A8771CD1EF775E000711690 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				0A8771D01EF775E000711690 /* View */,
 				0A8771CE1EF775E000711690 /* DLMineController.h */,
 				0A8771CF1EF775E000711690 /* DLMineController.m */,
-				0A8771D01EF775E000711690 /* View */,
+				7E520A3F1EFD63C500D32668 /* DLAboutController.h */,
+				7E520A401EFD63C500D32668 /* DLAboutController.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -797,6 +802,7 @@
 				0A87723A1EF775E000711690 /* DLOrgDepartmentCell.m in Sources */,
 				0A8772251EF775E000711690 /* DTConstants.m in Sources */,
 				0A87725A1EF775E000711690 /* UIButton+Addition.m in Sources */,
+				7E520A411EFD63C500D32668 /* DLAboutController.m in Sources */,
 				0A87724F1EF775E000711690 /* RMStaff.m in Sources */,
 				0A8772391EF775E000711690 /* DLContactSectionHeader.m in Sources */,
 				0A87723D1EF775E000711690 /* DLLoginController.m in Sources */,
