@@ -19,4 +19,7 @@
 + (RACSignal *)syncOrganization:(NSString *)version;
 + (RACSignal *)getUserInfoWithIds:(NSArray<NSString *> *)ids;
 
++ (RACSignal *)updateMyProfile:(NSDictionary *)param;
++ (RACSignal *)changePassword:(NSString *)newPassword origin:(NSString *)originPassword;
+
 @end

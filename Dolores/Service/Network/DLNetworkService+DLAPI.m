@@ -73,5 +73,13 @@
     }];
 }
 
++ (RACSignal *)updateMyProfile:(NSDictionary *)param {
+    return [SharedNetwork rac_POST:@"/api/v1/update_profile" parameters:param];
+}
+
++ (RACSignal *)changePassword:(NSString *)newPassword origin:(NSString *)originPassword {
+    return [SharedNetwork rac_POST:@"/api/v1/modify_password" parameters:@{@"newPassword": newPassword, @"originalPassword": originPassword}];
+}
+
 
 @end

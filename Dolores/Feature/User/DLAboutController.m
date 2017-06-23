@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"关于我们";
+
     UILabel *lblAbout = [UILabel labelWithAlignment:NSTextAlignmentLeft textColor:[UIColor dl_leadColor] font:[UIFont dl_largeFont] lines:0 text:@"Dolores试图成为一套完整的企业通信解决方案，一个完整的企业沟通工具。"];
     [self.view addSubview:lblAbout];
     [lblAbout mas_makeConstraints:^(MASConstraintMaker *make) {

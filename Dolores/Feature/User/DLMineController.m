@@ -16,6 +16,7 @@
 #import "UIAlertView+DLAdd.h"
 #import "DLNetworkService.h"
 #import "DLNetworkService+DLAPI.h"
+#import "DLAboutController.h"
 #import <QiniuSDK.h>
 
 @interface DLMineController () <UITableViewDataSource, UITableViewDelegate, MineHeaderDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -34,18 +35,16 @@
     [self setupNavigationBar];
     [self setupData];
     [self setupView];
-
-    [self fetchUserInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self fetchUserInfo];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
-
 
 - (void)setupView {
     [self.view addSubview:self.tableView];
@@ -61,20 +60,25 @@
 }
 
 - (void)setupData {
-    DLTableCellConfig *account = [[DLTableCellConfig alloc] initWithName:@"账号与安全" showMore:YES];
-    DLTableSectionConfig *section1 = [[DLTableSectionConfig alloc] initWithCells:@[account]];
+//    DLTableCellConfig *account = [[DLTableCellConfig alloc] initWithName:@"账号与安全" showMore:YES];
+//    DLTableSectionConfig *section1 = [[DLTableSectionConfig alloc] initWithCells:@[account]];
+//
+//    DLTableCellConfig *messageNotify = [[DLTableCellConfig alloc] initWithName:@"新消息通知" showMore:YES];
+//    DLTableCellConfig *privacy = [[DLTableCellConfig alloc] initWithName:@"隐私" showMore:YES];
+//    DLTableCellConfig *common = [[DLTableCellConfig alloc] initWithName:@"通用" showMore:YES];
+//    DLTableSectionConfig *section2 = [[DLTableSectionConfig alloc] initWithCells:@[messageNotify, privacy, common]];
 
-    DLTableCellConfig *messageNotify = [[DLTableCellConfig alloc] initWithName:@"新消息通知" showMore:YES];
-    DLTableCellConfig *privacy = [[DLTableCellConfig alloc] initWithName:@"隐私" showMore:YES];
-    DLTableCellConfig *common = [[DLTableCellConfig alloc] initWithName:@"通用" showMore:YES];
-    DLTableSectionConfig *section2 = [[DLTableSectionConfig alloc] initWithCells:@[messageNotify, privacy, common]];
+    DLTableCellConfig *editAvatar = [[DLTableCellConfig alloc] initWithName:@"修改头像" showMore:YES];
+    DLTableCellConfig *editName = [[DLTableCellConfig alloc] initWithName:@"修改昵称" showMore:YES];
+    DLTableCellConfig *editPassword = [[DLTableCellConfig alloc] initWithName:@"修改密码" showMore:YES];
+    DLTableSectionConfig *sectionConfig1 = [[DLTableSectionConfig alloc] initWithCells:@[editAvatar, editName, editPassword]];
 
     DLTableCellConfig *about = [[DLTableCellConfig alloc] initWithName:@"关于Dolores" showMore:YES];
     DLTableSectionConfig *section3 = [[DLTableSectionConfig alloc] initWithCells:@[about]];
 
     DLTableCellConfig *logout = [[DLTableCellConfig alloc] initWithName:@"退出登录" showMore:YES];
     DLTableSectionConfig *section4 = [[DLTableSectionConfig alloc] initWithCells:@[logout]];
-    self.dataArray = @[section1, section2, section3, section4];
+    self.dataArray = @[sectionConfig1, section3, section4];
 }
 
 #pragma mark - UITableViewDataSource
@@ -127,6 +131,17 @@
                 [self showInfo:aError.errorDescription];
             }
         }];
+    } else if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [self didTapUserAvatar];
+        } else if (indexPath.row == 1) {
+            [self editNickName];
+        } else if (indexPath.row == 2) {
+            [self editPassword];
+        }
+    } else if (indexPath.section == 1) {
+        DLAboutController *aboutController = [DLAboutController new];
+        [self.navigationController pushViewController:aboutController animated:YES];
     }
 }
 
@@ -276,9 +291,10 @@
         [uploadManager putData:data key:nil token:[NSUserDefaults getQiniuToken] complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
             if (resp) {
 
-                [[DLNetworkService updateUserAvatar:resp[@"hash"]] subscribeNext:^(id x) {
+                [[DLNetworkService updateMyProfile:@{@"labeldURI": resp[@"hash"]}] subscribeNext:^(id x) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [hud hide:YES];
+                        [self fetchUserInfo];
                     });
                 } error:^(NSError *error) {
                     [MBProgressHUD showError:[error message] toView:self.navigationController.view hideDelay:1.5];
@@ -308,6 +324,13 @@
     }];
 }
 
+- (void)editNickName {
+
+}
+
+- (void)editPassword {
+
+}
 
 #pragma mark - Getter
 
