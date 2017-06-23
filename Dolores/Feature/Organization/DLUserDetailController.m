@@ -29,6 +29,7 @@
 - (instancetype)initWithUid:(NSString *)uid {
     self = [super init];
     if (self) {
+        self.hidesBottomBarWhenPushed = YES;
         _uid = [uid copy];
         _user = [RMStaff objectForPrimaryKey:uid];
     }
@@ -38,6 +39,7 @@
 - (instancetype)initWithUser:(RMStaff *)user {
     self = [super init];
     if (self) {
+        self.hidesBottomBarWhenPushed = YES;
         _user = user;
     }
     return self;

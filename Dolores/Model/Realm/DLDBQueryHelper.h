@@ -38,6 +38,8 @@
  */
 + (NSArray<RMStaff *> *)frequentStaffs;
 
++ (RLMResults<RMStaff *> *)queryStaffWithKeyword:(NSString *)keyword;
+
 + (BOOL)isLogin;
 
 + (void)saveLoginUser:(NSDictionary *)dict;

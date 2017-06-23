@@ -45,6 +45,12 @@
     self.imgPlace.image = image;
 }
 
+- (void)updateHead:(NSString *)avatarURL title:(NSString *)title {
+    [self.imgPlace sd_setImageWithURL:[NSURL URLWithString:[avatarURL qiniuURLWithSize:CGSizeMake(40, 40)]]
+                     placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
+    self.lblTitle.text = title;
+}
+
 #pragma mark - Getter
 
 - (UIImageView *)imgPlace {

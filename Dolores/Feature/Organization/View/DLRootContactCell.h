@@ -13,4 +13,5 @@
 
 - (void)updateImage:(UIImage *)image title:(NSString *)title;
 
+- (void)updateHead:(NSString *)avatarURL title:(NSString *)title;
 @end

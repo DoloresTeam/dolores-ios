@@ -37,10 +37,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchConversationList];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        self.tableView.contentOffset = CGPointMake(0, self.searchController.searchBar.frame.size.height);
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        self.tableView.contentOffset = CGPointMake(0, self.searchController.searchBar.frame.size.height);
+//    });
 }
 
 #pragma mark - DLBaseControllerProtocol
@@ -243,27 +243,7 @@
 
 - (UISearchController *)searchController {
     if (!_searchController) {
-        DLSearchResultController *searchResultController = [DLSearchResultController new];
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultController];
-        _searchController.hidesNavigationBarDuringPresentation = YES;
-
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        [_searchController.view insertSubview:effectView atIndex:0];
-        [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsZero);
-        }];
-
-        _searchController.searchBar.placeholder = @"搜索";
-        _searchController.searchBar.barStyle = UIBarStyleDefault;
-        _searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
-
-        searchResultController.searchController = _searchController;
-        _searchController.delegate = searchResultController;
-        _searchController.searchResultsUpdater = searchResultController;
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.1")) {
-            _searchController.obscuresBackgroundDuringPresentation = YES;
-        }
+        _searchController = [DLSearchResultController searchControlerWithNavigationController:self.navigationController];
     }
     return _searchController;
 }

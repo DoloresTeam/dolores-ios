@@ -12,5 +12,7 @@
 @interface DLSearchResultController : UIViewController <UISearchResultsUpdating, UISearchControllerDelegate>
 
 @property (nonatomic, weak) UISearchController *searchController;
+@property (nonatomic, weak) UINavigationController *tmpNavigationController;
 
++ (UISearchController *)searchControlerWithNavigationController:(UINavigationController *)navigationController;
 @end

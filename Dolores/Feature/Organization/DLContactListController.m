@@ -11,7 +11,6 @@
 #import "DLContactCell.h"
 #import "DLContactSectionHeader.h"
 #import "DLChatController.h"
-#import "DLChatDataHelper.h"
 #import "DLUser.h"
 #import "DLOrganizationController.h"
 
@@ -146,14 +145,14 @@
 }
 
 - (void)sortContactList {
-    [self.dataArray removeAllObjects];
-    [self.sectionTitles removeAllObjects];
-
-    NSArray *sortArray = [DLChatDataHelper sortContactList:self.contactList];
-    [self.sectionTitles addObjectsFromArray:sortArray[0]];
-    [self.dataArray addObjectsFromArray:sortArray[1]];
-
-    [self.tableView reloadData];
+//    [self.dataArray removeAllObjects];
+//    [self.sectionTitles removeAllObjects];
+//
+//    NSArray *sortArray = [DLChatDataHelper sortContactList:self.contactList];
+//    [self.sectionTitles addObjectsFromArray:sortArray[0]];
+//    [self.dataArray addObjectsFromArray:sortArray[1]];
+//
+//    [self.tableView reloadData];
 }
 
 #pragma mark - touch action

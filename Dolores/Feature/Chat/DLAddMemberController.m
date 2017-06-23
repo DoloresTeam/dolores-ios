@@ -9,7 +9,6 @@
 #import "DLAddMemberController.h"
 #import "DLContactSectionHeader.h"
 #import "DLSelectContactCell.h"
-#import "DLChatDataHelper.h"
 #import "DLChatController.h"
 
 @interface DLAddMemberController () <UITableViewDataSource, UITableViewDelegate>
@@ -53,10 +52,10 @@
 }
 
 - (void)setupData {
-    NSArray *contacts = [[EMClient sharedClient].contactManager getContacts];
-    NSArray *sortArray = [DLChatDataHelper sortContactList:contacts selectContect:self.currentMembers];
-    self.sectionTitles = [NSMutableArray arrayWithArray:sortArray[0]];
-    self.dataArray = [NSMutableArray arrayWithArray:sortArray[1]];
+//    NSArray *contacts = [[EMClient sharedClient].contactManager getContacts];
+//    NSArray *sortArray = [DLChatDataHelper sortContactList:contacts selectContect:self.currentMembers];
+//    self.sectionTitles = [NSMutableArray arrayWithArray:sortArray[0]];
+//    self.dataArray = [NSMutableArray arrayWithArray:sortArray[1]];
 }
 
 - (void)setupNavigationBar {

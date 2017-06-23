@@ -88,6 +88,16 @@
     return list;
 }
 
++ (RLMResults<RMStaff *> *)queryStaffWithKeyword:(NSString *)keyword {
+
+    RMUser *currentUser = [self currentUser];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid != %@ AND (realName contains[cd] %@ OR nickName contains[cd] %@)", currentUser.uid, keyword, keyword];
+    RLMResults<RMStaff *> *results = [RMStaff objectsWithPredicate:predicate];
+    RLMSortDescriptor *sortDescriptor = [RLMSortDescriptor sortDescriptorWithKeyPath:@"realName" ascending:YES];
+    results = [results sortedResultsUsingDescriptors:@[sortDescriptor]];
+    return results;
+}
+
 + (BOOL)isLogin {
     return [self currentUser].isLogin.boolValue;
 }
