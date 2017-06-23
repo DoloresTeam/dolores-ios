@@ -26,6 +26,7 @@
 
 @property NSNumber<RLMInt> *priority;   // 优先级
 @property NSNumber<RLMBool> *isMysterious;  //是否可见
+@property NSNumber<RLMInt> *frequent;   //常用频率
 // 反转，隶属于部门列表
 @property (readonly) RLMLinkingObjects *belongs;
 

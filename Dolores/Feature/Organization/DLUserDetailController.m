@@ -9,6 +9,7 @@
 #import "DLUserDetailController.h"
 #import "DLMineHeaderView.h"
 #import "DLChatController.h"
+#import "UIColor+DLAdd.h"
 
 @interface DLUserDetailActionCell : UITableViewCell
 
@@ -169,7 +170,7 @@
         self.backgroundColor = [UIColor clearColor];
         
         UIButton *button = [UIButton buttonWithFont:[UIFont baseBoldFont:16] title:@"确定" textColor:[UIColor whiteColor]
-                             backgroundColor:[UIColor blueColor]];
+                             backgroundColor:[UIColor dl_primaryColor]];
         button.layer.masksToBounds = YES;
         button.layer.cornerRadius = 8;
         self.btnAction = button;

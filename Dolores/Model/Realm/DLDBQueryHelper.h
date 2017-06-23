@@ -32,6 +32,12 @@
 
 + (RLMResults<RMStaff *> *)allOtherStaffs;
 
+/**
+ * 获取常用联系人
+ * @return
+ */
++ (NSArray<RMStaff *> *)frequentStaffs;
+
 + (BOOL)isLogin;
 
 + (void)saveLoginUser:(NSDictionary *)dict;

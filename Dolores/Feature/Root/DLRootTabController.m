@@ -15,6 +15,7 @@
 #import "DLMineController.h"
 #import "DLLoginController.h"
 #import "DLOrganizationController.h"
+#import "DLRootContactController.h"
 
 @interface DLRootTabController () <UITabBarControllerDelegate>
 
@@ -37,9 +38,10 @@
             imageNamed:@"tab_conversation_click"]];
     navConversation.tabBarItem = barItem;
 
-    DLOrganizationController *orgController = [DLOrganizationController new];
+//    DLOrganizationController *orgController = [DLOrganizationController new];
+    DLRootContactController *rootContactController = [DLRootContactController new];
 //    DLContactListController *contactListController = [[DLContactListController alloc] init];
-    UINavigationController *navContact = [[UINavigationController alloc] initWithRootViewController:orgController];
+    UINavigationController *navContact = [[UINavigationController alloc] initWithRootViewController:rootContactController];
     UITabBarItem *barItem1 = [[UITabBarItem alloc] initWithTitle:@"联系人" image:[UIImage imageNamed:@"tab_contact"] selectedImage:[UIImage
             imageNamed:@"tab_contact_click"]];
     navContact.tabBarItem = barItem1;

@@ -25,7 +25,8 @@
 + (NSDictionary *)defaultPropertyValues
 {
     return @{@"priority": @(0),
-         @"isMysterious": @(NO)};
+         @"isMysterious": @(NO),
+             @"frequent": @(0)};
 }
 
 // Specify properties to ignore (Realm won't persist these)

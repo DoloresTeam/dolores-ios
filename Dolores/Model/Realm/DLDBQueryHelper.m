@@ -12,7 +12,7 @@
 
 + (void)configDefaultRealmDB:(NSString *)username {
     RLMRealmConfiguration *configuration = [RLMRealmConfiguration defaultConfiguration];
-    uint64_t version = 3;
+    uint64_t version = 4;
     configuration.schemaVersion = version;
     configuration.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         if (oldSchemaVersion < version) {
@@ -67,6 +67,25 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid != %@", currentUser.staff.uid];
     RLMResults<RMStaff *> *results = [RMStaff objectsWithPredicate:predicate];
     return results;
+}
+
++ (NSArray<RMStaff *> *)frequentStaffs {
+
+    RMUser *currentUser = [self currentUser];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid != %@ AND frequent > 0", currentUser.staff.uid];
+    RLMResults<RMStaff *> *staffs = [RMStaff objectsWithPredicate:predicate];
+
+    RLMSortDescriptor *sortDescriptor = [RLMSortDescriptor sortDescriptorWithKeyPath:@"frequent" ascending:NO];
+    staffs = [staffs sortedResultsUsingDescriptors:@[sortDescriptor]];
+    // we add the first ten staff.
+    NSMutableArray<RMStaff *> *list = [NSMutableArray arrayWithCapacity:10];
+    for (int i = 0; i < staffs.count; ++i) {
+        if (i >= 10) {
+            break;
+        }
+        [list addObject:staffs[i]];
+    }
+    return list;
 }
 
 + (BOOL)isLogin {

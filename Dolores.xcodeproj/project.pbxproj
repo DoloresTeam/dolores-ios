@@ -71,6 +71,10 @@
 		0A8772611EF775E000711690 /* UITextField+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721C1EF775E000711690 /* UITextField+Addition.m */; };
 		0A8772621EF775E000711690 /* UIView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721E1EF775E000711690 /* UIView+DLAdd.m */; };
 		0A8772631EF775E000711690 /* DLChatDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8772211EF775E000711690 /* DLChatDataHelper.m */; };
+		5E8F002FDD7BD251B2D8B4E9 /* DLRootContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0E24C42B819C0106BCC5 /* DLRootContactCell.m */; };
+		5E8F05D3D739F21B64D049C1 /* DLChildOrganizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F04CB8247767A587AA4FE /* DLChildOrganizationController.m */; };
+		5E8F096F319DF3CAC08E21F0 /* DLRootContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */; };
+		5E8F0E88DCCFD16B4EC0FB8A /* DLMyGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0636A57E42EB984B9FDA /* DLMyGroupController.m */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 		EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7113D51EFA6E8700824698 /* NSDate+Addition.m */; };
 /* End PBXBuildFile section */
@@ -208,6 +212,14 @@
 		0A8772211EF775E000711690 /* DLChatDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChatDataHelper.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Dolores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A89C54A2EF69ABB85570CA /* Pods-Dolores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.debug.xcconfig"; sourceTree = "<group>"; };
+		5E8F00FBFE9C793684903060 /* DLRootContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRootContactCell.h; sourceTree = "<group>"; };
+		5E8F0450AA1D9A4E5A807A6D /* DLMyGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyGroupController.h; sourceTree = "<group>"; };
+		5E8F04CB8247767A587AA4FE /* DLChildOrganizationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChildOrganizationController.m; sourceTree = "<group>"; };
+		5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRootContactController.m; sourceTree = "<group>"; };
+		5E8F0636A57E42EB984B9FDA /* DLMyGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyGroupController.m; sourceTree = "<group>"; };
+		5E8F097695A33C5D2B9DA064 /* DLRootContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRootContactController.h; sourceTree = "<group>"; };
+		5E8F0CC9A7F0813CD0A0F7AC /* DLChildOrganizationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChildOrganizationController.h; sourceTree = "<group>"; };
+		5E8F0E24C42B819C0106BCC5 /* DLRootContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRootContactCell.m; sourceTree = "<group>"; };
 		69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dolores.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 		EB7113D41EFA6E8700824698 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
@@ -303,7 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				0A87719F1EF775E000711690 /* Chat */,
-				0A8771AF1EF775E000711690 /* Friends */,
+				0A8771AF1EF775E000711690 /* Organization */,
 				0A8771C31EF775E000711690 /* Login */,
 				0A8771C81EF775E000711690 /* Root */,
 				0A8771CD1EF775E000711690 /* User */,
@@ -340,7 +352,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0A8771AF1EF775E000711690 /* Friends */ = {
+		0A8771AF1EF775E000711690 /* Organization */ = {
 			isa = PBXGroup;
 			children = (
 				0A8771B01EF775E000711690 /* DLAddContactController.h */,
@@ -352,8 +364,14 @@
 				0A8771B61EF775E000711690 /* DLUserDetailController.h */,
 				0A8771B71EF775E000711690 /* DLUserDetailController.m */,
 				0A8771B81EF775E000711690 /* View */,
+				5E8F097695A33C5D2B9DA064 /* DLRootContactController.h */,
+				5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */,
+				5E8F0450AA1D9A4E5A807A6D /* DLMyGroupController.h */,
+				5E8F0636A57E42EB984B9FDA /* DLMyGroupController.m */,
+				5E8F0CC9A7F0813CD0A0F7AC /* DLChildOrganizationController.h */,
+				5E8F04CB8247767A587AA4FE /* DLChildOrganizationController.m */,
 			);
-			path = Friends;
+			path = Organization;
 			sourceTree = "<group>";
 		};
 		0A8771B81EF775E000711690 /* View */ = {
@@ -369,6 +387,8 @@
 				0A8771C01EF775E000711690 /* DLOrgUserCell.m */,
 				0A8771C11EF775E000711690 /* DLSelectContactCell.h */,
 				0A8771C21EF775E000711690 /* DLSelectContactCell.m */,
+				5E8F0E24C42B819C0106BCC5 /* DLRootContactCell.m */,
+				5E8F00FBFE9C793684903060 /* DLRootContactCell.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -715,7 +735,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -787,6 +807,10 @@
 				0A8772471EF775E000711690 /* main.m in Sources */,
 				0A8772621EF775E000711690 /* UIView+DLAdd.m in Sources */,
 				0A8772371EF775E000711690 /* DLUserDetailController.m in Sources */,
+				5E8F096F319DF3CAC08E21F0 /* DLRootContactController.m in Sources */,
+				5E8F002FDD7BD251B2D8B4E9 /* DLRootContactCell.m in Sources */,
+				5E8F0E88DCCFD16B4EC0FB8A /* DLMyGroupController.m in Sources */,
+				5E8F05D3D739F21B64D049C1 /* DLChildOrganizationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
