@@ -17,6 +17,8 @@
 #import "DLNetworkService.h"
 #import "DLNetworkService+DLAPI.h"
 #import "DLAboutController.h"
+#import "DLEditNicknameController.h"
+#import "DLChangePasswordController.h"
 #import <QiniuSDK.h>
 
 @interface DLMineController () <UITableViewDataSource, UITableViewDelegate, MineHeaderDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -325,11 +327,15 @@
 }
 
 - (void)editNickName {
-
+    DLEditNicknameController *editNicknameController = [[DLEditNicknameController alloc] init];
+    editNicknameController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:editNicknameController animated:YES];
 }
 
 - (void)editPassword {
-
+    DLChangePasswordController *changePasswordController = [DLChangePasswordController new];
+    changePasswordController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:changePasswordController animated:YES];
 }
 
 #pragma mark - Getter

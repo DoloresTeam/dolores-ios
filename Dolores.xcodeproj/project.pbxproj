@@ -76,6 +76,8 @@
 		5E8F0E88DCCFD16B4EC0FB8A /* DLMyGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0636A57E42EB984B9FDA /* DLMyGroupController.m */; };
 		7E520A411EFD63C500D32668 /* DLAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A401EFD63C500D32668 /* DLAboutController.m */; };
 		7E520A441EFD67CE00D32668 /* EPEmptyDataProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A431EFD67CE00D32668 /* EPEmptyDataProtocol.m */; };
+		7E520A471EFDF83400D32668 /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A461EFDF83400D32668 /* DLChangePasswordController.m */; };
+		7E520A4A1EFDF84600D32668 /* DLEditNicknameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E520A491EFDF84600D32668 /* DLEditNicknameController.m */; };
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 		EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7113D51EFA6E8700824698 /* NSDate+Addition.m */; };
 /* End PBXBuildFile section */
@@ -224,6 +226,10 @@
 		7E520A401EFD63C500D32668 /* DLAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAboutController.m; sourceTree = "<group>"; };
 		7E520A421EFD67CE00D32668 /* EPEmptyDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPEmptyDataProtocol.h; sourceTree = "<group>"; };
 		7E520A431EFD67CE00D32668 /* EPEmptyDataProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPEmptyDataProtocol.m; sourceTree = "<group>"; };
+		7E520A451EFDF83400D32668 /* DLChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePasswordController.h; sourceTree = "<group>"; };
+		7E520A461EFDF83400D32668 /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
+		7E520A481EFDF84600D32668 /* DLEditNicknameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLEditNicknameController.h; sourceTree = "<group>"; };
+		7E520A491EFDF84600D32668 /* DLEditNicknameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLEditNicknameController.m; sourceTree = "<group>"; };
 		E85F2F4B3F629AC920777B97 /* Pods-Dolores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.release.xcconfig"; sourceTree = "<group>"; };
 		EB7113D41EFA6E8700824698 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		EB7113D51EFA6E8700824698 /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
@@ -426,6 +432,10 @@
 				0A8771CF1EF775E000711690 /* DLMineController.m */,
 				7E520A3F1EFD63C500D32668 /* DLAboutController.h */,
 				7E520A401EFD63C500D32668 /* DLAboutController.m */,
+				7E520A451EFDF83400D32668 /* DLChangePasswordController.h */,
+				7E520A461EFDF83400D32668 /* DLChangePasswordController.m */,
+				7E520A481EFDF84600D32668 /* DLEditNicknameController.h */,
+				7E520A491EFDF84600D32668 /* DLEditNicknameController.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -740,7 +750,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -762,6 +772,7 @@
 				0A87723B1EF775E000711690 /* DLOrgUserCell.m in Sources */,
 				0A8772441EF775E000711690 /* DLMineSettingCell.m in Sources */,
 				0A8772581EF775E000711690 /* UIAlertView+DLAdd.m in Sources */,
+				7E520A471EFDF83400D32668 /* DLChangePasswordController.m in Sources */,
 				0A87725E1EF775E000711690 /* UILabel+Addition.m in Sources */,
 				0A87725C1EF775E000711690 /* UIFont+Addition.m in Sources */,
 				7E520A441EFD67CE00D32668 /* EPEmptyDataProtocol.m in Sources */,
@@ -801,6 +812,7 @@
 				0A87724C1EF775E000711690 /* DLUser.m in Sources */,
 				0A87723A1EF775E000711690 /* DLOrgDepartmentCell.m in Sources */,
 				0A8772251EF775E000711690 /* DTConstants.m in Sources */,
+				7E520A4A1EFDF84600D32668 /* DLEditNicknameController.m in Sources */,
 				0A87725A1EF775E000711690 /* UIButton+Addition.m in Sources */,
 				7E520A411EFD63C500D32668 /* DLAboutController.m in Sources */,
 				0A87724F1EF775E000711690 /* RMStaff.m in Sources */,
