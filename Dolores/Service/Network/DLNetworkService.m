@@ -92,7 +92,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
 
         NSURLSessionDataTask *task = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
             if (error) {
-                [self handleFailure:error responseObject:responseObject subscriber:subscriber];
+                [self handleFailure:error responseObject:responseObject response:response subscriber:subscriber];
             } else {
                 [self handleSuccessResponse:responseObject subscriber:subscriber];
             }
@@ -112,7 +112,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
         NSURLSessionDataTask *task = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
 
             if (error) {
-                [self handleFailure:error responseObject:responseObject subscriber:subscriber];
+                [self handleFailure:error responseObject:responseObject response:response subscriber:subscriber];
             } else {
                 [self handleSuccessResponse:responseObject subscriber:subscriber];
             }
@@ -127,18 +127,24 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
 
 #pragma mark - response handle
 
-- (void)handleFailure:(NSError *)error responseObject:(id)responseObject subscriber:(id <RACSubscriber>)subscriber {
+- (void)handleFailure:(NSError *)error responseObject:(id)responseObject response:(NSURLResponse *)urlResponse subscriber:(id <RACSubscriber>)subscriber {
     NSMutableDictionary *userInfo = [error.userInfo mutableCopy];
+
+    NSInteger code = 0;
+    if ([urlResponse isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSHTTPURLResponse *httpurlResponse = (NSHTTPURLResponse *) urlResponse;
+        code = httpurlResponse.statusCode;
+    }
+
     NSError *errorRes;
     if (responseObject) {
         userInfo[kRACAFNResponseObjectErrorKey] = responseObject;
-        NSInteger code = [responseObject[@"code"] integerValue];
         
         if (code == 401) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(NO)];
         }
         
-        NSString *message = responseObject[@"errMsg"];
+        NSString *message = responseObject[@"message"];
         userInfo[@"errMsg"] = message;
         errorRes = [NSError errorWithDomain:error.domain code:code userInfo:userInfo];
     } else {
