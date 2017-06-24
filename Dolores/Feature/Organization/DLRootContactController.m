@@ -73,7 +73,7 @@
         } else {
             RMStaff *staff = self.frequentStaffs[indexPath.row - 1];
             [rootContactCell.imgPlace sd_setImageWithURL:[NSURL URLWithString:[staff qiniuURLWithSize:CGSizeMake(40, 40)]] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
-            rootContactCell.lblTitle.text = staff.nickName;
+            rootContactCell.lblTitle.text = staff.realName;
 
         }
     }

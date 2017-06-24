@@ -69,7 +69,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DLRootContactCell *rootContactCell = [tableView dequeueReusableCellWithIdentifier:[DLRootContactCell identifier]];
     RMStaff *staff = self.results[indexPath.row];
-    [rootContactCell updateHead:staff.avatarURL title:staff.nickName];
+    [rootContactCell updateHead:staff.avatarURL title:staff.realName];
     return rootContactCell;
 }
 

@@ -93,7 +93,7 @@
 
             }];
         } else {
-            conversationModel.title = staff.nickName;
+            conversationModel.title = staff.realName;
             conversationModel.avatarURLPath = [staff qiniuURLWithSize:CGSizeMake(88, 88)];
         }
 

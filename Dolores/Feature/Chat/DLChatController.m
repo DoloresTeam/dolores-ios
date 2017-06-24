@@ -52,7 +52,7 @@
 - (void)setupNav {
     if (self.conversation.type == EMConversationTypeChat) {
         
-        self.navigationItem.title = [RMStaff objectForPrimaryKey:self.userid].nickName;
+        self.navigationItem.title = [RMStaff objectForPrimaryKey:self.userid].realName;
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat_oto_setting_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDetail)];
         self.navigationItem.rightBarButtonItem = item;
     } else if (self.conversation.type == EMConversationTypeGroupChat) {
@@ -102,7 +102,7 @@
     
     if (messageModel.isSender) {
         RMUser *user = [DLDBQueryHelper currentUser];
-        messageModel.nickname = user.staff.nickName;
+        messageModel.nickname = user.staff.realName;
         if (user.staff.avatarURL.length > 0) {
             messageModel.avatarURLPath = [user.staff qiniuURLWithSize:CGSizeMake(88, 88)];
         } else {
@@ -110,7 +110,7 @@
         }
     } else {
         RMStaff *chatUser = [RMStaff objectForPrimaryKey:self.userid];
-        messageModel.nickname = chatUser.nickName;
+        messageModel.nickname = chatUser.realName;
         if (chatUser.avatarURL.length > 0) {
             messageModel.avatarURLPath = [chatUser qiniuURLWithSize:CGSizeMake(88, 88)];
         } else {
