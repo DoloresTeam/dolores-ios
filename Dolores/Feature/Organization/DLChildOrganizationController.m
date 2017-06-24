@@ -95,12 +95,16 @@
         if (self.department.staffs.count > 0) {
             if (indexPath.row < self.department.staffs.count) {
                 RMStaff *staff = self.department.staffs[indexPath.row];
-                [rootContactCell.imgPlace sd_setImageWithURL:[NSURL URLWithString:[staff qiniuURLWithSize:CGSizeMake(40, 40)]] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
-                rootContactCell.lblTitle.text = staff.realName;
+
+                DLContactUserCell *userCell = [tableView dequeueReusableCellWithIdentifier:[DLContactUserCell identifier]];
+                [userCell updateHead:staff.avatarURL title:staff.realName];
+
+                return userCell;
             } else {
                 RMDepartment *department1 = self.department.childrenDepartments[indexPath.row - self.department.staffs.count];
                 [rootContactCell updateImage:[UIImage imageNamed:@"cmail_list_folder"] title:department1.departmentName];
             }
+
         } else {
             RMDepartment *department1 = self.department.childrenDepartments[indexPath.row];
             [rootContactCell updateImage:[UIImage imageNamed:@"cmail_list_folder"] title:department1.departmentName];
@@ -166,6 +170,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
 
         [DLRootContactCell registerIn:_tableView];
+        [DLContactUserCell registerIn:_tableView];
 
         _tableView.delegate = self;
         _tableView.dataSource = self;

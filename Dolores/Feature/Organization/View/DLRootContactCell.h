@@ -15,3 +15,7 @@
 
 - (void)updateHead:(NSString *)avatarURL title:(NSString *)title;
 @end
+
+@interface DLContactUserCell : DLRootContactCell
+
+@end

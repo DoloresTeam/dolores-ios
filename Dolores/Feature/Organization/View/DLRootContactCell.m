@@ -70,3 +70,17 @@
 
 
 @end
+
+@implementation DLContactUserCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.imgPlace.layer.masksToBounds = YES;
+        self.imgPlace.layer.cornerRadius = 20;
+    }
+    return self;
+}
+
+
+@end

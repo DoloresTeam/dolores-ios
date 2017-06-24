@@ -116,7 +116,7 @@
             DLChatController *chatController = [[DLChatController alloc] initWithConversationChatter:self.user.uid conversationType:EMConversationTypeChat];
             chatController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:chatController animated:YES];
-            
+
             self.navigationController.viewControllers = @[self.navigationController.viewControllers.firstObject, chatController];
         }
             break;

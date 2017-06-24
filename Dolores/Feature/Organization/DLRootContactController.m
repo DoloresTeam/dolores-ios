@@ -11,6 +11,7 @@
 #import "DLChildOrganizationController.h"
 #import "DLMyGroupController.h"
 #import "DLSearchResultController.h"
+#import "DLUserDetailController.h"
 
 @interface DLRootContactController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -71,10 +72,10 @@
         if (indexPath.row == 0) {
             [rootContactCell updateImage:[UIImage imageNamed:@"contact_usualcontact_icon_normal"] title:@"常用联系人"];
         } else {
+            DLContactUserCell *userCell = [tableView dequeueReusableCellWithIdentifier:[DLContactUserCell identifier]];
             RMStaff *staff = self.frequentStaffs[indexPath.row - 1];
-            [rootContactCell.imgPlace sd_setImageWithURL:[NSURL URLWithString:[staff qiniuURLWithSize:CGSizeMake(40, 40)]] placeholderImage:[UIImage imageNamed:@"contact_icon_avatar_placeholder_round"]];
-            rootContactCell.lblTitle.text = staff.realName;
-
+            [userCell updateHead:staff.avatarURL title:staff.realName];
+            return userCell;
         }
     }
     return rootContactCell;
@@ -111,7 +112,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        // TODO: 企业通讯录
+
         DLChildOrganizationController *childOrganizationController = [[DLChildOrganizationController alloc] initWithDepartmentId:nil];
         [self.navigationController pushViewController:childOrganizationController animated:YES];
     } else if (indexPath.section == 1) {
@@ -123,7 +124,9 @@
             self.isExpanded = !self.isExpanded;
             [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationAutomatic];
         } else {
-            // TODO: go to chat.
+            RMStaff *staff = self.frequentStaffs[indexPath.row - 1];
+            DLUserDetailController *userDetailController = [[DLUserDetailController alloc] initWithUid:staff.uid];
+            [self.navigationController pushViewController:userDetailController animated:YES];
         }
     }
 }
@@ -135,6 +138,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
 
         [DLRootContactCell registerIn:_tableView];
+        [DLContactUserCell registerIn:_tableView];
         [UITableViewHeaderFooterView registerIn:_tableView];
 
         _tableView.delegate = self;
