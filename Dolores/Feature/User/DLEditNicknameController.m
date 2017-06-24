@@ -75,7 +75,7 @@
 
 - (void)onClickSubmit {
     [self showLoadingView];
-    [[DLNetworkService updateMyProfile:@{}] subscribeNext:^(id x) {
+    [[DLNetworkService updateMyProfile:@{@"cn": self.fldName.text}] subscribeNext:^(id x) {
         [self showInfo:@"Done"];
         [[RACScheduler mainThreadScheduler] afterDelay:1 schedule:^{
             [self.navigationController popToRootViewControllerAnimated:YES];

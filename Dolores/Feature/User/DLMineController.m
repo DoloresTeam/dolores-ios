@@ -293,7 +293,7 @@
         [uploadManager putData:data key:nil token:[NSUserDefaults getQiniuToken] complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
             if (resp) {
 
-                [[DLNetworkService updateMyProfile:@{@"labeldURI": resp[@"hash"]}] subscribeNext:^(id x) {
+                [[DLNetworkService updateMyProfile:@{@"labeledURI": resp[@"hash"]}] subscribeNext:^(id x) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [hud hide:YES];
                         [self fetchUserInfo];
