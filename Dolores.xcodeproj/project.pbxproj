@@ -70,6 +70,8 @@
 		0A8772601EF775E000711690 /* UITableViewCell+Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721A1EF775E000711690 /* UITableViewCell+Register.m */; };
 		0A8772611EF775E000711690 /* UITextField+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721C1EF775E000711690 /* UITextField+Addition.m */; };
 		0A8772621EF775E000711690 /* UIView+DLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A87721E1EF775E000711690 /* UIView+DLAdd.m */; };
+		0A90D85F1F023C28001E82E2 /* DoloresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90D85E1F023C28001E82E2 /* DoloresUITests.swift */; };
+		0A90D8671F023C41001E82E2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90D8661F023C41001E82E2 /* SnapshotHelper.swift */; };
 		5E8F002FDD7BD251B2D8B4E9 /* DLRootContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0E24C42B819C0106BCC5 /* DLRootContactCell.m */; };
 		5E8F05D3D739F21B64D049C1 /* DLChildOrganizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F04CB8247767A587AA4FE /* DLChildOrganizationController.m */; };
 		5E8F096F319DF3CAC08E21F0 /* DLRootContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F05A61EB341C02CCE2815 /* DLRootContactController.m */; };
@@ -81,6 +83,16 @@
 		8BD7572398B278E4A2718D6F /* libPods-Dolores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CCC4BF606C5A555171D6CB /* libPods-Dolores.a */; };
 		EB7113D61EFA6E8700824698 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7113D51EFA6E8700824698 /* NSDate+Addition.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A90D8611F023C28001E82E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = Dolores;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A8771871EF775E000711690 /* BFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFNetworkActivityLogger.h; sourceTree = "<group>"; };
@@ -211,6 +223,10 @@
 		0A87721C1EF775E000711690 /* UITextField+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Addition.m"; sourceTree = "<group>"; };
 		0A87721D1EF775E000711690 /* UIView+DLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DLAdd.h"; sourceTree = "<group>"; };
 		0A87721E1EF775E000711690 /* UIView+DLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DLAdd.m"; sourceTree = "<group>"; };
+		0A90D85C1F023C27001E82E2 /* DoloresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoloresUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A90D85E1F023C28001E82E2 /* DoloresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoloresUITests.swift; sourceTree = "<group>"; };
+		0A90D8601F023C28001E82E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A90D8661F023C41001E82E2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		13B07F961A680F5B00A75B9A /* Dolores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A89C54A2EF69ABB85570CA /* Pods-Dolores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dolores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dolores/Pods-Dolores.debug.xcconfig"; sourceTree = "<group>"; };
 		5E8F00FBFE9C793684903060 /* DLRootContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRootContactCell.h; sourceTree = "<group>"; };
@@ -236,6 +252,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A90D8591F023C27001E82E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -600,6 +623,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		0A90D85D1F023C28001E82E2 /* DoloresUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0A90D8661F023C41001E82E2 /* SnapshotHelper.swift */,
+				0A90D85E1F023C28001E82E2 /* DoloresUITests.swift */,
+				0A90D8601F023C28001E82E2 /* Info.plist */,
+			);
+			path = DoloresUITests;
+			sourceTree = "<group>";
+		};
 		1A8AA922985DC4BB19A187AB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +654,7 @@
 			isa = PBXGroup;
 			children = (
 				0A8771841EF775E000711690 /* Dolores */,
+				0A90D85D1F023C28001E82E2 /* DoloresUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				1A8AA922985DC4BB19A187AB /* Pods */,
 				1E6A5FB1528C4DD0DDEF1733 /* Frameworks */,
@@ -634,6 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Dolores.app */,
+				0A90D85C1F023C27001E82E2 /* DoloresUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -641,6 +676,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A90D85B1F023C27001E82E2 /* DoloresUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A90D8651F023C28001E82E2 /* Build configuration list for PBXNativeTarget "DoloresUITests" */;
+			buildPhases = (
+				0A90D8581F023C27001E82E2 /* Sources */,
+				0A90D8591F023C27001E82E2 /* Frameworks */,
+				0A90D85A1F023C27001E82E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A90D8621F023C28001E82E2 /* PBXTargetDependency */,
+			);
+			name = DoloresUITests;
+			productName = DoloresUITests;
+			productReference = 0A90D85C1F023C27001E82E2 /* DoloresUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		13B07F861A680F5B00A75B9A /* Dolores */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dolores" */;
@@ -668,9 +721,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DL;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Dolores;
 				TargetAttributes = {
+					0A90D85B1F023C27001E82E2 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = PU764FA74Y;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = PU764FA74Y;
 					};
@@ -690,11 +750,19 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Dolores */,
+				0A90D85B1F023C27001E82E2 /* DoloresUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A90D85A1F023C27001E82E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -756,6 +824,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A90D8581F023C27001E82E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A90D85F1F023C28001E82E2 /* DoloresUITests.swift in Sources */,
+				0A90D8671F023C41001E82E2 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -834,7 +911,55 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0A90D8621F023C28001E82E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* Dolores */;
+			targetProxy = 0A90D8611F023C28001E82E2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		0A90D8631F023C28001E82E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = PU764FA74Y;
+				INFOPLIST_FILE = DoloresUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sotre.dolores.DoloresUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Dolores;
+			};
+			name = Debug;
+		};
+		0A90D8641F023C28001E82E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PU764FA74Y;
+				INFOPLIST_FILE = DoloresUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sotre.dolores.DoloresUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Dolores;
+			};
+			name = Release;
+		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19A89C54A2EF69ABB85570CA /* Pods-Dolores.debug.xcconfig */;
@@ -974,6 +1099,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A90D8651F023C28001E82E2 /* Build configuration list for PBXNativeTarget "DoloresUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A90D8631F023C28001E82E2 /* Debug */,
+				0A90D8641F023C28001E82E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dolores" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
