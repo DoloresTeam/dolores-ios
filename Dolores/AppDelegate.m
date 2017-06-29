@@ -190,6 +190,12 @@
         [self.window makeKeyAndVisible];
     } else {
         [SharedNetwork.sessionManager.requestSerializer clearAuthorizationHeader];
+        
+        // if root is still login controll, do nothing.
+        UINavigationController *originNav = (UINavigationController *)self.window.rootViewController;
+        if ([originNav.viewControllers.firstObject isKindOfClass:[DLLoginController class]]) {
+            return;
+        }
 
         DLLoginController *loginController = [DLLoginController new];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginController];
