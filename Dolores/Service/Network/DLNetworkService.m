@@ -92,7 +92,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
 
         NSURLSessionDataTask *task = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
             if (error) {
-                [self handleFailure:error responseObject:responseObject response:response subscriber:subscriber];
+                [self handleFailure:error requestPath:path responseObject:responseObject response:response subscriber:subscriber];
             } else {
                 [self handleSuccessResponse:responseObject subscriber:subscriber];
             }
@@ -112,7 +112,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
         NSURLSessionDataTask *task = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
 
             if (error) {
-                [self handleFailure:error responseObject:responseObject response:response subscriber:subscriber];
+                [self handleFailure:error requestPath:path responseObject:responseObject response:response subscriber:subscriber];
             } else {
                 [self handleSuccessResponse:responseObject subscriber:subscriber];
             }
@@ -127,7 +127,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
 
 #pragma mark - response handle
 
-- (void)handleFailure:(NSError *)error responseObject:(id)responseObject response:(NSURLResponse *)urlResponse subscriber:(id <RACSubscriber>)subscriber {
+- (void)handleFailure:(NSError *)error requestPath:(NSString *)endpoint responseObject:(id)responseObject response:(NSURLResponse *)urlResponse subscriber:(id <RACSubscriber>)subscriber {
     NSMutableDictionary *userInfo = [error.userInfo mutableCopy];
 
     NSInteger code = 0;
@@ -140,7 +140,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
     if (responseObject) {
         userInfo[kRACAFNResponseObjectErrorKey] = responseObject;
         
-        if (code == 401) {
+        if (code == 401 && ![endpoint hasSuffix:@"/login"]) { // 忽略登录过程中的401错误
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(NO)];
         }
         
@@ -149,7 +149,7 @@ static NSTimeInterval const kHttpRequestTimeoutInterval = 10;
         errorRes = [NSError errorWithDomain:error.domain code:code userInfo:userInfo];
     } else {
         
-        if (error.code == 401) {
+        if (error.code == 401 && ![endpoint hasSuffix:@"/login"]) { // 忽略登录过程中的401错误
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginStatusNotification object:@(NO)];
         }
         
