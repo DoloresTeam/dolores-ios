@@ -1,5 +1,7 @@
 # Dolores iOS客户端
 
+[注册账号](https://github.com/DoloresTeam/dolores-ios/issues/4)
+
 ## IM消息服务
 
 实时消息这一块有很多开源的解决方案比如[XMPP](https://xmpp.org)，但是企业通信对IM这块的可靠性要求很高，所以目前我们打算使用比较成熟的云服务，后期如果时间比较充裕，考虑开发自己的IM服务器。在对比了市场上数十家IM云服务厂商以后，我们决定选择[环信](http://www.easemob.com)来为Dolores提供消息服务。
