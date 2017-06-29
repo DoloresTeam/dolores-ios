@@ -182,13 +182,22 @@
 }
 
 - (void)loginStatusChanged:(NSNotification *)notification {
-    BOOL loginStatus = [notification.object boolValue];
-    if (loginStatus) {
+    BOOL didLogin = [notification.object boolValue];
+
+    if (didLogin && ![self.window.rootViewController isKindOfClass:[DLRootTabController class]] ) {
 
         DLRootTabController *rootTabController = [DLRootTabController new];
         self.window.rootViewController = rootTabController;
         [self.window makeKeyAndVisible];
-    } else {
+    } else if (!didLogin) {
+
+        if ([self.window.rootViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navc = (UINavigationController *)self.window.rootViewController;
+            if ([navc.topViewController isKindOfClass:[DLLoginController class]]) {
+                return;
+            }
+        }
+
         [SharedNetwork.sessionManager.requestSerializer clearAuthorizationHeader];
         
         // if root is still login controll, do nothing.
