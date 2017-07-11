@@ -105,17 +105,15 @@
         messageModel.nickname = user.staff.realName;
         if (user.staff.avatarURL.length > 0) {
             messageModel.avatarURLPath = [user.staff qiniuURLWithSize:CGSizeMake(88, 88)];
-        } else {
-            messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
         }
+        messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
     } else {
         RMStaff *chatUser = [RMStaff objectForPrimaryKey:self.userid];
         messageModel.nickname = chatUser.realName;
         if (chatUser.avatarURL.length > 0) {
             messageModel.avatarURLPath = [chatUser qiniuURLWithSize:CGSizeMake(88, 88)];
-        } else {
-            messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
         }
+        messageModel.avatarImage = [UIImage imageNamed:@"contact_icon_avatar_placeholder_round"];
     }
     
     return messageModel;
