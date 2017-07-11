@@ -1,3 +1,5 @@
+**注意：由于被人恶意盗刷七牛云存储流量，所以我们决定暂时停用七牛。因此客户端的头像服务会受到影响。**
+
 # Dolores iOS客户端
 
 [注册账号](https://github.com/DoloresTeam/dolores-ios/issues/4)
